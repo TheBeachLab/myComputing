@@ -10,6 +10,12 @@ I started using Linux distributions in the mid 90's. In the age of Windows 95 -s
 
 I used XFCE for a long time with compiz. It is very lightweight and it has many cool effects. But maybe biased from my 8-bit age, I use mostly command line tools. For that reason I swapped my window manager to i3wm.
 
+The program launcher is [rofi](https://github.com/DaveDavenport/rofi)
+
+The bar I use in i3 is [polybar](https://github.com/jaagr/polybar)
+
+For lock screen I have a script that pixelates the current screen.
+
 ## Cool programs
 
 * Betty, the CLI Siri
