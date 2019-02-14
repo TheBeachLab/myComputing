@@ -20,3 +20,21 @@ For lock screen I have a script that pixelates the current screen.
 
 * Betty, the CLI Siri
 * The Fuck
+* ncdu
+* htop
+* gtop
+* powertop
+* whereami
+* iponmap
+* wego
+* instantmusic - youtube-dl mod
+* neomutt
+* mapscii
+* midnight commander
+* asciinema
+* cmatrix
+* cowsay
+* ponysay
+* lolcat
+* irssi
+* 
