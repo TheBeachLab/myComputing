@@ -37,4 +37,4 @@ For lock screen I have a script that pixelates the current screen.
 * ponysay
 * lolcat
 * irssi
-* 
+* scrot
