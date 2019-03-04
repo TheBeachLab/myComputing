@@ -40,3 +40,4 @@ For lock screen I have a script that pixelates the current screen.
 * lolcat
 * irssi
 * scrot
+* testdisk. Undelete files
