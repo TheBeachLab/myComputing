@@ -1,13 +1,14 @@
 # Linux troublehooting
 
-* [Canon Lide 120](#canon-lide-120)
-* [Arduino error](#arduino-error)
-* [Pacman troubleshooting](#pacman-troubleshooting)
-* [Space Navigator](#space-navigator)
-* [CUPS](#cups)
-* [Fab Modules compiled to Python2](#fab-modules-compiled-to-python2)
-* [Roland does not appear in CUPS](#roland-does-not-appear-in-cups)
-* [Send to Roland Vinyl](#send-to-roland-vinyl)
+- [Canon Lide 120](#canon-lide-120)
+- [Arduino error](#arduino-error)
+- [Pacman troubleshooting](#pacman-troubleshooting)
+- [Space Navigator](#space-navigator)
+- [CUPS](#cups)
+- [Fab Modules compiled to Python2](#fab-modules-compiled-to-python2)
+- [Roland does not appear in CUPS](#roland-does-not-appear-in-cups)
+- [Send to Roland Vinyl](#send-to-roland-vinyl)
+- [VNC server](#vnc-server)
 
 ## Canon Lide 120
 
@@ -125,3 +126,9 @@ In `/etc/default/tlp` add the lines
 `cat file.camm > /dev/usb/lp0`
 Not working in Arch, says...
 `device or resource busy`
+
+## VNC server
+
+To start `x0vncserver -display :0 -passwordfile .vnc/passwd`
+
+To stop close it
