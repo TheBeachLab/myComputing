@@ -22,7 +22,9 @@ For lock screen I have a script that pixelates the current screen.
 
 * Betty, the CLI Siri
 * The Fuck
-* ncdu
+* 
+### Check file sizes with `du` `ncdu` and `df`
+
 * htop
 * gtop
 * powertop
