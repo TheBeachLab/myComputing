@@ -1,7 +1,7 @@
 # Linux troublehooting
 
 - [Canon Lide 120](#canon-lide-120)
-- [Arduino error](#arduino-error)
+- [Old libraries not found](#old-libraries-not-found)
 - [Pacman troubleshooting](#pacman-troubleshooting)
 - [Space Navigator](#space-navigator)
 - [CUPS](#cups)
@@ -12,11 +12,9 @@
 
 ## Canon Lide 120
 
-Create a file in `/lib/udev/rules.d/`
+Create a file in `/lib/udev/rules.d/` called `60-canonlide120.rules`
 
-called `60-canonlide120.rules`
-
-From lsusb:
+Run `lsusb`:
 
 ```bash
 [irix@x220 ~]$ lsusb
@@ -43,14 +41,15 @@ cat /etc/sane.d/genesys.conf
 Tutorial config en arch
 https://www.eanderalx.org/linux/scanner_lide110
 
-## Arduino error
+## Old libraries not found
 
 ```bash
 Error while burning bootloader.
 /home/irix/opt/arduino-1.8.1/hardware/tools/avr/bin/avrdude: error while loading shared libraries: libtinfo.so.5: cannot open shared object file: No such file or directory
 ```
 
-Solved with
+Thant is because a new library has been installed. Solve it with a symbolic link:
+
 `sudo ln -s /usr/lib/libtinfo.so /usr/lib/libtinfo.so.5`
 
 ```bash
@@ -124,8 +123,14 @@ In `/etc/default/tlp` add the lines
 ## Send to Roland Vinyl
 
 `cat file.camm > /dev/usb/lp0`
+
 Not working in Arch, says...
+
 `device or resource busy`
+
+It works with:
+
+`lpr -P vinyl`
 
 ## VNC server
 
