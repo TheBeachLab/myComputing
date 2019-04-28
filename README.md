@@ -20,28 +20,80 @@ The bar I use in i3 is [polybar](https://github.com/jaagr/polybar)
 
 For lock screen I have key combo that triggers a [script]() that pixelates the current screen.
 
-## Cool programs
+## Cool CLI programs
 
-* Betty, the CLI Siri
-* The Fuck
-* 
+### Betty, the CLI Siri
+
+I bet you didn't know this one. Start with `Betty what time is it?`
+
+### The Fuck
+
+Have you ever forget to use `sudo`? After a command fails, use `fuck`, then it will fix it for you LOL!
+
 ### Check file sizes with `du` `ncdu` and `df`
 
-* htop
-* gtop
-* powertop
-* whereami
-* iponmap
-* wego
-* instantmusic - youtube-dl mod
-* neomutt
-* mapscii
-* midnight commander
-* asciinema
-* cmatrix
-* cowsay
-* ponysay
-* lolcat
-* irssi
-* scrot
-* testdisk. Undelete files
+### Monitor the system with `htop` `gtop` and `powertop`
+
+### iponmap
+
+Mandatory tool for hackers pretending be cool. It will place a dot in a map when you supply an IP address. Try `iponmap 4.4.4.4` 
+
+### wego
+
+An awesome ASCII CLI weather tool for the terminal
+  
+### instantmusic
+
+`instantmusic` is a `youtube-dl` variant for downloading music. Just type `instantmusic` and the tool will ask you to enter any detail about the song you want (artist, song name, etc...). It will display a list of options for you to download. The resulting format will be a `mp3` file
+
+### neomutt
+
+The classic mail client `mutt` just supercharged with some extra functionalities.
+
+### mapscii
+
+That is one of these amazing cli tools! Just explore highly detailed maps from the command line.
+
+### midnight commander
+
+A file navigation system
+
+### asciinema
+
+`asciinema` is a tool to record and share terminal sessions.
+
+### nms
+
+Did you watch [Sneakers](https://en.wikipedia.org/wiki/Sneakers_(1992_film)) the movie? You will probably remember this scene:
+
+<iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/GS3npSv8iuM" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+`nms` is a command that does exactly that! I usually use it in a pipe. Try `ls | nms` and pretend you are a hacker decoding your own disk.
+
+### cmatrix
+
+For those like me who like to pretend they are hackers you have this tool that will show a matrix encoded screen.
+
+### cowsay
+
+`cowsay` is a funny way to echo messages to the screen. I usually pipe it to `lolcat`
+
+### ponysay
+
+An even cooler alternative to `cowsay` is `ponysay` with it's full colour drawings (do not pipe to `lolcat` or you will mess up the colours!).
+
+### lolcat
+
+`lolcat` is a colourful variant of `cat`. It just displays the file in a full rainbow gradient.
+
+### irssi
+
+A great IRC client for the cli. I really miss those IRC days and I use it all the time. For those born in the 80's and later check this [quick start guide](https://irssi.org/documentation/startup/).
+
+### scrot
+
+`scrot` is a cli tool for taking SCReenshOTs. It has plenty of options.
+
+### testdisk
+
+`testdisk` is the perfect data recovery tool for the cli. It can undelete files you mistakenly wiped out.
