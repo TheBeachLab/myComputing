@@ -56,7 +56,20 @@ That is one of these amazing cli tools! Just explore highly detailed maps from t
 
 ### midnight commander
 
-A file navigation system
+A file navigation system for the CLI to easily copy/move/detete files and folders. It's main characteristic is the split screen. Some useful shortcuts to get used to it:
+
+- `CONTROL` + `o` toggle MC and terminal
+- `ALT` + `.` toggle hidden files
+- `CONTROL` + `u` swap the panels
+- `ALT` + `i` bring inactive panel to the same directory as the active panel
+- `TAB` jump between panels
+- `ALT` + `s` find as you type and select. Next by using `ALT` + `s` again
+- `INSERT` or right click toggle select file/folder under the cursor
+- `*` invert the selection
+- `+` or `-` select or deselect using a pattern
+- When copying or moving, the opposite panel is selected as the destination
+- `F3` quick view a text file
+- `F4` quick edit a text file
 
 ### asciinema
 
