@@ -108,3 +108,9 @@ A great IRC client for the cli. I really miss those IRC days and I use it all th
 ### testdisk
 
 `testdisk` is the perfect data recovery tool for the cli. It can undelete files you mistakenly wiped out.
+
+## Arch Linux common tasks
+
+### Install a font
+
+Move it to `~/.local/share/fonts`. More infro [here](https://wiki.archlinux.org/index.php/Fonts)
