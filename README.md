@@ -109,8 +109,13 @@ A great IRC client for the cli. I really miss those IRC days and I use it all th
 
 `testdisk` is the perfect data recovery tool for the cli. It can undelete files you mistakenly wiped out.
 
-## Arch Linux common tasks
+## Arch Linux common daily tasks
+
+### Mount a USB drive
+
+Check the device name with `lsblk` and then use `pmount device [ label ]` and `pumount` to mount/unmount it. If label is given, the mount point will be `/media/label`,
+otherwise it will be `/media/device`.
 
 ### Install a font
 
-Move it to `~/.local/share/fonts`. More infro [here](https://wiki.archlinux.org/index.php/Fonts)
+Move it to `~/.local/share/fonts`. More info [here](https://wiki.archlinux.org/index.php/Fonts)
