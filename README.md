@@ -14,7 +14,7 @@ Currently testing [Archlabs](https://archlabslinux.com/) distribution
 
 I used XFCE for a long time with compiz. It is very lightweight and it has many cool effects. But maybe biased from my 8-bit age, I use mostly command line tools. For that reason I swapped my window manager to [i3wm](https://i3wm.org/).
 
-The program launcher I use is [rofi](https://github.com/DaveDavenport/rofi)
+The program launcher I use is [rofi](https://github.com/DaveDavenport/rofi) with some [themes](https://github.com/davatorium/rofi-themes).
 
 The bar I use in i3 is [polybar](https://github.com/jaagr/polybar)
 
