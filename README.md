@@ -33,6 +33,29 @@ The bar I use in i3 is [polybar](https://github.com/jaagr/polybar)
 
 For lock screen I have key combo that triggers a [script]() that pixelates the current screen.
 
+## Cursor theme
+
+I downloaded [Bibata Ice](https://github.com/KaizIqbal/Bibata_Cursor) cursor theme and placed it `/usr/share/icons/` and then call it in `~/.Xresources` 
+
+`Xcursor.theme: Bibata Ice`
+
+But somehow is not loading in i3wm. When I execute `fix_xcursor` it does not get the full name:
+
+```bash
+[irix@hal ~]$ fix_xcursor
+setting cursortheme "Bibata"
+```
+
+Does not matter if I use single or double quotes. The name of the cursor theme is set by `/usr/share/icons/Bibata_Ice/index.theme` file:
+
+```bash
+[Icon Theme]
+Name=Bibata Ice
+Comment=Light Bibata Cursor Theme
+Name[ar]=Bibata Ice
+Name[bg]=Bibata Ice
+...
+```
 
 ## Cool CLI programs
 
