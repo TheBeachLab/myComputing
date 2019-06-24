@@ -1,14 +1,12 @@
 # Linux troublehooting
 
-- [Canon Lide 120](#canon-lide-120)
-- [Old libraries not found](#old-libraries-not-found)
-- [Pacman troubleshooting](#pacman-troubleshooting)
-- [Space Navigator](#space-navigator)
-- [CUPS](#cups)
-- [Fab Modules compiled to Python2](#fab-modules-compiled-to-python2)
-- [Roland does not appear in CUPS](#roland-does-not-appear-in-cups)
-- [Send to Roland Vinyl](#send-to-roland-vinyl)
-- [VNC server](#vnc-server)
+- [Canon Lide 120](#Canon-Lide-120)
+- [Old libraries not found](#Old-libraries-not-found)
+- [Pacman troubleshooting](#Pacman-troubleshooting)
+- [CUPS](#CUPS)
+- [Fab Modules compiled to Python2](#Fab-Modules-compiled-to-Python2)
+- [Roland does not appear in CUPS](#Roland-does-not-appear-in-CUPS)
+- [Send to Roland Vinyl](#Send-to-Roland-Vinyl)
 
 ## Canon Lide 120
 
@@ -65,9 +63,6 @@ lrwxrwxrwx 1 root root 27 May  2 13:37 libtinfo.so.6 -> /usr/lib/libncursesw.so.
 
 `sudo pacman -Syyu`
 
-## Space Navigator
-
-`sudo systemctl start spacenavd`
 
 ## CUPS
 
@@ -131,9 +126,3 @@ Not working in Arch, says...
 It works with:
 
 `lpr -P vinyl`
-
-## VNC server
-
-To start `x0vncserver -display :0 -passwordfile .vnc/passwd`
-
-To stop close it

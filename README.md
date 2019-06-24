@@ -156,3 +156,24 @@ otherwise it will be `/media/device`.
 ### Install a font
 
 Move it to `~/.local/share/fonts`. More info [here](https://wiki.archlinux.org/index.php/Fonts)
+
+### VNC server
+
+I use [TigerVNC](https://tigervnc.org/) for it's easy use.
+
+#### Starting a VNC server
+
+Place a password/passphrase in `~/.vnc/passwd`
+
+To start `x0vncserver -display :0 -passwordfile .vnc/passwd`
+
+To stop just close the terminal process.
+
+## Hardware
+
+## Space Navigator
+
+For a [free, open source alternative driver](http://spacenav.sourceforge.net/) to the proprietary [3DConnexion](https://www.3dconnexion.com), install the packages `spacenavd` and the config tool `spnavcfg`. Start the mouse with:
+
+`sudo systemctl start spacenavd`
+
