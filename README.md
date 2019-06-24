@@ -21,7 +21,7 @@ FONT=Lat2-Terminus16
 FONT_MAP=8859-1
 ```
 
-To use that font from from the early userspace I made sure I use the `consolefont` hook in `/etc/mkinitcpio.conf`. I also load the graphics driver (in my case intel) earlier in [Early KMS start](https://wiki.archlinux.org/index.php/Kernel_mode_setting#Early_KMS_start) to avoid some glitches.
+To use that font from from the early userspace I made sure I use the `consolefont` hook in `/etc/mkinitcpio.conf`. I also load the graphics driver module (in my case intel) earlier in [Early KMS start](https://wiki.archlinux.org/index.php/Kernel_mode_setting#Early_KMS_start) to avoid some glitches.
 
 ## The Window Manager
 
