@@ -146,6 +146,10 @@ A great IRC client for the cli. I really miss those IRC days and I use it all th
 
 `testdisk` is the perfect data recovery tool for the cli. It can undelete files you mistakenly wiped out.
 
+## cal
+
+This simple tool allows you to display a simple calendar with many display options available.
+
 ## Arch Linux common daily tasks
 
 ### Mount a USB drive
