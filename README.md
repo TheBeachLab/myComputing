@@ -2,7 +2,7 @@
 
 This is how I do my computing
 
-![screenshot](mysystem.png)
+![screenshot](img/mysystem.png)
 
 ## The Operating System
 
@@ -58,6 +58,10 @@ Name[bg]=Bibata Ice
 ```
 
 ## Cool CLI programs
+
+### scrot
+
+`scrot` is a cli tool for taking SCReenshOTs. It has plenty of options.
 
 ### Betty, the CLI Siri
 
@@ -122,25 +126,24 @@ Did you watch [Sneakers](https://en.wikipedia.org/wiki/Sneakers_(1992_film)) the
 
 For those like me who like to pretend they are hackers you have this tool that will show a matrix encoded screen.
 
+### lolcat
+
+`lolcat` is a colourful variant of `cat`. It just displays the file in a full rainbow gradient.
+
 ### cowsay
 
 `cowsay` is a funny way to echo messages to the screen. I usually pipe it to `lolcat`
+
+![cowsay and lolcat](img/cowsay.png)
 
 ### ponysay
 
 An even cooler alternative to `cowsay` is `ponysay` with it's full colour drawings (do not pipe to `lolcat` or you will mess up the colours!).
 
-### lolcat
-
-`lolcat` is a colourful variant of `cat`. It just displays the file in a full rainbow gradient.
-
 ### irssi
 
 A great IRC client for the cli. I really miss those IRC days and I use it all the time. For those born in the 80's and later check this [quick start guide](https://irssi.org/documentation/startup/).
 
-### scrot
-
-`scrot` is a cli tool for taking SCReenshOTs. It has plenty of options.
 
 ### testdisk
 
@@ -149,6 +152,8 @@ A great IRC client for the cli. I really miss those IRC days and I use it all th
 ## cal
 
 This simple tool allows you to display a simple calendar with many display options available.
+
+![cal](img/cal.png)
 
 ## Arch Linux common daily tasks
 
