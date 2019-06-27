@@ -81,7 +81,7 @@ Mandatory tool for hackers pretending be cool. It will place a dot in a map when
 
 ### wego
 
-An awesome ASCII CLI weather tool for the terminal
+An awesome ASCII CLI weather tool for the terminal. You need to register for an API key [here](https://developer.forecast.io/register).
   
 ### instantmusic
 

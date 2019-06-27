@@ -123,6 +123,14 @@ Not working in Arch, says...
 
 `device or resource busy`
 
+might it be because of this?
+
+```bash
+[irix@hal ~]$ cat /etc/modprobe.d/blacklistusblp.conf 
+blacklist usblp
+```
+Blacklisting usblp should not be required
+
 It works with:
 
 `lpr -P vinyl`
