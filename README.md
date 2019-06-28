@@ -112,6 +112,10 @@ A file navigation system for the CLI to easily copy/move/detete files and folder
 - `F3` quick view a text file
 - `F4` quick edit a text file
 
+### vifm
+
+Another cli file manager
+
 ### asciinema
 
 `asciinema` is a tool to record and share terminal sessions.
