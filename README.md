@@ -56,6 +56,13 @@ Name[ar]=Bibata Ice
 Name[bg]=Bibata Ice
 ...
 ```
+## Cool GUI programs
+
+### Losless Cut
+
+[Lossless Cut](https://github.com/mifi/lossless-cut) has saved me GigaBytes of storage by allowing me to trim videos losslessly. This is a must for video.
+
+![losslesscut](./img/lossless.gif)
 
 ## Cool CLI programs
 
