@@ -2,6 +2,43 @@
 
 This is how I do my computing
 
+- [The Operating System](#The-Operating-System)
+- [The display manager](#The-display-manager)
+- [The Window Manager](#The-Window-Manager)
+- [Terminal emulator](#Terminal-emulator)
+- [Cursor theme](#Cursor-theme)
+- [Cool GUI programs](#Cool-GUI-programs)
+  - [Losless Cut](#Losless-Cut)
+- [Cool CLI programs](#Cool-CLI-programs)
+  - [scrot](#scrot)
+  - [Betty, the CLI Siri](#Betty-the-CLI-Siri)
+  - [The Fuck](#The-Fuck)
+  - [Check file sizes with `du` `ncdu` and `df`](#Check-file-sizes-with-du-ncdu-and-df)
+  - [Monitor the system with `htop` `gtop` and `powertop`](#Monitor-the-system-with-htop-gtop-and-powertop)
+  - [iponmap](#iponmap)
+  - [wego](#wego)
+  - [instantmusic](#instantmusic)
+  - [neomutt](#neomutt)
+  - [mapscii](#mapscii)
+  - [midnight commander](#midnight-commander)
+  - [vifm](#vifm)
+  - [asciinema](#asciinema)
+  - [nms](#nms)
+  - [cmatrix](#cmatrix)
+  - [lolcat](#lolcat)
+  - [cowsay](#cowsay)
+  - [ponysay](#ponysay)
+  - [irssi](#irssi)
+  - [testdisk](#testdisk)
+  - [cal](#cal)
+- [Arch Linux common daily tasks](#Arch-Linux-common-daily-tasks)
+  - [Mount a USB drive](#Mount-a-USB-drive)
+  - [Install a font](#Install-a-font)
+  - [VNC server](#VNC-server)
+    - [Starting a VNC server](#Starting-a-VNC-server)
+- [Hardware](#Hardware)
+  - [Space Navigator](#Space-Navigator)
+
 ![screenshot](img/mysystem.png)
 
 ## The Operating System
@@ -32,6 +69,10 @@ The program launcher I use is [rofi](https://github.com/DaveDavenport/rofi) with
 The bar I use in i3 is [polybar](https://github.com/jaagr/polybar)
 
 For lock screen I have key combo that triggers a [script]() that pixelates the current screen.
+
+## Terminal emulator
+
+I am using Urxvt, [custom](https://addy-dclxvi.github.io/post/configuring-urxvt/) themed with [Iosevka](https://github.com/be5invis/Iosevka) font. 
 
 ## Cursor theme
 
@@ -160,7 +201,7 @@ A great IRC client for the cli. I really miss those IRC days and I use it all th
 
 `testdisk` is the perfect data recovery tool for the cli. It can undelete files you mistakenly wiped out.
 
-## cal
+### cal
 
 This simple tool allows you to display a simple calendar with many display options available.
 
@@ -191,7 +232,7 @@ To stop just close the terminal process.
 
 ## Hardware
 
-## Space Navigator
+### Space Navigator
 
 For a [free, open source alternative driver](http://spacenav.sourceforge.net/) to the proprietary [3DConnexion](https://www.3dconnexion.com), install the packages `spacenavd` and the config tool `spnavcfg`. Start the mouse with:
 
