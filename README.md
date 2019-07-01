@@ -8,6 +8,7 @@ This is how I do my computing
 - [Terminal emulator](#Terminal-emulator)
 - [Cursor theme](#Cursor-theme)
 - [Cool GUI programs](#Cool-GUI-programs)
+  - [Xournal](#Xournal)
   - [Losless Cut](#Losless-Cut)
 - [Cool CLI programs](#Cool-CLI-programs)
   - [scrot](#scrot)
@@ -98,6 +99,10 @@ Name[bg]=Bibata Ice
 ...
 ```
 ## Cool GUI programs
+
+### Xournal
+
+A simple tool to fill out and annotate PDFs
 
 ### Losless Cut
 
