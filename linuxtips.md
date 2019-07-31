@@ -1,12 +1,15 @@
 # Linux troublehooting
 
-- [Canon Lide 120](#Canon-Lide-120)
-- [Old libraries not found](#Old-libraries-not-found)
-- [Pacman troubleshooting](#Pacman-troubleshooting)
-- [CUPS](#CUPS)
-- [Fab Modules compiled to Python2](#Fab-Modules-compiled-to-Python2)
-- [Roland does not appear in CUPS](#Roland-does-not-appear-in-CUPS)
-- [Send to Roland Vinyl](#Send-to-Roland-Vinyl)
+- [Linux troublehooting](#linux-troublehooting)
+  - [Canon Lide 120](#canon-lide-120)
+  - [Old libraries not found](#old-libraries-not-found)
+  - [Pacman troubleshooting](#pacman-troubleshooting)
+  - [CUPS](#cups)
+  - [Fab Modules compiled to Python2](#fab-modules-compiled-to-python2)
+  - [Roland does not appear in CUPS](#roland-does-not-appear-in-cups)
+  - [Send to Roland Vinyl](#send-to-roland-vinyl)
+  - [Download youtube video and subtitles](#download-youtube-video-and-subtitles)
+  - [Hardcode subtitles into video](#hardcode-subtitles-into-video)
 
 ## Canon Lide 120
 
@@ -105,7 +108,7 @@ ATTR{idVendor}=="0b75", ATTR{idProduct}=="0405", MODE:="0660", GROUP:="lp"
 This is to give permission to the printer
 
 save the file and cat to usb device
-`cat filename>/dev/xxx`
+`cat filename > /dev/xxx`
 
 If `/usr/lib/cups/backend/usb` shows
 Failed to open device, code: -1
@@ -134,3 +137,11 @@ Blacklisting usblp should not be required
 It works with:
 
 `lpr -P vinyl`
+
+## Download youtube video and subtitles
+
+`youtube-dl --write-auto-sub` URL-VIDEO
+
+## Hardcode subtitles into video
+
+`ffmpeg -i` VIDEO-FILE `-vf subtitles=`SUBS-FILE OUTPUT-FILE
