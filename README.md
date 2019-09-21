@@ -2,43 +2,46 @@
 
 This is how I do my computing
 
-- [The Operating System](#The-Operating-System)
-- [The display manager](#The-display-manager)
-- [The Window Manager](#The-Window-Manager)
-- [Terminal emulator](#Terminal-emulator)
-- [Cursor theme](#Cursor-theme)
-- [Cool GUI programs](#Cool-GUI-programs)
-  - [Xournal](#Xournal)
-  - [Losless Cut](#Losless-Cut)
-- [Cool CLI programs](#Cool-CLI-programs)
-  - [scrot](#scrot)
-  - [Betty, the CLI Siri](#Betty-the-CLI-Siri)
-  - [The Fuck](#The-Fuck)
-  - [Check file sizes with `du` `ncdu` and `df`](#Check-file-sizes-with-du-ncdu-and-df)
-  - [Monitor the system with `htop` `gtop` and `powertop`](#Monitor-the-system-with-htop-gtop-and-powertop)
-  - [iponmap](#iponmap)
-  - [wego](#wego)
-  - [instantmusic](#instantmusic)
-  - [neomutt](#neomutt)
-  - [mapscii](#mapscii)
-  - [midnight commander](#midnight-commander)
-  - [vifm](#vifm)
-  - [asciinema](#asciinema)
-  - [nms](#nms)
-  - [cmatrix](#cmatrix)
-  - [lolcat](#lolcat)
-  - [cowsay](#cowsay)
-  - [ponysay](#ponysay)
-  - [irssi](#irssi)
-  - [testdisk](#testdisk)
-  - [cal](#cal)
-- [Arch Linux common daily tasks](#Arch-Linux-common-daily-tasks)
-  - [Mount a USB drive](#Mount-a-USB-drive)
-  - [Install a font](#Install-a-font)
-  - [VNC server](#VNC-server)
-    - [Starting a VNC server](#Starting-a-VNC-server)
-- [Hardware](#Hardware)
-  - [Space Navigator](#Space-Navigator)
+1. [The Operating System](#the-operating-system)
+2. [The display manager](#the-display-manager)
+3. [The Window Manager](#the-window-manager)
+4. [Terminal emulator](#terminal-emulator)
+5. [Cursor theme](#cursor-theme)
+6. [Cool GUI programs](#cool-gui-programs)
+   1. [Xournal](#xournal)
+   2. [Losless Cut](#losless-cut)
+7. [Cool CLI programs](#cool-cli-programs)
+   1. [scrot](#scrot)
+   2. [Betty, the CLI Siri](#betty-the-cli-siri)
+   3. [The Fuck](#the-fuck)
+   4. [Check file sizes with `du` `ncdu` and `df`](#check-file-sizes-with-du-ncdu-and-df)
+   5. [Monitor the system with `htop` `gtop` and `powertop`](#monitor-the-system-with-htop-gtop-and-powertop)
+   6. [iponmap](#iponmap)
+   7. [wego](#wego)
+   8. [instantmusic](#instantmusic)
+   9. [neomutt](#neomutt)
+   10. [mapscii](#mapscii)
+   11. [midnight commander](#midnight-commander)
+   12. [vifm](#vifm)
+   13. [asciinema](#asciinema)
+   14. [nms](#nms)
+   15. [cmatrix](#cmatrix)
+   16. [lolcat](#lolcat)
+   17. [cowsay](#cowsay)
+   18. [ponysay](#ponysay)
+   19. [irssi](#irssi)
+   20. [testdisk](#testdisk)
+   21. [cal](#cal)
+8. [Arch Linux common daily tasks](#arch-linux-common-daily-tasks)
+   1. [Mount a USB drive](#mount-a-usb-drive)
+   2. [Install a font](#install-a-font)
+   3. [VNC server](#vnc-server)
+      1. [Starting a VNC server](#starting-a-vnc-server)
+9. [Hardware](#hardware)
+   1. [Space Navigator](#space-navigator)
+   2. [Contour Shuttle Pro 2](#contour-shuttle-pro-2)
+   3. [Wacom Intuos 3](#wacom-intuos-3)
+   4. [Trackpad tips](#trackpad-tips)
 
 ![screenshot](img/mysystem.png)
 
@@ -242,4 +245,18 @@ To stop just close the terminal process.
 For a [free, open source alternative driver](http://spacenav.sourceforge.net/) to the proprietary [3DConnexion](https://www.3dconnexion.com), install the packages `spacenavd` and the config tool `spnavcfg`. Start the mouse with:
 
 `sudo systemctl start spacenavd`
+
+At the time of writing (September 2019) Space Navigator is having trouble with the Appimage version of FreeCAD.
+
+### Contour Shuttle Pro 2
+
+This is a device I use to edit video.
+
+### Wacom Intuos 3
+
+My old A4 tablet for drawing and painting
+
+### Trackpad tips
+
+I use `libinput` driver instead of the former `xf86-input-synaptic`. 
 
