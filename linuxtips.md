@@ -10,6 +10,7 @@
 6. [Video and YouTube](#video-and-youtube)
    1. [Download youtube video and subtitles](#download-youtube-video-and-subtitles)
    2. [Hardcode subtitles into video](#hardcode-subtitles-into-video)
+   3. [Download audio from youtube video](#download-audio-from-youtube-video)
 7. [Network](#network)
    1. [Changing the network interface names](#changing-the-network-interface-names)
    2. [Activating or deactivating network devices](#activating-or-deactivating-network-devices)
@@ -151,6 +152,38 @@ It works with:
 ### Hardcode subtitles into video
 
 `ffmpeg -i` VIDEO-FILE `-vf subtitles=`SUBS-FILE OUTPUT-FILE
+
+### Download audio from youtube video
+
+First check the available formats
+
+`youtube-dl -F GKgfCthuiV0` where GKgfCthuiV0 is the youtube code of the video
+
+```
+[youtube] GKgfCthuiV0: Downloading webpage
+[youtube] GKgfCthuiV0: Downloading video info webpage
+[info] Available formats for GKgfCthuiV0:
+format code  extension  resolution note
+249          webm       audio only tiny   69k , opus @ 50k (48000Hz), 3.38MiB
+250          webm       audio only tiny   87k , opus @ 70k (48000Hz), 4.29MiB
+140          m4a        audio only tiny  130k , m4a_dash container, mp4a.40.2@128k (44100Hz), 6.95MiB
+251          webm       audio only tiny  157k , opus @160k (48000Hz), 7.91MiB
+160          mp4        192x144    144p   13k , avc1.4d400b, 25fps, video only, 436.59KiB
+133          mp4        320x240    240p   18k , avc1.4d400d, 25fps, video only, 528.49KiB
+278          webm       192x144    144p   27k , webm container, vp9, 25fps, video only, 755.36KiB
+394          mp4        192x144    144p   30k , av01.0.00M.08, 25fps, video only, 892.15KiB
+395          mp4        320x240    240p   47k , av01.0.00M.08, 25fps, video only, 1.17MiB
+242          webm       320x240    240p   48k , vp9, 25fps, video only, 1.13MiB
+18           mp4        400x300    240p  147k , avc1.42001E, mp4a.40.2@ 96k (44100Hz), 7.90MiB (best)
+```
+
+Select the one you want, in my case 251, which is the highest quality
+
+`youtube-dl -f 251 GKgfCthuiV0`
+
+Now transcode the webm file into wav (or any other) format you want
+
+`ffmpeg -i file.webm file.wav`
 
 ## Network
 
