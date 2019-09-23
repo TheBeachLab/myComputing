@@ -15,6 +15,7 @@
    2. [Activating or deactivating network devices](#activating-or-deactivating-network-devices)
    3. [Obtaining DHCP address](#obtaining-dhcp-address)
    4. [Check current UL/DL speed](#check-current-uldl-speed)
+8. [Dummy serial and lp ports](#dummy-serial-and-lp-ports)
 
 ## Canon Lide 120
 
@@ -76,11 +77,14 @@ lrwxrwxrwx 1 root root 27 May  2 13:37 libtinfo.so.6 -> /usr/lib/libncursesw.so.
 
 ### Cannot access http://localhost:631
 
-CUPS web config 403 Forbidden
+Connection refused: Make sure CUPS is installed and activated:
 
-Finally solved adding myself to `sys` group
+```bash
+systemctl enable org.cups.cupsd.service
+systemctl start org.cups.cupsd.service
+```
 
-https://bbs.archlinux.org/viewtopic.php?id=198906
+CUPS web config 403 Forbidden: Add yourself to `wheel` group
 
 ### Roland does not appear in CUPS
 
@@ -172,5 +176,18 @@ Deactivate wifi: `sudo ip link set wifi0 down`
 ### Check current UL/DL speed
 
 `vnstat --live -i wifi0`
+
+## Dummy serial and lp ports
+
+In order to create a dummy serial port for developing purposes install `tty0tty-git` AUR package and load the module:
+
+```bash
+sudo depmod
+sudo modprobe tty0tty
+```
+
+You will see a number of serial ports `/dev/tntx`, make sure you give them permissions `sudo chmod 666 /dev/tnt*`
+
+For testing printers and other devices, just send to `/dev/null`
 
 

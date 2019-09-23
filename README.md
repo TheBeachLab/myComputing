@@ -250,7 +250,15 @@ At the time of writing (September 2019) Space Navigator is having trouble with t
 
 ### Contour Shuttle Pro 2
 
-This is a device I use to edit video.
+This is a device I use to edit video. I Installed `contour-shuttle-git` AUR package and now I am missing the key configuration file for Lightworks
+
+https://www.lwks.com/index.php?option=com_kunena&func=view&catid=217&id=83353&Itemid=
+
+https://www.lwks.com/index.php?option=com_kunena&func=view&catid=217&id=116188&Itemid=81
+
+http://freshmeat.sourceforge.net/projects/shuttlepro 
+
+
 
 ### Wacom Intuos 3
 
