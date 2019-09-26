@@ -38,10 +38,11 @@ This is how I do my computing
    3. [VNC server](#vnc-server)
       1. [Starting a VNC server](#starting-a-vnc-server)
 9. [Hardware](#hardware)
-   1. [Space Navigator](#space-navigator)
-   2. [Contour Shuttle Pro 2](#contour-shuttle-pro-2)
-   3. [Wacom Intuos 3](#wacom-intuos-3)
-   4. [Trackpad tips](#trackpad-tips)
+   1. [Asus MB168B+ USB display](#asus-mb168b-usb-display)
+   2. [Space Navigator](#space-navigator)
+   3. [Contour Shuttle Pro 2](#contour-shuttle-pro-2)
+   4. [Wacom Intuos 3](#wacom-intuos-3)
+   5. [Trackpad tips](#trackpad-tips)
 
 ![screenshot](img/mysystem.png)
 
@@ -240,13 +241,35 @@ To stop just close the terminal process.
 
 ## Hardware
 
+### Asus MB168B+ USB display
+
+This is a displaylink USB screen I use for video editing and also following tutorials while I run a program. You must install the [displaylink](https://aur.archlinux.org/packages/displaylink/)AUR package that allows configuring displaylink monitors using [Xrandr](https://wiki.archlinux.org/index.php/Xrandr). Then create the file `/usr/share/X11/xorg.conf.d/20-evdidevice.conf` with the following content:
+
+```bash
+Section "OutputClass"
+	Identifier "DisplayLink"
+	MatchDriver "evdi"
+	Driver "modesetting"
+	Option  "AccelMethod" "none"
+EndSection
+```
+
+and reboot. My config is:
+
+`xrandr --output DP2 --off --output eDP1 --primary --auto --output DVI-I-1-1 --right-of eDP1 --auto`
+
 ### Space Navigator
 
 For a [free, open source alternative driver](http://spacenav.sourceforge.net/) to the proprietary [3DConnexion](https://www.3dconnexion.com), install the packages `spacenavd` and the config tool `spnavcfg`. Start the mouse with:
 
 `sudo systemctl start spacenavd`
 
-At the time of writing (September 2019) Space Navigator is having trouble with the Appimage version of FreeCAD.
+Enable the service if you want to run it everytime you boot.
+
+`sudo systemctl enable spacenavd`
+
+
+At the time of writing (September 2019) Space Navigator is having trouble with the Appimage version of FreeCAD. It works just fine in the AUR compiled version. It just takes a long time to compile.
 
 ### Contour Shuttle Pro 2
 
@@ -266,5 +289,5 @@ My old A4 tablet for drawing and painting
 
 ### Trackpad tips
 
-I use `libinput` driver instead of the former `xf86-input-synaptic`. 
+I use `libinput` driver instead of the former `xf86-input-synaptic`. Something that I hate of the standars behaviour of the trackpad is 
 
