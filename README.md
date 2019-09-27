@@ -42,7 +42,8 @@ This is how I do my computing
    2. [Space Navigator](#space-navigator)
    3. [Contour Shuttle Pro 2](#contour-shuttle-pro-2)
    4. [Wacom Intuos 3](#wacom-intuos-3)
-   5. [Trackpad tips](#trackpad-tips)
+   5. [Canon LiDE 60](#canon-lide-60)
+   6. [Trackpad tips](#trackpad-tips)
 
 ![screenshot](img/mysystem.png)
 
@@ -268,7 +269,6 @@ Enable the service if you want to run it everytime you boot.
 
 `sudo systemctl enable spacenavd`
 
-
 At the time of writing (September 2019) Space Navigator is having trouble with the Appimage version of FreeCAD. It works just fine in the AUR compiled version. It just takes a long time to compile.
 
 ### Contour Shuttle Pro 2
@@ -281,13 +281,33 @@ https://www.lwks.com/index.php?option=com_kunena&func=view&catid=217&id=116188&I
 
 http://freshmeat.sourceforge.net/projects/shuttlepro 
 
-
-
 ### Wacom Intuos 3
 
-My old A4 tablet for drawing and painting
+My old tablet for drawing and painting, still works like a charm. I am learning to use it now with grease pencil, the new feature in blender 2.8. You need to install the  `xf86-input-wacom` and reboot. You should now see some devices with the command `xsetwacom list devices`.
+
+There is manual configuration but I prefer to use a graphical tool `kcm-wacomtablet` for that.
+
+### Canon LiDE 60
+
+At the time of writing `sane 1.0.28` has a bug that prevents using the Canon LiDE 60:
+
+`Failed to open device 'genesis:libusb:001:005': Invalid argument.`
+
+Install an old version of sane:
+
+`sudo pacman -U https://archive.archlinux.org/packages/s/sane/sane-1.0.27-2-x86_64.pkg.tar.xz`
+
+And prevent the sane package to be upgraded in `/etc/pacman.conf` until a fix is found.
+
+Install also the frontend `xsane`. Add yourself to the scanner group and reboot `sudo usermod -a -G scanner $USER`
+
+Check that your scanner is listed `scanimage -L`. If you don't want your cameras to be listed comment `v4l` in `/etc/sane.d/dll.conf`.
+
+Try to scan something through xsane or manually using the device name shown in the step above:
+
+`scanimage --device "genesys:libusb:001:004" --format=png > test.png`
+
 
 ### Trackpad tips
 
-I use `libinput` driver instead of the former `xf86-input-synaptic`. Something that I hate of the standars behaviour of the trackpad is 
-
+I use `libinput` driver instead of the former `xf86-input-synaptic`. Something that I hate of the standars behaviour of the trackpad is the area for middle and right click, because I usually accidentally click the wrong button.
