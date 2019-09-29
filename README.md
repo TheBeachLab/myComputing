@@ -37,7 +37,18 @@ This is how I do my computing
    2. [Install a font](#install-a-font)
    3. [VNC server](#vnc-server)
       1. [Starting a VNC server](#starting-a-vnc-server)
-9. [Hardware](#hardware)
+9. [Network](#network)
+   1. [Changing the network interface names](#changing-the-network-interface-names)
+   2. [Activating or deactivating network devices](#activating-or-deactivating-network-devices)
+   3. [Obtaining DHCP address](#obtaining-dhcp-address)
+   4. [Check current UL/DL speed](#check-current-uldl-speed)
+10. [Video and YouTube](#video-and-youtube)
+   1. [Download youtube video and subtitles](#download-youtube-video-and-subtitles)
+   2. [Hardcode subtitles into video](#hardcode-subtitles-into-video)
+   3. [Download audio from youtube video](#download-audio-from-youtube-video)
+   4. [Convert GIF to MP4](#convert-gif-to-mp4)
+11. [Dummy serial and lp ports](#dummy-serial-and-lp-ports)
+12. [Hardware](#hardware)
    1. [Asus MB168B+ USB display](#asus-mb168b-usb-display)
    2. [Space Navigator](#space-navigator)
    3. [Contour Shuttle Pro 2](#contour-shuttle-pro-2)
@@ -239,6 +250,96 @@ Place a password/passphrase in `~/.vnc/passwd`
 To start `x0vncserver -display :0 -passwordfile .vnc/passwd`
 
 To stop just close the terminal process.
+
+## Network
+
+### Changing the network interface names
+
+Add/edit a file in `/etc/udev/rules.d/10-network.rules` and reboot
+
+```
+SUBSYSTEM=="net", ACTION=="add", ATTR{address}=="c8:5b:76:e5:fc:23", NAME="cable0"
+SUBSYSTEM=="net", ACTION=="add", ATTR{address}=="00:28:f8:2b:12:18", NAME="wifi0"
+```
+
+### Activating or deactivating network devices
+
+Activate ethernet: `sudo ip link set cable0 up`
+
+Deactivate wifi: `sudo ip link set wifi0 down`
+
+### Obtaining DHCP address
+
+`dhcpcd cable0`
+
+### Check current UL/DL speed
+
+`vnstat --live -i wifi0`
+
+## Video and YouTube
+
+### Download youtube video and subtitles
+
+`youtube-dl --write-auto-sub` URL-VIDEO
+
+### Hardcode subtitles into video
+
+`ffmpeg -i` VIDEO-FILE `-vf subtitles=`SUBS-FILE OUTPUT-FILE
+
+### Download audio from youtube video
+
+First check the available formats
+
+`youtube-dl -F GKgfCthuiV0` where GKgfCthuiV0 is the youtube code of the video
+
+```
+[youtube] GKgfCthuiV0: Downloading webpage
+[youtube] GKgfCthuiV0: Downloading video info webpage
+[info] Available formats for GKgfCthuiV0:
+format code  extension  resolution note
+249          webm       audio only tiny   69k , opus @ 50k (48000Hz), 3.38MiB
+250          webm       audio only tiny   87k , opus @ 70k (48000Hz), 4.29MiB
+140          m4a        audio only tiny  130k , m4a_dash container, mp4a.40.2@128k (44100Hz), 6.95MiB
+251          webm       audio only tiny  157k , opus @160k (48000Hz), 7.91MiB
+160          mp4        192x144    144p   13k , avc1.4d400b, 25fps, video only, 436.59KiB
+133          mp4        320x240    240p   18k , avc1.4d400d, 25fps, video only, 528.49KiB
+278          webm       192x144    144p   27k , webm container, vp9, 25fps, video only, 755.36KiB
+394          mp4        192x144    144p   30k , av01.0.00M.08, 25fps, video only, 892.15KiB
+395          mp4        320x240    240p   47k , av01.0.00M.08, 25fps, video only, 1.17MiB
+242          webm       320x240    240p   48k , vp9, 25fps, video only, 1.13MiB
+18           mp4        400x300    240p  147k , avc1.42001E, mp4a.40.2@ 96k (44100Hz), 7.90MiB (best)
+```
+
+Select the one you want, in my case 251, which is the highest quality
+
+`youtube-dl -f 251 GKgfCthuiV0`
+
+Now transcode the webm file into wav (or any other) format you want
+
+`ffmpeg -i file.webm file.wav`
+
+### Convert GIF to MP4
+
+`ffmpeg -i animated.gif -movflags faststart -pix_fmt yuv420p -vf "scale=trunc(iw/2)*2:trunc(ih/2)*2" video.mp4`
+
+Explanation
+
+- `movflags` – This option optimizes the structure of the MP4 file so the browser can load it as quickly as possible.
+- `pix_fmt` – MP4 videos store pixels in different formats. We include this option to specify a specific format which has maximum compatibility across all browsers.
+- `vf` – MP4 videos using H.264 need to have a dimensions that are divisible by 2. This option ensures that’s the case.
+
+## Dummy serial and lp ports
+
+In order to create a dummy serial port for developing purposes install `tty0tty-git` AUR package and load the module:
+
+```bash
+sudo depmod
+sudo modprobe tty0tty
+```
+
+You will see a number of serial ports `/dev/tntx`, make sure you give them permissions `sudo chmod 666 /dev/tnt*`
+
+For testing printers and other devices, just send to `/dev/null`
 
 ## Hardware
 
