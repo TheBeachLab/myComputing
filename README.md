@@ -54,7 +54,9 @@ This is how I do my computing
    3. [Contour Shuttle Pro 2](#contour-shuttle-pro-2)
    4. [Wacom Intuos 3](#wacom-intuos-3)
    5. [Canon LiDE 60](#canon-lide-60)
-   6. [Trackpad tips](#trackpad-tips)
+   6. [eGPU Beast 8.5c](#egpu-beast-85c)
+      1. [For Radeon HD 6450](#for-radeon-hd-6450)
+   7. [Trackpad tips](#trackpad-tips)
 
 ![screenshot](img/mysystem.png)
 
@@ -408,6 +410,19 @@ Try to scan something through xsane or manually using the device name shown in t
 
 `scanimage --device "genesys:libusb:001:004" --format=png > test.png`
 
+### eGPU Beast 8.5c
+
+This is an external GPU adapter that I bought on [Amazon](https://amzn.to/2nruDnH). My version has a expresscard that I use for my Thinkpad X220. Seems to work with the Radeon HD6450. The following command detects the card:
+
+`lspci -k | grep -A 2 -i "VGA"`
+
+But does not detect my Nvidia 8800GT so far. Still researching.
+
+#### For Radeon HD 6450
+
+Install the open source driver `xf86-video-ati`. Install also `radeon-profile-git` AUR package which installs a qt application `radeon-profile` to display info about a Radeon card. 
+
+So far it shows no card. I suspect the Kernel module is not loaded.
 
 ### Trackpad tips
 
