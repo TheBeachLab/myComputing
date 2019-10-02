@@ -7,6 +7,7 @@
    1. [Cannot access http://localhost:631](#cannot-access-httplocalhost631)
    2. [Roland does not appear in CUPS](#roland-does-not-appear-in-cups)
 5. [Send to Roland Vinyl](#send-to-roland-vinyl)
+6. [TODO X220](#todo-x220)
 
 ## Canon Lide 120
 
@@ -132,3 +133,11 @@ Blacklisting usblp should not be required
 It works with:
 
 `lpr -P vinyl`
+
+## TODO X220
+
+- Grub does not show menu
+- Configure coreboot
+- dotfiles
+- Dual Intel / Radeon
+- Hotplug Radeon

@@ -422,7 +422,9 @@ But does not detect my Nvidia 8800GT so far. Still researching.
 
 Install the open source driver `xf86-video-ati`. Install also `radeon-profile-git` AUR package which installs a qt application `radeon-profile` to display info about a Radeon card. 
 
-So far it shows no card. I suspect the Kernel module is not loaded.
+If I insert the expresscard after booting, `radeon-profile` shows no card. I suspect the Kernel module is not loaded. 
+
+If I reboot with the expresscard inserted then the radeon kernel module loads and the screen goes to the radeon HDMI, leaving the laptop screen black. `startx` fails: XF86enableIOPorts operation not permitted. KMS Kernel modesetting enabled
 
 ### Trackpad tips
 
