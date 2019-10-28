@@ -42,6 +42,10 @@ This is how I do my computing
    2. [Activating or deactivating network devices](#activating-or-deactivating-network-devices)
    3. [Obtaining DHCP address](#obtaining-dhcp-address)
    4. [Check current UL/DL speed](#check-current-uldl-speed)
+   5. [Extend free wifi at airports](#extend-free-wifi-at-airports)
+      1. [Change MAC address with `macchanger`](#change-mac-address-with-macchanger)
+      2. [Change MAC address with vanilla commands](#change-mac-address-with-vanilla-commands)
+      3. [Change MAC address to a rooted Android in terminal](#change-mac-address-to-a-rooted-android-in-terminal)
 10. [Polybar](#polybar)
 11. [Video and YouTube](#video-and-youtube)
    1. [Download youtube video and subtitles](#download-youtube-video-and-subtitles)
@@ -278,6 +282,42 @@ Deactivate wifi: `sudo ip link set wifi0 down`
 ### Check current UL/DL speed
 
 `vnstat --live -i wifi0`
+
+### Extend free wifi at airports
+
+They usually bind the 1h free connection to the MAC address of the device. So after the 1h is out just change the MAC address and connect again.
+
+#### Change MAC address with `macchanger`
+
+First install `macchanger` and then use it like this:
+
+`macchanger -r wifi0` obtain a random MAC address
+
+`macchanger -p wifi0` return to the hardware factory MAC address
+
+#### Change MAC address with vanilla commands
+
+This process is a bit longer, just if your haven't yet downloaded `macchanger`, use this instead:
+
+```bash
+ip link show wifi0
+ip link set dev wifi0 down
+ip link set dev wifi0 address xx:xx:xx:yy:yy:yy
+ip link set dev wifi0 up
+```
+
+#### Change MAC address to a rooted Android in terminal
+
+Open `termux` or any other terminal app and look for your wifi interface (here `wlan0`):
+
+```bash
+su
+ip link show
+busybox ip link show wlan0
+busybox ifconfig wlan0 hw ether xx:xx:xx:yy:yy:yy
+```
+
+> **Warning!** These changes are permanent
 
 ## Polybar
 
