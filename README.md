@@ -1,67 +1,72 @@
 # My Computing
 
-This is how I do my computing
+This is how I do my computing 
 
-1. [The Operating System](#the-operating-system)
-2. [The display manager](#the-display-manager)
-3. [The Window Manager](#the-window-manager)
-4. [Terminal emulator](#terminal-emulator)
-5. [Cursor theme](#cursor-theme)
-6. [Cool GUI programs](#cool-gui-programs)
-   1. [Xournal](#xournal)
-   2. [Losless Cut](#losless-cut)
-7. [Cool CLI programs](#cool-cli-programs)
-   1. [scrot](#scrot)
-   2. [Betty, the CLI Siri](#betty-the-cli-siri)
-   3. [The Fuck](#the-fuck)
-   4. [Check file sizes with `du` `ncdu` and `df`](#check-file-sizes-with-du-ncdu-and-df)
-   5. [Monitor the system with `htop` `gtop` and `powertop`](#monitor-the-system-with-htop-gtop-and-powertop)
-   6. [iponmap](#iponmap)
-   7. [wego](#wego)
-   8. [instantmusic](#instantmusic)
-   9. [neomutt](#neomutt)
-   10. [mapscii](#mapscii)
-   11. [midnight commander](#midnight-commander)
-   12. [vifm](#vifm)
-   13. [asciinema](#asciinema)
-   14. [nms](#nms)
-   15. [cmatrix](#cmatrix)
-   16. [lolcat](#lolcat)
-   17. [cowsay](#cowsay)
-   18. [ponysay](#ponysay)
-   19. [irssi](#irssi)
-   20. [testdisk](#testdisk)
-   21. [cal](#cal)
-8. [Arch Linux common daily tasks](#arch-linux-common-daily-tasks)
-   1. [Mount a USB drive](#mount-a-usb-drive)
-   2. [Install a font](#install-a-font)
-   3. [VNC server](#vnc-server)
-      1. [Starting a VNC server](#starting-a-vnc-server)
-9. [Network](#network)
-   1. [Changing the network interface names](#changing-the-network-interface-names)
-   2. [Activating or deactivating network devices](#activating-or-deactivating-network-devices)
-   3. [Obtaining DHCP address](#obtaining-dhcp-address)
-   4. [Check current UL/DL speed](#check-current-uldl-speed)
-   5. [Extend free wifi at airports](#extend-free-wifi-at-airports)
-      1. [Change MAC address with `macchanger`](#change-mac-address-with-macchanger)
-      2. [Change MAC address with vanilla commands](#change-mac-address-with-vanilla-commands)
-      3. [Change MAC address to a rooted Android in terminal](#change-mac-address-to-a-rooted-android-in-terminal)
-10. [Polybar](#polybar)
-11. [Video and YouTube](#video-and-youtube)
-   1. [Download youtube video and subtitles](#download-youtube-video-and-subtitles)
-   2. [Hardcode subtitles into video](#hardcode-subtitles-into-video)
-   3. [Download audio from youtube video](#download-audio-from-youtube-video)
-   4. [Convert GIF to MP4](#convert-gif-to-mp4)
-12. [Dummy serial and lp ports](#dummy-serial-and-lp-ports)
-13. [Hardware](#hardware)
-   1. [Asus MB168B+ USB display](#asus-mb168b-usb-display)
-   2. [Space Navigator](#space-navigator)
-   3. [Contour Shuttle Pro 2](#contour-shuttle-pro-2)
-   4. [Wacom Intuos 3](#wacom-intuos-3)
-   5. [Canon LiDE 60](#canon-lide-60)
-   6. [eGPU Beast 8.5c](#egpu-beast-85c)
-      1. [For Radeon HD 6450](#for-radeon-hd-6450)
-   7. [Trackpad tips](#trackpad-tips)
+- [The Operating System](#the-operating-system)
+- [The display manager](#the-display-manager)
+- [The Window Manager](#the-window-manager)
+- [Terminal emulator](#terminal-emulator)
+- [Cursor theme](#cursor-theme)
+- [Cool GUI programs](#cool-gui-programs)
+  - [Xournal](#xournal)
+  - [Losless Cut](#losless-cut)
+- [Cool CLI programs](#cool-cli-programs)
+  - [scrot](#scrot)
+  - [Betty, the CLI Siri](#betty-the-cli-siri)
+  - [The Fuck](#the-fuck)
+  - [Check file sizes with `du` `ncdu` and `df`](#check-file-sizes-with-du-ncdu-and-df)
+  - [Monitor the system with `htop` `gtop` and `powertop`](#monitor-the-system-with-htop-gtop-and-powertop)
+  - [iponmap](#iponmap)
+  - [wego](#wego)
+  - [instantmusic](#instantmusic)
+  - [neomutt](#neomutt)
+  - [mapscii](#mapscii)
+  - [midnight commander](#midnight-commander)
+  - [vifm](#vifm)
+  - [asciinema](#asciinema)
+  - [nms](#nms)
+  - [cmatrix](#cmatrix)
+  - [lolcat](#lolcat)
+  - [cowsay](#cowsay)
+  - [ponysay](#ponysay)
+  - [irssi](#irssi)
+  - [testdisk](#testdisk)
+  - [cal](#cal)
+- [Arch Linux common daily tasks](#arch-linux-common-daily-tasks)
+  - [Mount a USB drive](#mount-a-usb-drive)
+  - [Install a font](#install-a-font)
+  - [VNC server](#vnc-server)
+    - [Starting a VNC server](#starting-a-vnc-server)
+- [Network](#network)
+  - [Changing the network interface names](#changing-the-network-interface-names)
+  - [Activating or deactivating network devices](#activating-or-deactivating-network-devices)
+  - [Obtaining DHCP address](#obtaining-dhcp-address)
+  - [Check current UL/DL speed](#check-current-uldl-speed)
+  - [Extend free wifi at airports](#extend-free-wifi-at-airports)
+    - [Change MAC address with `macchanger`](#change-mac-address-with-macchanger)
+    - [Change MAC address with vanilla commands](#change-mac-address-with-vanilla-commands)
+    - [Change MAC address to a rooted Android in terminal](#change-mac-address-to-a-rooted-android-in-terminal)
+- [Video and YouTube](#video-and-youtube)
+  - [Download youtube video and subtitles](#download-youtube-video-and-subtitles)
+  - [Hardcode subtitles into video](#hardcode-subtitles-into-video)
+  - [Download audio from youtube video](#download-audio-from-youtube-video)
+  - [Convert GIF to MP4](#convert-gif-to-mp4)
+  - [DSLR Video Webcam](#dslr-video-webcam)
+    - [Hardware required](#hardware-required)
+    - [Software required](#software-required)
+    - [Canon 7D](#canon-7d)
+    - [Canon M6](#canon-m6)
+- [Dummy serial and lp ports](#dummy-serial-and-lp-ports)
+- [Polybar](#polybar)
+- [Hardware](#hardware)
+  - [Asus MB168B+ USB display](#asus-mb168b-usb-display)
+  - [Space Navigator](#space-navigator)
+  - [Contour Shuttle Pro 2](#contour-shuttle-pro-2)
+  - [Wacom Intuos 3](#wacom-intuos-3)
+  - [Canon LiDE 60](#canon-lide-60)
+  - [eGPU Beast 8.5c](#egpu-beast-85c)
+    - [For Radeon HD 6450](#for-radeon-hd-6450)
+  - [Trackpad tips](#trackpad-tips)
 
 ![screenshot](img/mysystem.png)
 
@@ -224,7 +229,6 @@ An even cooler alternative to `cowsay` is `ponysay` with it's full colour drawin
 
 A great IRC client for the cli. I really miss those IRC days and I use it all the time. For those born in the 80's and later check this [quick start guide](https://irssi.org/documentation/startup/).
 
-
 ### testdisk
 
 `testdisk` is the perfect data recovery tool for the cli. It can undelete files you mistakenly wiped out.
@@ -319,10 +323,6 @@ busybox ifconfig wlan0 hw ether xx:xx:xx:yy:yy:yy
 
 > **Warning!** These changes are permanent
 
-## Polybar
-
-For displaying siji fonts `xfd -fa siji` check the glyph code and display with the code. For example `printf "\ue101"`
-
 ## Video and YouTube
 
 ### Download youtube video and subtitles
@@ -375,6 +375,34 @@ Explanation
 - `pix_fmt` – MP4 videos store pixels in different formats. We include this option to specify a specific format which has maximum compatibility across all browsers.
 - `vf` – MP4 videos using H.264 need to have a dimensions that are divisible by 2. This option ensures that’s the case.
 
+### DSLR Video Webcam
+
+#### Hardware required
+
+You need a capture card to get the HDMI out signal from the DSLR. I bought a cheap HDMI to USB3 capture card in Amazon that works with the V4L2 module without drivers, just plug and play. The card is unbranded and the chipset inside is:
+
+```bash
+[66367.259465] usb 2-2: Product: FHD Capture
+[66367.259468] usb 2-2: Manufacturer: VXIS Inc
+[66367.269584] uvcvideo: Found UVC 1.00 device FHD Capture (1bcf:2c99)
+```
+
+The DSLR camera will become now a Webcam. You can even select it in your videoconferences.
+
+It is convenient that you alse get a AC battery adapter to make sure the battery won't die during capture.
+
+#### Software required
+
+You can capture video with pretty much anything but I mostly use [OBS Studio](https://obsproject.com/). It allows you to create scenes, overlays, green screen, etc.
+
+#### Canon 7D
+
+The Canon 7D has a mini HDMI port out. With the Canon firmware 2.0.3 I cannot obtain a clean HDMI out. There is always the focus rectangle there. So I downloaded [Magoc Lantern Firmware](https://magiclantern.fm/). To control the camera settings I use [Entangle](https://entangle-photo.org/) which allows me to capture images as well as control the camera settings.
+
+#### Canon M6
+
+Canon M6 has a micro HDMI port. With the Canon M6 I can obtain a clean HDMI out in manual focus. But controlling the camera settings is just annoying. USB tether does not seem to work and there is a Canon App which is so faulty. 
+
 ## Dummy serial and lp ports
 
 In order to create a dummy serial port for developing purposes install `tty0tty-git` AUR package and load the module:
@@ -387,6 +415,10 @@ sudo modprobe tty0tty
 You will see a number of serial ports `/dev/tntx`, make sure you give them permissions `sudo chmod 666 /dev/tnt*`
 
 For testing printers and other devices, just send to `/dev/null`
+
+## Polybar
+
+For displaying siji fonts `xfd -fa siji` check the glyph code and display with the code. For example `printf "\ue101"`
 
 ## Hardware
 
