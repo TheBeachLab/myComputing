@@ -37,10 +37,15 @@ This is how I do my computing
   - [Install a font](#install-a-font)
   - [VNC server](#vnc-server)
     - [Starting a VNC server](#starting-a-vnc-server)
+- [Screen](#screen)
+  - [Show the connected displays](#show-the-connected-displays)
+  - [Set dimensions of your display](#set-dimensions-of-your-display)
+  - [Fix overscan problems in HDMI](#fix-overscan-problems-in-hdmi)
 - [Network](#network)
   - [Changing the network interface names](#changing-the-network-interface-names)
   - [Activating or deactivating network devices](#activating-or-deactivating-network-devices)
   - [Obtaining DHCP address](#obtaining-dhcp-address)
+  - [Get your public IP](#get-your-public-ip)
   - [Check current UL/DL speed](#check-current-uldl-speed)
   - [Extend free wifi at airports](#extend-free-wifi-at-airports)
     - [Change MAC address with `macchanger`](#change-mac-address-with-macchanger)
@@ -262,6 +267,20 @@ To start `x0vncserver -display :0 -passwordfile .vnc/passwd`
 
 To stop just close the terminal process.
 
+## Screen
+
+### Show the connected displays
+
+`xrandr`
+
+### Set dimensions of your display
+
+`xrandr --fbmm 310x175`
+
+### Fix overscan problems in HDMI
+
+`xrandr --output HDMI1 --set underscan on --set "underscan vborder" 25 --set "underscan hborder" 40`
+
 ## Network
 
 ### Changing the network interface names
@@ -282,6 +301,12 @@ Deactivate wifi: `sudo ip link set wifi0 down`
 ### Obtaining DHCP address
 
 `dhcpcd cable0`
+
+### Get your public IP
+
+`curl https://ipinfo.io/ip` you can pipe it to `iponmap`
+
+`curl https://ipinfo.io/ip | iponmap`
 
 ### Check current UL/DL speed
 
@@ -389,7 +414,7 @@ You need a capture card to get the HDMI out signal from the DSLR. I bought a che
 
 The DSLR camera will become now a Webcam. You can even select it in your videoconferences.
 
-It is convenient that you alse get a AC battery adapter to make sure the battery won't die during capture.
+It is convenient that you also get a AC battery adapter to make sure the battery won't die during capture.
 
 #### Software required
 
@@ -402,6 +427,8 @@ The Canon 7D has a mini HDMI port out. With the Canon firmware 2.0.3 I cannot ob
 #### Canon M6
 
 Canon M6 has a micro HDMI port. With the Canon M6 I can obtain a clean HDMI out in manual focus. But controlling the camera settings is just annoying. USB tether does not seem to work and there is a Canon App which is so faulty. 
+
+Magic Lantern is not available for the M6. It could run [CHDK](https://chdk.fandom.com/wiki/CHDK) but at the moment of writing the firmware is still unported.
 
 ## Dummy serial and lp ports
 
