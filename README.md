@@ -33,6 +33,7 @@ This is how I do my computing
   - [testdisk](#testdisk)
   - [cal](#cal)
 - [Arch Linux common daily tasks](#arch-linux-common-daily-tasks)
+  - [Find all files containing specific text](#find-all-files-containing-specific-text)
   - [Mount a USB drive](#mount-a-usb-drive)
   - [Install a font](#install-a-font)
   - [VNC server](#vnc-server)
@@ -245,6 +246,29 @@ This simple tool allows you to display a simple calendar with many display optio
 ![cal](img/cal.png)
 
 ## Arch Linux common daily tasks
+
+### Find all files containing specific text
+
+`grep -rnw '/path/to/somewhere/' -e 'pattern'`
+
+- `-r` or `-R` is recursive,
+- `-n` is line number
+- `-w` stands for match the whole word.
+- `-l` (lower-case L) can be added to just give the file name of matching files.
+
+Along with these, `--exclude`, `--include`, `--exclude-dir` flags could be used for efficient searching:
+
+This will only search through those files which have .c or .h extensions:
+
+`grep --include=\*.{c,h} -rnw '/path/to/somewhere/' -e "pattern"`
+
+This will exclude searching all the files ending with .o extension:
+
+`grep --exclude=*.o -rnw '/path/to/somewhere/' -e "pattern"`
+
+For directories it's possible to exclude a particular directory(ies) through --exclude-dir parameter. For example, this will exclude the dirs dir1/, dir2/ and all of them matching *.dst/:
+
+`grep --exclude-dir={dir1,dir2,*.dst} -rnw '/path/to/somewhere/' -e "pattern"`
 
 ### Mount a USB drive
 
