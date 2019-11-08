@@ -33,6 +33,7 @@ This is how I do my computing
   - [testdisk](#testdisk)
   - [cal](#cal)
 - [Arch Linux common daily tasks](#arch-linux-common-daily-tasks)
+  - [Time and timezones](#time-and-timezones)
   - [Find all files containing specific text](#find-all-files-containing-specific-text)
   - [Mount a USB drive](#mount-a-usb-drive)
   - [Install a font](#install-a-font)
@@ -246,6 +247,30 @@ This simple tool allows you to display a simple calendar with many display optio
 ![cal](img/cal.png)
 
 ## Arch Linux common daily tasks
+
+### Time and timezones
+
+In my laptop the hardware clock (BIOS clock) is considered by the operating system (arch) as UTC. So it is important to set that appropiately first.
+
+`sudo hwclock --show`
+
+I travel quite often and I need to adjust the timezone in my computer. I do it with `timedatectl`
+
+`timedatectl status` check the current time, date and timezone. The following will appear:
+
+```bash
+[unix ~]$ timedatectl status
+               Local time: Fri 2019-11-08 18:42:28 CET
+           Universal time: Fri 2019-11-08 17:42:28 UTC
+                 RTC time: Fri 2019-11-08 17:42:28
+                Time zone: Europe/Madrid (CET, +0100)
+System clock synchronized: no
+              NTP service: inactive
+          RTC in local TZ: no
+```
+
+`timedatectl list-timezones` check the timezones
+`timedatectl set-timezone zone/subzone` Set the timezone
 
 ### Find all files containing specific text
 
