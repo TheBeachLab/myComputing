@@ -490,6 +490,14 @@ and reboot. My config is:
 
 `xrandr --output DP2 --off --output eDP1 --primary --auto --output DVI-I-1-1 --right-of eDP1 --auto`
 
+> **Update:** Due to a problem in xorg-server 1.2 I had to downgrade to xorg-server 1.19 and xf86-video-vesa to 2.3.4 like this:
+> ```bash
+> yay -S downgrade
+> downgrade xorg-server
+> downgrade xf86-video-vesa
+> ```
+> Read the issue [here](https://github.com/DisplayLink/evdi/issues/133)
+
 ### Space Navigator
 
 For a [free, open source alternative driver](http://spacenav.sourceforge.net/) to the proprietary [3DConnexion](https://www.3dconnexion.com), install the packages `spacenavd` and the config tool `spnavcfg`. Start the mouse with:
