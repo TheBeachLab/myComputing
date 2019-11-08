@@ -532,11 +532,11 @@ At the time of writing `sane 1.0.28` has a bug that prevents using the Canon LiD
 
 `Failed to open device 'genesis:libusb:001:005': Invalid argument.`
 
-Install an old version of sane:
+Downgrade/install an old version of sane:
 
 `sudo pacman -U https://archive.archlinux.org/packages/s/sane/sane-1.0.27-2-x86_64.pkg.tar.xz`
 
-And prevent the sane package to be upgraded in `/etc/pacman.conf` until a fix is found.
+And ignore the sane package to prevent an upgrade in `/etc/pacman.conf` until a fix is found.
 
 Install also the frontend `xsane`. Add yourself to the scanner group and reboot `sudo usermod -a -G scanner $USER`
 
