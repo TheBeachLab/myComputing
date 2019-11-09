@@ -74,6 +74,7 @@ This is how I do my computing
   - [eGPU Beast 8.5c](#egpu-beast-85c)
     - [For Radeon HD 6450](#for-radeon-hd-6450)
   - [Trackpad tips](#trackpad-tips)
+- [TODO](#todo)
 
 ![screenshot](img/mysystem.png)
 
@@ -590,3 +591,13 @@ If I reboot with the expresscard inserted then the radeon kernel module loads an
 ### Trackpad tips
 
 I use `libinput` driver instead of the former `xf86-input-synaptic`. Something that I hate of the standars behaviour of the trackpad is the area for middle and right click, because I usually accidentally click the wrong button.
+
+## TODO
+
+- mirror xrandr
+- Polybar on multiple monitors
+- Clock sync server
+- Config spacenav in blender
+- Shuttle Pro 2 working
+- bluetooth
+- wacom tablet in one screen only
