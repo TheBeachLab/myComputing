@@ -67,6 +67,7 @@ This is how I do my computing
 - [Polybar](#polybar)
 - [Hardware](#hardware)
   - [Asus MB168B+ USB display](#asus-mb168b-usb-display)
+  - [HDMI](#hdmi)
   - [Space Navigator](#space-navigator)
   - [Contour Shuttle Pro 2](#contour-shuttle-pro-2)
   - [Wacom Intuos 3](#wacom-intuos-3)
@@ -512,9 +513,14 @@ Section "OutputClass"
 EndSection
 ```
 
-and reboot. My config is:
+and reboot. My config for extra screen:
 
-`xrandr --output DP2 --off --output eDP1 --primary --auto --output DVI-I-1-1 --right-of eDP1 --auto`
+`xrandr --output eDP-1 --primary --auto --output DVI-I-1-1 --right-of eDP-1 --auto`
+
+or mirror:
+
+`xrandr --output eDP-1 --primary --auto --output DVI-I-1-1 --same-as eDP-1 --auto`
+
 
 > **Update:** Due to a problem in xorg-server 1.2 I had to downgrade to xorg-server 1.19 and xf86-video-vesa to 2.3.4 like this:
 > ```bash
@@ -523,6 +529,18 @@ and reboot. My config is:
 > downgrade xf86-video-vesa
 > ```
 > Read the issue [here](https://github.com/DisplayLink/evdi/issues/133)
+
+### HDMI
+
+ My config for extra screen:
+
+`xrandr --output eDP-1 --primary --auto --output HDMI-1 --right-of eDP-1 --auto`
+
+or mirror:
+
+`xrandr --output eDP-1 --primary --auto --output HDMI-1 --same-as eDP-1 --auto`
+
+
 
 ### Space Navigator
 
@@ -550,7 +568,22 @@ http://freshmeat.sourceforge.net/projects/shuttlepro
 
 My old tablet for drawing and painting, still works like a charm. I am learning to use it now with grease pencil, the new feature in blender 2.8. You need to install the  `xf86-input-wacom` and reboot. You should now see some devices with the command `xsetwacom list devices`.
 
-There is manual configuration but I prefer to use a graphical tool `kcm-wacomtablet` for that.
+```bash
+[unix ~]$ xsetwacom list devices
+Wacom Intuos3 6x8 Pen stylus            id: 10  type: STYLUS    
+Wacom Intuos3 6x8 Pad pad               id: 11  type: PAD       
+Wacom Intuos3 6x8 Pen eraser            id: 17  type: ERASER    
+Wacom Intuos3 6x8 Pen cursor            id: 18  type: CURSOR
+```
+
+If you use dual head monitors `xrandr` sets both monitors as one big screen, mapping the tablet to the whole virtual screen and deforming aspect ratio. For a solution, map the Stylus and the eraser (id 10 and 17) to the desired screen, in my case, eDP-1.
+
+```bash
+xsetwacom set 10 MapToOutput eDP-1
+xsetwacom set 17 MapToOutput eDP-1
+```
+
+Graphical config tool `kcm-wacomtablet`.
 
 ### Canon LiDE 60
 
@@ -594,10 +627,8 @@ I use `libinput` driver instead of the former `xf86-input-synaptic`. Something t
 
 ## TODO
 
-- mirror xrandr
 - Polybar on multiple monitors
 - Clock sync server
 - Config spacenav in blender
 - Shuttle Pro 2 working
 - bluetooth
-- wacom tablet in one screen only
