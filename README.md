@@ -632,3 +632,4 @@ I use `libinput` driver instead of the former `xf86-input-synaptic`. Something t
 - Config spacenav in blender
 - Shuttle Pro 2 working
 - bluetooth
+- send g-code via serial port
