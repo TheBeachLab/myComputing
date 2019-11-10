@@ -71,6 +71,7 @@ This is how I do my computing
   - [Space Navigator](#space-navigator)
   - [Contour Shuttle Pro 2](#contour-shuttle-pro-2)
   - [Wacom Intuos 3](#wacom-intuos-3)
+  - [Yamaha P-45](#yamaha-p-45)
   - [Canon LiDE 60](#canon-lide-60)
   - [eGPU Beast 8.5c](#egpu-beast-85c)
     - [For Radeon HD 6450](#for-radeon-hd-6450)
@@ -584,6 +585,75 @@ xsetwacom set 17 MapToOutput eDP-1
 ```
 
 Graphical config tool `kcm-wacomtablet`.
+
+### Yamaha P-45
+
+This electronic piano can be used as a MIDI input in LMMS and other software. I like it because it has pressure sensitive keys and it's full size. It does not need any driver. Just connect it via usb and check that it is properly detected:
+
+```bash
+[unix ~]$ lsusb
+Bus 001 Device 009: ID 0499:160f Yamaha Corp. P-105
+```
+
+Then with `alsa-utils` installed check the device number for input and output:
+
+```bash
+[unix ~]$ aconnect -i
+client 0: 'System' [type=kernel]
+    0 'Timer           '
+    1 'Announce        '
+client 14: 'Midi Through' [type=kernel]
+    0 'Midi Through Port-0'
+client 20: 'Digital Piano' [type=kernel,card=1]
+    0 'Digital Piano MIDI 1'
+
+[unix ~]$ aconnect -o
+client 14: 'Midi Through' [type=kernel]
+    0 'Midi Through Port-0'
+client 20: 'Digital Piano' [type=kernel,card=1]
+    0 'Digital Piano MIDI 1'
+```
+And you can connect this device to your DAW or MIDI software. Check the activity with `aseqdump`. So far is not detecting pressure sensitivity. I haven't checked the foot pedal yet.
+
+```bash
+[unix ~]$ aseqdump -p 20
+Waiting for data. Press Ctrl+C to end.
+Source  Event                  Ch  Data
+ 20:0   Clock
+ 20:0   Active Sensing
+ 20:0   Clock
+ 20:0   Clock
+ 20:0   Note off                0, note 91
+ 20:0   Clock
+ 20:0   Clock
+ 20:0   Note on                 0, note 93, velocity 64
+ 20:0   Clock
+ 20:0   Clock
+ 20:0   Clock
+ 20:0   Note off                0, note 93
+ 20:0   Clock
+ 20:0   Note on                 0, note 91, velocity 64
+ 20:0   Clock
+ 20:0   Clock
+ 20:0   Active Sensing
+ 20:0   Clock
+ 20:0   Clock
+ 20:0   Note off                0, note 91
+ 20:0   Clock
+ 20:0   Note on                 0, note 93, velocity 64
+ 20:0   Clock
+ 20:0   Clock
+ 20:0   Clock
+ 20:0   Clock
+ 20:0   Note off                0, note 93
+ 20:0   Note on                 0, note 91, velocity 64
+ 20:0   Clock
+ 20:0   Clock
+ 20:0   Clock
+ 20:0   Active Sensing
+ 20:0   Note off                0, note 91
+```
+
 
 ### Canon LiDE 60
 
