@@ -65,6 +65,9 @@ This is how I do my computing
     - [Canon M6](#canon-m6)
 - [Dummy serial and lp ports](#dummy-serial-and-lp-ports)
 - [Polybar](#polybar)
+- [Audio](#audio)
+  - [Jack Audio](#jack-audio)
+  - [Ardour](#ardour)
 - [Hardware](#hardware)
   - [Asus MB168B+ USB display](#asus-mb168b-usb-display)
   - [HDMI](#hdmi)
@@ -499,6 +502,25 @@ For testing printers and other devices, just send to `/dev/null`
 
 For displaying siji fonts `xfd -fa siji` check the glyph code and display with the code. For example `printf "\ue101"`
 
+## Audio
+
+### Jack Audio
+
+Install `jack libffado qjackctl realtime-privileges`, add yourself to the groups `audio` and `realtime` then reboot. You should be able to start jack via `qjackctl`.
+
+You might notice that you cannot start `jack` if there is any other program using the audio, including browsers since they might block the interface. So start `jack` server before starting any other audio software. Also you might realise that you cannot play youtube videos while `jack` is running. In that case install the pakage `pulseaudio-jack`. Then edit `/etc/pulse/default.pa` and the following below `#load-module module-alsa-sink` section:
+
+```bash
+load-module module-jack-sink
+load-module module-jack-source
+```
+
+And restart pulseaudio with `killall pulseaudio`
+
+### Ardour
+
+Ardour requires you to start jack server previously.
+
 ## Hardware
 
 ### Asus MB168B+ USB display
@@ -540,8 +562,6 @@ or mirror:
 or mirror:
 
 `xrandr --output eDP-1 --primary --auto --output HDMI-1 --same-as eDP-1 --auto`
-
-
 
 ### Space Navigator
 
