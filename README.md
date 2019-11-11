@@ -726,3 +726,5 @@ I use `libinput` driver instead of the former `xf86-input-synaptic`. Something t
 - start jack at beginning
 - Figure out jack connections mess
 - custom system tray icon polybar
+- fix pulseaudio module on polybar crashes polybar when jack is running
+- fix xbacklight
