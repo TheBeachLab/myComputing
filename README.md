@@ -723,3 +723,6 @@ I use `libinput` driver instead of the former `xf86-input-synaptic`. Something t
 - Shuttle Pro 2 working
 - bluetooth
 - send g-code via serial port
+- start jack at beginning
+- Figure out jack connections mess
+- custom system tray icon polybar
