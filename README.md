@@ -506,9 +506,13 @@ For displaying siji fonts `xfd -fa siji` check the glyph code and display with t
 
 ### Jack Audio
 
-Install `jack libffado qjackctl realtime-privileges`, add yourself to the groups `audio` and `realtime` then reboot. You should be able to start jack via `qjackctl`.
+The default audio server in Linux is `pulseaudio`. That is fine for standard use (one recording sink). But once you start having more complex situations, where you want to record the output of the speakers or you want multiple recordings or playbacks, you will find limitations. That cannot be achieved with `pulseaudio`. You need a more advanced audio server. That server is `jack`.
 
-You might notice that you cannot start `jack` if there is any other program using the audio, including browsers since they might block the interface. So start `jack` server before starting any other audio software. Also you might realise that you cannot play youtube videos while `jack` is running. In that case install the pakage `pulseaudio-jack`. Then edit `/etc/pulse/default.pa` and the following below `#load-module module-alsa-sink` section:
+Installing jack is a bit tricky: install the following packages `jack2 libffado cadence jack_capture python-dbus realtime-privileges pulseaudio-jack`, add yourself to the groups `audio` and `realtime` then reboot. You should be able to start jack via `cadence`. Then make sure you autostart at boot. Otherwise you might notice that you cannot start `jack` if there is any other program using the audio, including browsers since they might block the interface. Hence the need to start `jack` server before starting any other audio software.
+
+ Also bridge **ALSA Audio** using `ALSA > PulseAudio > JACK (Plugin)` option and bridge **PulseAudio** with Auto-start at login. Otherwise you might realise that you cannot play youtube videos while `jack` is running. 
+ 
+ In that case install the pakage `pulseaudio-jack`. Then edit `/etc/pulse/default.pa` and the following below `#load-module module-alsa-sink` section:
 
 ```bash
 load-module module-jack-sink
