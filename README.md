@@ -68,6 +68,15 @@ This is how I do my computing
 - [Audio](#audio)
   - [Jack Audio](#jack-audio)
   - [Ardour](#ardour)
+  - [Helm](#helm)
+  - [Carla](#carla)
+  - [MindMapp](#mindmapp)
+  - [Anbox](#anbox)
+  - [Piskel](#piskel)
+  - [gallery-dl](#gallery-dl)
+  - [Ghostwriter](#ghostwriter)
+  - [sway](#sway)
+  - [](#)
 - [Hardware](#hardware)
   - [Asus MB168B+ USB display](#asus-mb168b-usb-display)
   - [HDMI](#hdmi)
@@ -524,6 +533,24 @@ And restart pulseaudio with `killall pulseaudio`
 ### Ardour
 
 Ardour requires you to start jack server previously.
+
+### Helm
+
+### Carla
+
+### MindMapp
+
+### Anbox
+
+### Piskel
+
+### gallery-dl
+
+### Ghostwriter
+
+### sway
+
+### 
 
 ## Hardware
 
