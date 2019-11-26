@@ -76,7 +76,6 @@ This is how I do my computing
   - [gallery-dl](#gallery-dl)
   - [Ghostwriter](#ghostwriter)
   - [sway](#sway)
-  - [](#)
 - [Hardware](#hardware)
   - [Asus MB168B+ USB display](#asus-mb168b-usb-display)
   - [HDMI](#hdmi)
@@ -550,8 +549,6 @@ Ardour requires you to start jack server previously.
 
 ### sway
 
-### 
-
 ## Hardware
 
 ### Asus MB168B+ USB display
@@ -574,15 +571,6 @@ and reboot. My config for extra screen:
 or mirror:
 
 `xrandr --output eDP-1 --primary --auto --output DVI-I-1-1 --same-as eDP-1 --auto`
-
-
-> **Update:** Due to a problem in xorg-server 1.2 I had to downgrade to xorg-server 1.19 and xf86-video-vesa to 2.3.4 like this:
-> ```bash
-> yay -S downgrade
-> downgrade xorg-server
-> downgrade xf86-video-vesa
-> ```
-> Read the issue [here](https://github.com/DisplayLink/evdi/issues/133)
 
 ### HDMI
 
