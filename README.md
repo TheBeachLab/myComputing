@@ -67,6 +67,7 @@ This is how I do my computing
 - [Polybar](#polybar)
 - [Audio](#audio)
   - [Jack Audio](#jack-audio)
+  - [alsamixer](#alsamixer)
   - [Ardour](#ardour)
   - [Helm](#helm)
   - [Carla](#carla)
@@ -528,6 +529,67 @@ load-module module-jack-source
 ```
 
 And restart pulseaudio with `killall pulseaudio`
+
+### alsamixer
+
+To set the default sound card. Check your devices `cat /proc/asound/cards`
+
+```
+ 0 [PCH            ]: HDA-Intel - HDA Intel PCH
+                      HDA Intel PCH at 0xe2340000 irq 137
+ 1 [Microphone     ]: USB-Audio - Yeti Stereo Microphone
+                      Blue Microphones Yeti Stereo Microphone at usb-0000:00:14.0-2.3, full speed
+ 2 [Capture        ]: USB-Audio - FHD Capture
+                      VXIS Inc FHD Capture at usb-0000:00:14.0-2.2, super speed
+```
+
+ `aplay -l`
+ 
+ ```
+ **** List of PLAYBACK Hardware Devices ****
+card 0: PCH [HDA Intel PCH], device 0: CX8200 Analog [CX8200 Analog]
+  Subdevices: 0/1
+  Subdevice #0: subdevice #0
+card 0: PCH [HDA Intel PCH], device 3: HDMI 0 [HDMI 0]
+  Subdevices: 1/1
+  Subdevice #0: subdevice #0
+card 0: PCH [HDA Intel PCH], device 7: HDMI 1 [HDMI 1]
+  Subdevices: 1/1
+  Subdevice #0: subdevice #0
+card 0: PCH [HDA Intel PCH], device 8: HDMI 2 [HDMI 2]
+  Subdevices: 1/1
+  Subdevice #0: subdevice #0
+card 0: PCH [HDA Intel PCH], device 9: HDMI 3 [HDMI 3]
+  Subdevices: 1/1
+  Subdevice #0: subdevice #0
+card 0: PCH [HDA Intel PCH], device 10: HDMI 4 [HDMI 4]
+  Subdevices: 1/1
+  Subdevice #0: subdevice #0
+card 1: Microphone [Yeti Stereo Microphone], device 0: USB Audio [USB Audio]
+  Subdevices: 1/1
+  Subdevice #0: subdevice #0
+```
+ 
+ and modify `sudo nano /etc/asound.conf`
+
+```
+# Use CX8200 by default
+pcm.!default {
+  type hw
+  card 0
+    hint {
+    show on
+    description "Default ALSA Output (currently CX8200 sound card)"
+  }
+}
+
+ctl.!default {
+  type hw
+  card 0
+}
+```
+
+To set the default mutes/levels in alsamixer `su` and `alsactl store`
 
 ### Ardour
 
