@@ -796,6 +796,68 @@ If I reboot with the expresscard inserted then the radeon kernel module loads an
 
 I use `libinput` driver instead of the former `xf86-input-synaptic`. Something that I hate of the standars behaviour of the trackpad is the area for middle and right click, because I usually accidentally click the wrong button.
 
+By deffault touchpad is disabled while typing. But for playing with the synths knobs you will want it activated. In order to have the touchpad (or any other input device) working while a key is pressed do the following:
+
+```
+[unix ~]$ xinput list
+⎡ Virtual core pointer                          id=2    [master pointer  (3)]
+⎜   ↳ Virtual core XTEST pointer                id=4    [slave  pointer  (2)]
+⎜   ↳ Synaptics TM3289-002                      id=14   [slave  pointer  (2)]
+⎜   ↳ TPPS/2 ALPS TrackPoint                    id=15   [slave  pointer  (2)]
+⎣ Virtual core keyboard                         id=3    [master keyboard (2)]
+    ↳ Virtual core XTEST keyboard               id=5    [slave  keyboard (3)]
+    ↳ Power Button                              id=6    [slave  keyboard (3)]
+    ↳ Video Bus                                 id=7    [slave  keyboard (3)]
+    ↳ Sleep Button                              id=8    [slave  keyboard (3)]
+    ↳ Integrated Camera: Integrated C           id=11   [slave  keyboard (3)]
+    ↳ AT Translated Set 2 keyboard              id=12   [slave  keyboard (3)]
+    ↳ ThinkPad Extra Buttons                    id=13   [slave  keyboard (3)]
+```
+
+In my case it is the touchpad id is 14
+
+```
+[unix ~]$ xinput list-props 14
+Device 'Synaptics TM3289-002':
+        Device Enabled (169):   1
+        Coordinate Transformation Matrix (171): 1.000000, 0.000000, 0.000000, 0.000000, 1.000000, 0.000000, 0.000000, 0.000000, 1.000000
+        libinput Tapping Enabled (322): 0
+        libinput Tapping Enabled Default (323): 0
+        libinput Tapping Drag Enabled (324):    1
+        libinput Tapping Drag Enabled Default (325):    1
+        libinput Tapping Drag Lock Enabled (326):       0
+        libinput Tapping Drag Lock Enabled Default (327):       0
+        libinput Tapping Button Mapping Enabled (328):  1, 0
+        libinput Tapping Button Mapping Default (329):  1, 0
+        libinput Natural Scrolling Enabled (304):       0
+        libinput Natural Scrolling Enabled Default (305):       0
+        libinput Disable While Typing Enabled (330):    1
+        libinput Disable While Typing Enabled Default (331):    1
+        libinput Scroll Methods Available (306):        1, 1, 0
+        libinput Scroll Method Enabled (307):   1, 0, 0
+        libinput Scroll Method Enabled Default (308):   1, 0, 0
+        libinput Click Methods Available (332): 1, 1
+        libinput Click Method Enabled (333):    0, 1
+        libinput Click Method Enabled Default (334):    1, 0
+        libinput Middle Emulation Enabled (311):        0
+        libinput Middle Emulation Enabled Default (312):        0
+        libinput Accel Speed (313):     0.000000
+        libinput Accel Speed Default (314):     0.000000
+        libinput Left Handed Enabled (318):     0
+        libinput Left Handed Enabled Default (319):     0
+        libinput Send Events Modes Available (289):     1, 1
+        libinput Send Events Mode Enabled (290):        0, 0
+        libinput Send Events Mode Enabled Default (291):        0, 0
+        Device Node (292):      "/dev/input/event14"
+        Device Product ID (293):        1739, 0
+        libinput Drag Lock Buttons (320):       <no items>
+        libinput Horizontal Scroll Enabled (321):       1
+```
+
+And I see the property that controls that is 330
+
+` xinput set-prop 14 330 0` voila!
+
 ## TODO
 
 - Polybar on multiple monitors
