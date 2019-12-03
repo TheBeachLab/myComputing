@@ -615,6 +615,8 @@ Ardour requires you to start jack server previously.
 
 ### Asus MB168B+ USB display
 
+![Asus MB168B+](img/asusmonitor.jpg)
+
 This is a displaylink USB screen I use for video editing and also following tutorials while I run a program. Make sure you have `linux-headers` package already installed. You must install the [displaylink](https://aur.archlinux.org/packages/displaylink/) AUR package that allows configuring displaylink monitors using [Xrandr](https://wiki.archlinux.org/index.php/Xrandr). Then create the file `/usr/share/X11/xorg.conf.d/20-evdidevice.conf` with the following content:
 
 ```bash
@@ -646,6 +648,8 @@ or mirror:
 
 ### Space Navigator
 
+![Space Navigator](img/spacenav.png)
+
 For a [free, open source alternative driver](http://spacenav.sourceforge.net/) to the proprietary [3DConnexion](https://www.3dconnexion.com), install the packages `spacenavd` and the config tool `spnavcfg`. Start the mouse with:
 
 `sudo systemctl start spacenavd`
@@ -658,6 +662,8 @@ At the time of writing (September 2019) Space Navigator is having trouble with t
 
 ### Contour Shuttle Pro 2
 
+![Contour Shuttle Pro V2](img/shuttlepro2.jpg)
+
 This is a device I use to edit video. I Installed `contour-shuttle-git` AUR package and now I am missing the key configuration file for Lightworks
 
 https://www.lwks.com/index.php?option=com_kunena&func=view&catid=217&id=83353&Itemid=
@@ -667,6 +673,8 @@ https://www.lwks.com/index.php?option=com_kunena&func=view&catid=217&id=116188&I
 http://freshmeat.sourceforge.net/projects/shuttlepro 
 
 ### Wacom Intuos 3
+
+![Intuos 3](img/intuos3.jpg)
 
 My old tablet for drawing and painting, still works like a charm. I am learning to use it now with grease pencil, the new feature in blender 2.8. You need to install the  `xf86-input-wacom` and reboot. You should now see some devices with the command `xsetwacom list devices`.
 
@@ -688,6 +696,8 @@ xsetwacom set 17 MapToOutput eDP-1
 Graphical config tool `kcm-wacomtablet`.
 
 ### Yamaha P-45
+
+![p45](img/p45.jpg)
 
 This electronic piano can be used as a MIDI input in LMMS and other software. I like it because it has pressure sensitive keys and it's full size. It does not need any driver. Just connect it via usb and check that it is properly detected:
 
@@ -757,6 +767,8 @@ Source  Event                  Ch  Data
 
 
 ### Canon LiDE 60
+
+![canon Lide 60](img/canonlide.jpg)
 
 At the time of writing `sane 1.0.28` has a bug that prevents using the Canon LiDE 60:
 
