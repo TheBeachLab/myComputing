@@ -78,6 +78,7 @@ This is how I do my computing
   - [Ghostwriter](#ghostwriter)
   - [sway](#sway)
 - [Hardware](#hardware)
+  - [LTC31 DNIe reader](#ltc31-dnie-reader)
   - [Asus MB168B+ USB display](#asus-mb168b-usb-display)
   - [HDMI](#hdmi)
   - [Space Navigator](#space-navigator)
@@ -612,6 +613,74 @@ Ardour requires you to start jack server previously.
 ### sway
 
 ## Hardware
+
+### LTC31 DNIe reader
+
+Install the following packages `pcsc-perl pcsc-tools pcsclite ` and AUR `libpkcs11-dnie ca-certificates-dnie`
+
+Insert your DNIe reader and check with `lsusb`, you should see this one, among others
+
+```
+[unix ~]$ lsusb
+Bus 001 Device 013: ID 0783:0006 C3PO LTC31v2
+...
+```
+
+Then try to read the scanner with `pcsc_scan`
+
+```
+[unix ~]$ pcsc_scan
+Using reader plug'n play mechanism
+Scanning present readers...
+0: C3PO LTC31 v2 (00426712) 00 00
+ 
+Wed Dec  4 11:14:10 2019
+ Reader 0: C3PO LTC31 v2 (00426712) 00 00
+  Event number: 1
+  Card state: Card removed, 
+ / 
+```
+
+> If you see something like `SCardEstablishContext: Service not available` try restarting the service with `systemctl restart pcscd.socket` and try again.
+
+With a DNIe inserted you should see this:
+
+```
+[unix ~]$ pcsc_scan
+Using reader plug'n play mechanism
+Scanning present readers...
+0: C3PO LTC31 v2 (00426712) 00 00
+ 
+Wed Dec  4 11:16:59 2019
+ Reader 0: C3PO LTC31 v2 (00426712) 00 00
+  Event number: 2
+  Card state: Card inserted, 
+  ATR: 3B 7F 96 00 00 00 6A 44 4E 49 65 10 01 01 55 04 21 03 90 00
+
+ATR: 3B 7F 96 00 00 00 6A 44 4E 49 65 10 01 01 55 04 21 03 90 00
++ TS = 3B --> Direct Convention
++ T0 = 7F, Y(1): 0111, K: 15 (historical bytes)
+  TA(1) = 96 --> Fi=512, Di=32, 16 cycles/ETU
+    250000 bits/s at 4 MHz, fMax for Fi = 5 MHz => 312500 bits/s
+  TB(1) = 00 --> VPP is not electrically connected
+  TC(1) = 00 --> Extra guard time: 0
++ Historical bytes: 00 6A 44 4E 49 65 10 01 01 55 04 21 03 90 00
+  Category indicator byte: 00 (compact TLV data object)
+    Tag: 6, len: A (pre-issuing data)
+      Data: 44 4E 49 65 10 01 01 55 04 21
+    Mandatory status indicator (3 last bytes)
+      LCS (life card cycle): 03 (Initialisation state)
+      SW: 9000 (Normal processing.)
+
+Possibly identified card (using /usr/share/pcsc/smartcard_list.txt):
+3B 7F 96 00 00 00 6A 44 4E 49 65 10 01 01 55 04 21 03 90 00
+3B 7F 96 00 00 00 6A 44 4E 49 65 10 01 01 55 04 .. 03 90 00
+        DNIE Spain (eID)
+        http://www.dnielectronico.es/PortalDNIe/
+ | 
+```
+
+Now in Firefox go to preferences, search for `devices` and click on `security devices`. Click `load` and add a meaningful name like `DNIe` and locate the following file `/usr/lib/libpkcs11-dnietif.so`. Now you should see the reader, if you select the reader and click on `log in` you can enter your DNIe pin/password and you are all set.
 
 ### Asus MB168B+ USB display
 
