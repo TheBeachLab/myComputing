@@ -78,7 +78,7 @@ This is how I do my computing
   - [Ghostwriter](#ghostwriter)
   - [sway](#sway)
 - [Hardware](#hardware)
-  - [LTC31 DNIe reader](#ltc31-dnie-reader)
+  - [DNIe reader](#dnie-reader)
   - [Asus MB168B+ USB display](#asus-mb168b-usb-display)
   - [HDMI](#hdmi)
   - [Space Navigator](#space-navigator)
@@ -614,19 +614,26 @@ Ardour requires you to start jack server previously.
 
 ## Hardware
 
-### LTC31 DNIe reader
+### DNIe reader
 
-Install the following packages `pcsc-perl pcsc-tools pcsclite ` and AUR `libpkcs11-dnie ca-certificates-dnie`
+I have an LTC31
 
-Insert your DNIe reader and check with `lsusb`, you should see this one, among others
+![ltc31](img/ltc31.jpg)
+
+And an ACR38 from Estonia digital citizenship 
+
+![acr38](img/acr38.png)
+
+Insert your DNIe reader and check with `lsusb`, you should see one of your readers, among other USB devices
 
 ```
 [unix ~]$ lsusb
 Bus 001 Device 013: ID 0783:0006 C3PO LTC31v2
+Bus 001 Device 015: ID 072f:90cc Advanced Card Systems, Ltd ACR38 SmartCard Reader
 ...
 ```
 
-Then try to read the scanner with `pcsc_scan`
+Install the following packages `opensc ccid` other sources say ` pcsc-perl pcsc-tools pcsclite ` and AUR `libpkcs11-dnie ca-certificates-dnie`. Then try to read the scanner with `pcsc_scan`
 
 ```
 [unix ~]$ pcsc_scan
@@ -681,6 +688,8 @@ Possibly identified card (using /usr/share/pcsc/smartcard_list.txt):
 ```
 
 Now in Firefox go to preferences, search for `devices` and click on `security devices`. Click `load` and add a meaningful name like `DNIe` and locate the following file `/usr/lib/libpkcs11-dnietif.so`. Now you should see the reader, if you select the reader and click on `log in` you can enter your DNIe pin/password and you are all set.
+
+> Missing adding ACR38 device in Firefox
 
 To electronically sign documents like PDF install the AUR package `autofirma`.
 
