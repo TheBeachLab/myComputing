@@ -682,6 +682,8 @@ Possibly identified card (using /usr/share/pcsc/smartcard_list.txt):
 
 Now in Firefox go to preferences, search for `devices` and click on `security devices`. Click `load` and add a meaningful name like `DNIe` and locate the following file `/usr/lib/libpkcs11-dnietif.so`. Now you should see the reader, if you select the reader and click on `log in` you can enter your DNIe pin/password and you are all set.
 
+To electronically sign documents like PDF install the AUR package `autofirma`.
+
 ### Asus MB168B+ USB display
 
 ![Asus MB168B+](img/asusmonitor.jpg)
