@@ -1,5 +1,5 @@
 # My Computing
-
+ 
 This is how I do my computing 
 
 - [The Operating System](#the-operating-system)
@@ -97,8 +97,6 @@ This is how I do my computing
 
 I started using Linux distributions in the mid 90's. In the age of Windows 95 -still rocking the floppy disks- I was experimenting with Red Hat Linux and Debian. In 2004 I moved to Mac OS X and it was cool for a while. But then in 2013, I realised I was trapped. I became an Apple Victim. I needed to buy the iPhone to be compatible with the Macbook Pro and also the play music with iTunes and iThis and iThat and iWantedtogetthef@ckoutofthere. So fed up of the lack of freedom, I went back to Linux. I am now using Arch Linux, a rolling release distribution. And I think I will stay like this for a while. Arch Linux is not for beginners though.
 
-~~Currently testing [Archlabs](https://archlabslinux.com/) distribution~~ Not anymore since archlabs ceased development.
-
 ## The display manager
 
 I chose a console display manager called [ly](https://github.com/cylgom/ly) with a custom `/etc/ly/config.ini` and a modifyed language file. Somehow modifying `/etc/ly/lang/en.ini` did not have any effect, so I created a copy called `/etc/ly/lang/en2.ini` and called it from the config file. 
@@ -120,7 +118,7 @@ The program launcher I use is [rofi](https://github.com/DaveDavenport/rofi) with
 
 The bar I use in i3 is [polybar](https://github.com/jaagr/polybar)
 
-For lock screen I have key combo that triggers a [script]() that pixelates the current screen.
+> TODO For lock screen I have key combo that triggers a [script]() that pixelates the current screen.
 
 ## Terminal emulator
 
