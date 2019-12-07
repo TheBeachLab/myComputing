@@ -710,6 +710,10 @@ and reboot. My config for extra screen:
 
 `xrandr --output eDP-1 --primary --auto --output DVI-I-1-1 --right-of eDP-1 --auto`
 
+If I want it rotated then
+
+`xrandr --output eDP-1 --primary --auto --output DVI-I-1-1 --rotate left --right-of eDP-1 --auto`
+
 or mirror:
 
 `xrandr --output eDP-1 --primary --auto --output DVI-I-1-1 --same-as eDP-1 --auto`
