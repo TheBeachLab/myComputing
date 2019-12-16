@@ -336,13 +336,13 @@ To stop just close the terminal process.
 
 `xrandr`
 
-### Set dimensions of your display
+### Set physical dimensions of your display
 
-`xrandr --fbmm 310x175`
+Useful for showing real dimensions at 100% `xrandr --fbmm 310x175`
 
 ### Fix overscan problems in HDMI
 
-`xrandr --output HDMI1 --set underscan on --set "underscan vborder" 25 --set "underscan hborder" 40`
+This should work `xrandr --output HDMI1 --set underscan on --set "underscan vborder" 25 --set "underscan hborder" 40` but it is not working in my case
 
 ## Network
 
@@ -611,6 +611,10 @@ Ardour requires you to start jack server previously.
 ### sway
 
 ## Hardware
+
+### PS3 Eye
+
+> Placeholder for Playstation 3 Eye
 
 ### DNIe reader
 
