@@ -13,7 +13,6 @@ This is how I do my computing
 - [Cool CLI programs](#cool-cli-programs)
   - [scrot](#scrot)
   - [Betty, the CLI Siri](#betty-the-cli-siri)
-  - [The Fuck](#the-fuck)
   - [Check file sizes with `du` `ncdu` and `df`](#check-file-sizes-with-du-ncdu-and-df)
   - [Monitor the system with `htop` `gtop` and `powertop`](#monitor-the-system-with-htop-gtop-and-powertop)
   - [iponmap](#iponmap)
@@ -89,7 +88,6 @@ This is how I do my computing
   - [eGPU Beast 8.5c](#egpu-beast-85c)
     - [For Radeon HD 6450](#for-radeon-hd-6450)
   - [Trackpad tips](#trackpad-tips)
-- [TODO](#todo)
 
 ![screenshot](img/mysystem.png)
 
@@ -101,7 +99,7 @@ I started using Linux distributions in the mid 90's. In the age of Windows 95 -s
 
 I chose a console display manager called [ly](https://github.com/cylgom/ly) with a custom `/etc/ly/config.ini` and a modifyed language file. Somehow modifying `/etc/ly/lang/en.ini` did not have any effect, so I created a copy called `/etc/ly/lang/en2.ini` and called it from the config file. 
 
-Since I did not like the original console font I [modifyed](https://wiki.archlinux.org/index.php/Linux_console#Fonts) `/etc/vconsole.conf` to use [Lat2-Terminus16](http://alexandre.deverteuil.net/pages/consolefonts/) with 8859-1 font map.
+Since I did not like the original console font I [modified](https://wiki.archlinux.org/index.php/Linux_console#Fonts) `/etc/vconsole.conf` to use [Lat2-Terminus16](http://alexandre.deverteuil.net/pages/consolefonts/) with 8859-1 font map.
 
 ```bash
 FONT=Lat2-Terminus16
@@ -122,7 +120,7 @@ The bar I use in i3 is [polybar](https://github.com/jaagr/polybar)
 
 ## Terminal emulator
 
-I am using Urxvt, [custom](https://addy-dclxvi.github.io/post/configuring-urxvt/) themed with [Iosevka](https://github.com/be5invis/Iosevka) font. 
+I am using uxterm with [Iosevka](https://github.com/be5invis/Iosevka) font. 
 
 ## Cursor theme
 
@@ -168,10 +166,6 @@ A simple tool to fill out and annotate PDFs
 ### Betty, the CLI Siri
 
 I bet you didn't know this one. Start with `Betty what time is it?`
-
-### The Fuck
-
-Have you ever forget to use `sudo`? After a command fails, use `fuck`, then it will fix it for you LOL!
 
 ### Check file sizes with `du` `ncdu` and `df`
 
