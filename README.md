@@ -2,95 +2,6 @@
  
 This is how I do my computing 
 
-- [The Operating System](#the-operating-system)
-- [The display manager](#the-display-manager)
-- [The Window Manager](#the-window-manager)
-- [Terminal emulator](#terminal-emulator)
-- [Cursor theme](#cursor-theme)
-- [Cool GUI programs](#cool-gui-programs)
-  - [Xournal](#xournal)
-  - [Losless Cut](#losless-cut)
-- [Cool CLI programs](#cool-cli-programs)
-  - [scrot](#scrot)
-  - [Betty, the CLI Siri](#betty-the-cli-siri)
-  - [Check file sizes with `du` `ncdu` and `df`](#check-file-sizes-with-du-ncdu-and-df)
-  - [Monitor the system with `htop` `gtop` and `powertop`](#monitor-the-system-with-htop-gtop-and-powertop)
-  - [iponmap](#iponmap)
-  - [wego](#wego)
-  - [instantmusic](#instantmusic)
-  - [neomutt](#neomutt)
-  - [mapscii](#mapscii)
-  - [midnight commander](#midnight-commander)
-  - [vifm](#vifm)
-  - [asciinema](#asciinema)
-  - [nms](#nms)
-  - [cmatrix](#cmatrix)
-  - [lolcat](#lolcat)
-  - [cowsay](#cowsay)
-  - [ponysay](#ponysay)
-  - [irssi](#irssi)
-  - [testdisk](#testdisk)
-  - [cal](#cal)
-- [Arch Linux common daily tasks](#arch-linux-common-daily-tasks)
-  - [Time and timezones](#time-and-timezones)
-  - [Find all files containing specific text](#find-all-files-containing-specific-text)
-  - [Mount a USB drive](#mount-a-usb-drive)
-  - [Install a font](#install-a-font)
-  - [VNC server](#vnc-server)
-    - [Starting a VNC server](#starting-a-vnc-server)
-- [Screen](#screen)
-  - [Show the connected displays](#show-the-connected-displays)
-  - [Set dimensions of your display](#set-dimensions-of-your-display)
-  - [Fix overscan problems in HDMI](#fix-overscan-problems-in-hdmi)
-- [Network](#network)
-  - [Changing the network interface names](#changing-the-network-interface-names)
-  - [Activating or deactivating network devices](#activating-or-deactivating-network-devices)
-  - [Obtaining DHCP address](#obtaining-dhcp-address)
-  - [Get your public IP](#get-your-public-ip)
-  - [Check current UL/DL speed](#check-current-uldl-speed)
-  - [Extend free wifi at airports](#extend-free-wifi-at-airports)
-    - [Change MAC address with `macchanger`](#change-mac-address-with-macchanger)
-    - [Change MAC address with vanilla commands](#change-mac-address-with-vanilla-commands)
-    - [Change MAC address to a rooted Android in terminal](#change-mac-address-to-a-rooted-android-in-terminal)
-- [Video and YouTube](#video-and-youtube)
-  - [Download youtube video and subtitles](#download-youtube-video-and-subtitles)
-  - [Hardcode subtitles into video](#hardcode-subtitles-into-video)
-  - [Download audio from youtube video](#download-audio-from-youtube-video)
-  - [Convert GIF to MP4](#convert-gif-to-mp4)
-  - [DSLR Video Webcam](#dslr-video-webcam)
-    - [Hardware required](#hardware-required)
-    - [Software required](#software-required)
-    - [Canon 7D](#canon-7d)
-    - [Canon M6](#canon-m6)
-- [Dummy serial and lp ports](#dummy-serial-and-lp-ports)
-- [Polybar](#polybar)
-- [Audio](#audio)
-  - [Jack Audio](#jack-audio)
-  - [alsamixer](#alsamixer)
-  - [Ardour](#ardour)
-  - [Helm](#helm)
-  - [Carla](#carla)
-  - [MindMapp](#mindmapp)
-  - [Anbox](#anbox)
-  - [Piskel](#piskel)
-  - [gallery-dl](#gallery-dl)
-  - [Ghostwriter](#ghostwriter)
-  - [sway](#sway)
-- [Hardware](#hardware)
-  - [DNIe reader](#dnie-reader)
-  - [Asus MB168B+ USB display](#asus-mb168b-usb-display)
-  - [HDMI](#hdmi)
-  - [Space Navigator](#space-navigator)
-  - [Contour Shuttle Pro 2](#contour-shuttle-pro-2)
-  - [Wacom Intuos 3](#wacom-intuos-3)
-  - [Yamaha P-45](#yamaha-p-45)
-  - [Canon LiDE 60](#canon-lide-60)
-  - [eGPU Beast 8.5c](#egpu-beast-85c)
-    - [For Radeon HD 6450](#for-radeon-hd-6450)
-  - [Trackpad tips](#trackpad-tips)
-
-![screenshot](img/mysystem.png)
-
 ## The Operating System
 
 I started using Linux distributions in the mid 90's. In the age of Windows 95 -still rocking the floppy disks- I was experimenting with Red Hat Linux and Debian. In 2004 I moved to Mac OS X and it was cool for a while. But then in 2013, I realised I was trapped. I became an Apple Victim. I needed to buy the iPhone to be compatible with the Macbook Pro and also the play music with iTunes and iThis and iThat and iWantedtogetthef@ckoutofthere. So fed up of the lack of freedom, I went back to Linux. I am now using Arch Linux, a rolling release distribution. And I think I will stay like this for a while. Arch Linux is not for beginners though.
@@ -253,6 +164,14 @@ A great IRC client for the cli. I really miss those IRC days and I use it all th
 This simple tool allows you to display a simple calendar with many display options available.
 
 ![cal](img/cal.png)
+
+### bat
+
+`bat` is a syntax higlighted `cat`. I use all the time to display files
+
+### grabc
+
+`grabc` is a small color picker utility from the command line. Jus type `grabc` and a small cross cursor will appear. Click on the color you want to capture and it will appear in the terminal as hex value.
 
 ## Arch Linux common daily tasks
 
