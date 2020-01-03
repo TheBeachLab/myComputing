@@ -1,7 +1,6 @@
 # My Computing
  
-This is how I do my computing 
-
+This is how I do my computing now
 
 1. [The Operating System](#the-operating-system)
 2. [The display manager](#the-display-manager)
@@ -109,6 +108,7 @@ FONT_MAP=8859-1
 ```
 
 To use that font from from the early userspace I make sure I use the `consolefont` hook in `/etc/mkinitcpio.conf`. Also load the graphics driver module (in my case intel) earlier in [Early KMS start](https://wiki.archlinux.org/index.php/Kernel_mode_setting#Early_KMS_start) to avoid font changes/flickering/glitches. To apply these changes rebuild with your kernel preset `sudo mkinitcpio -p linux` (check your kernel presets in `ls /etc/mkinitcpio.d`). Then reboot.
+w
 
 ## The Window Manager
 
@@ -854,7 +854,6 @@ Source  Event                  Ch  Data
  20:0   Active Sensing
  20:0   Note off                0, note 91
 ```
-
 
 ### Canon LiDE 60
 
