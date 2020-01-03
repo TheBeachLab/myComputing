@@ -895,12 +895,12 @@ If I reboot with the expresscard inserted then the radeon kernel module loads an
 
 ### Trackpad tips
 
-I use `libinput` driver instead of the former `xf86-input-synaptic`. Something that I hate of the standars behaviour of the trackpad is the area for middle and right click, because I usually accidentally click the wrong button.
+I use `libinput` driver instead of the former `xf86-input-synaptic`. Something that I hate of the standars behaviour of the trackpad is the area for middle and right click, because I usually accidentally click the wrong button. 
 
-By deffault touchpad is disabled while typing. But for playing with the synths knobs you will want it activated. In order to have the touchpad (or any other input device) working while a key is pressed do the following:
+There is another problem. By default touchpad is disabled while typing. But for playing with the synths knobs you will want it activated. In order to have the touchpad working while a key is pressed do the following:
 
 ```
-[unix ~]$ xinput list
+[unix ~]$ xinput
 ⎡ Virtual core pointer                          id=2    [master pointer  (3)]
 ⎜   ↳ Virtual core XTEST pointer                id=4    [slave  pointer  (2)]
 ⎜   ↳ Synaptics TM3289-002                      id=14   [slave  pointer  (2)]
@@ -915,10 +915,10 @@ By deffault touchpad is disabled while typing. But for playing with the synths k
     ↳ ThinkPad Extra Buttons                    id=13   [slave  keyboard (3)]
 ```
 
-In my case it is the touchpad id is 14
+In my case it is the touchpad id is 14. But this number is not persistent across sessions, so it is better to use the name. Now list the properties:
 
 ```
-[unix ~]$ xinput list-props 14
+[unix ~]$ xinput list-props 'TM3289-002'
 Device 'Synaptics TM3289-002':
         Device Enabled (169):   1
         Coordinate Transformation Matrix (171): 1.000000, 0.000000, 0.000000, 0.000000, 1.000000, 0.000000, 0.000000, 0.000000, 1.000000
@@ -955,6 +955,21 @@ Device 'Synaptics TM3289-002':
         libinput Horizontal Scroll Enabled (321):       1
 ```
 
-And I see the property that controls that is 330
+And I see the property that causes the problem is *libinput Disable While Typing Enabled* so we set it to zero
 
-` xinput set-prop 14 330 0` voila!
+`xinput set-prop 'Synaptics TM3289-002' 'libinput Disable While Typing Enabled' 0` voila!
+
+To make these changes persistent at every login, write your desired settings in `/etc/X11/xorg.conf.d/30-touchpad.conf`. These are mine, where I have disabled tapping (my hand are shaky with so much coffee) and I have also disabled the 3 regions with the CLickMethod option. Check libinput documentation for the available options.
+
+```
+# TouchPad config
+
+Section "InputClass"
+	Identifier "touchpad"
+	Driver "libinput"
+	MatchIsTouchpad "on"
+	Option "Tapping" "off"
+	Option "ClickMethod" "clickfinger" 
+    Option "DisableWhileTyping" "false"
+EndSection
+```
