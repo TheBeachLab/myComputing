@@ -270,6 +270,22 @@ This simple tool allows you to display a simple calendar with many display optio
 
 Usage, just type `lsix` or `lsix imagefile`
 
+### fim image viewer
+
+This is a image viewer for the command line with plenty of options. I don't like that it opens in a new window. Trying to sort it out.
+
+### qrencode
+
+A great utility to generate a QR, I use it to share wifi connection settings with smartphones.
+
+`qrencode -o /tmp/wifi.png 'WIFI:S:SSID;T:wpa;P:PASSWORD;;'`
+
+TODO:
+
+- Autoload the image
+- Integrate it with the profiles I have in /etc/netctl
+- Code a reader and generate a netctl profile
+
 ## Arch Linux common daily tasks
 
 ### Time and timezones
