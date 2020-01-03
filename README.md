@@ -264,6 +264,12 @@ This simple tool allows you to display a simple calendar with many display optio
 
 `grabc` is a small color picker utility from the command line. Jus type `grabc` and a small cross cursor will appear. Click on the color you want to capture and it will appear in the terminal as hex value.
 
+### lsix
+
+`lsix` is a simple CLI utility designed to display thumbnail images in Terminal using Sixel graphics. You need to install `imagemagick`. Before start using lsix, make sure your Terminal supports Sixel graphics. If you use UXTerm like me, then add `UXTerm*decTerminalID: vt340` in your `.Xresources` file and apply the changes with `xrdb -merge .Xresources`.
+
+Usage, just type `lsix` or `lsix imagefile`
+
 ## Arch Linux common daily tasks
 
 ### Time and timezones
