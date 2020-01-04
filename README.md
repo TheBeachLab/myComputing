@@ -45,6 +45,7 @@ This is how I do my computing now
 	* [Mount a USB drive](#mount-a-usb-drive)
 	* [Encrypt a file or directory with GPG. Paranoid level 1](#encrypt-a-file-or-directory-with-gpg-paranoid-level-1)
 	* [Steganography. Paranoid level 2](#steganography-paranoid-level-2)
+	* [Create custom commands](#create-custom-commands)
 	* [Install a font](#install-a-font)
 	* [VNC server](#vnc-server)
 		* [Starting a VNC server](#starting-a-vnc-server)
@@ -353,6 +354,19 @@ Install `steghide` command line utility. To embed a secret into an image run:
 You will need another passphrase to embed the secret into the image. To extract the secret from the image
 
 `steghide extract -sf image.jpg`
+
+### Create custom commands
+
+I keep my custom commands in a file called### Create custom commands
+
+I keep my custom commands in a file called `.custom_commands.sh`. This file is sourced by `.bashrc` where I added this line at the bottom `source .custom_commands.sh`. Inside the file `.custom_commands.sh` I create my custom functions:
+
+```
+# Custom Function
+my_function () {
+place your code here
+}
+``` 
 
 ### Install a font
 
