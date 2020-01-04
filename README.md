@@ -346,6 +346,26 @@ You can change the `screen` option (72 dpi) to `ebook` (150 dpi), `prepress` (30
 Check the device name with `lsblk` and then use `pmount device [ label ]` and `pumount` to mount/unmount it. If label is given, the mount point will be `/media/label`,
 otherwise it will be `/media/device`.
 
+### Encrypt a file or directory with GPG. Paranoid level 1
+
+To **encrypt a file*** `gpg -c filename` outputs `filename.gpg`. To **decrypt a file** `gpg filename.gpg`.
+
+To **encrypt directories** `gpgtar -c -o file.gpg dirname`. To **decrypt a directory** `gpgtar -d file.gpg`
+
+You will then be prompted for a passphrase.
+
+### Steganography. Paranoid level 2
+
+When you need to hide a secret you can encrypt the file. But an adversary will know that something is hidden, and they can attempt to break the code by putting some brute force. But if you embed this encrypted secret into an apparently normal file. The third person would not even be aware of the fact that a seemingly harmless looking image or audio file carries a secret message or a file embedded in it. This type of encryption where you hide one file securely into another is called **Steganography**. And I use it a lot. 
+
+Install `steghide` command line utility. To embed a secret into an image run:
+
+`steghide embed -ef secret.ggp -cf image.jpg`
+
+You will need another passphrase to embed the secret into the image. To extract the secret from the image
+
+`steghide extract -sf image.jpg`
+
 ### Install a font
 
 Move it to `~/.local/share/fonts`. More info [here](https://wiki.archlinux.org/index.php/Fonts)
