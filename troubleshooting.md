@@ -122,6 +122,20 @@ Default sample rate         = 48000
 2019-11-26 13:00:52.079: Success
 ```
 
+In the end I made a script inside `~/Lightworks` folder that checks what is the device number for jack and then writes in `GlobalSettings.txt`
+
+```
+#!/bin/bash
+
+LWDEVICE=`python -m sounddevice | grep jack | cut -c 3-4`
+
+echo "[PortAudio]" > GlobalSettings.txt
+echo "InputDeviceIndex=${LWDEVICE}" >> GlobalSettings.txt
+echo "OutputDeviceIndex=${LWDEVICE}" >> GlobalSettings.txt
+```
+
+You need to install `sounddevice` by doing `pip install sounddevice --user` and load the script at the beginning (I load mine from i3 config file).
+
 ## CUPS
 
 ### Cannot access http://localhost:631
