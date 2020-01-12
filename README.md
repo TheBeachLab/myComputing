@@ -764,15 +764,19 @@ Section "OutputClass"
 EndSection
 ```
 
-and reboot. My config for extra screen:
+and reboot. There is a flickering in the cursor sometimes. I still haven't debug the origin. 
+
+My config for `xrandr` screen on the right side:
 
 `xrandr --output eDP-1 --primary --auto --output DVI-I-1-1 --right-of eDP-1 --auto`
 
 If I want it rotated then
 
-`xrandr --output eDP-1 --primary --auto --output DVI-I-1-1 --rotate left --right-of eDP-1 --auto`
+`xrandr --output eDP-1 --primary --auto --output DVI-I-1-1 --rotate left --left-of eDP-1 --auto`
 
-or mirror:
+It is preferable to place the rotated screen on the left side due to the view angle specs of the screen. The view angle from above is much greater than from below. So if you place it on the right side, you are viewing the screen from below. Whilst if you place it on the left side you are viewing it from above. 
+
+mirror screen:
 
 `xrandr --output eDP-1 --primary --auto --output DVI-I-1-1 --same-as eDP-1 --auto`
 
