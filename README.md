@@ -66,7 +66,7 @@ This is how I do my computing now
 * [Video and YouTube](#video-and-youtube)
 	* [Download youtube video and subtitles](#download-youtube-video-and-subtitles)
 	* [Hardcode subtitles into video](#hardcode-subtitles-into-video)
-	* [Download audio from youtube video](#download-audio-from-youtube-video)
+	* [Download a specific format from youtube video](#download-a-specific-format-from-youtube-video)
 	* [Convert GIF to MP4](#convert-gif-to-mp4)
 	* [DSLR Video Webcam](#dslr-video-webcam)
 		* [Hardware required](#hardware-required)
@@ -475,7 +475,7 @@ busybox ifconfig wlan0 hw ether xx:xx:xx:yy:yy:yy
 
 `ffmpeg -i` VIDEO-FILE `-vf subtitles=`SUBS-FILE OUTPUT-FILE
 
-### Download audio from youtube video
+### Download a specific format from youtube video
 
 First check the available formats
 
@@ -499,11 +499,11 @@ format code  extension  resolution note
 18           mp4        400x300    240p  147k , avc1.42001E, mp4a.40.2@ 96k (44100Hz), 7.90MiB (best)
 ```
 
-Select the one you want, in my case 251, which is the highest quality
+Select the one you want, in my case 251, which is the highest qudio uality
 
 `youtube-dl -f 251 GKgfCthuiV0`
 
-Now transcode the webm file into wav (or any other) format you want
+Optional: transcode the webm file into wav (or any other) format you want
 
 `ffmpeg -i file.webm file.wav`
 
