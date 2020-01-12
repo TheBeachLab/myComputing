@@ -63,6 +63,7 @@ This is how I do my computing now
 		* [Change MAC address with `macchanger`](#change-mac-address-with-macchanger)
 		* [Change MAC address with vanilla commands](#change-mac-address-with-vanilla-commands)
 		* [Change MAC address to a rooted Android in terminal](#change-mac-address-to-a-rooted-android-in-terminal)
+		* [Block/unblock wireless devices to save battery](#blockunblock-wireless-devices-to-save-battery)
 * [Video and YouTube](#video-and-youtube)
 	* [Download youtube video and subtitles](#download-youtube-video-and-subtitles)
 	* [Hardcode subtitles into video](#hardcode-subtitles-into-video)
@@ -464,6 +465,19 @@ busybox ifconfig wlan0 hw ether xx:xx:xx:yy:yy:yy
 ```
 
 > **Warning!** These changes are permanent
+
+#### Block/unblock wireless devices to save battery
+
+List the wireless devices `rfkill`
+
+```
+[unix ~]$ rfkill
+ID TYPE      DEVICE                   SOFT      HARD
+ 0 bluetooth tpacpi_bluetooth_sw   blocked unblocked
+ 1 wlan      phy0                unblocked unblocked
+```
+
+And block (or unblock) the desired one `sudo rfkill block 1`.
 
 ## Video and YouTube
 
