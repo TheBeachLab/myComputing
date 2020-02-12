@@ -74,11 +74,15 @@ This is how I do my computing now
 		* [Software required](#software-required)
 		* [Canon 7D](#canon-7d)
 		* [Canon M6](#canon-m6)
+	* [Virtual webcam from OBS output](#virtual-webcam-from-obs-output)
+		* [v4l2loopback](#v4l2loopback)
+		* [OBS Studio Plugin](#obs-studio-plugin)
 * [Dummy serial and lp ports](#dummy-serial-and-lp-ports)
 * [Polybar](#polybar)
 * [Audio](#audio)
 	* [Jack Audio](#jack-audio)
 	* [alsamixer](#alsamixer)
+	* [Keeyees Logic Analizer (Saleale Logic 8 clone)](#keeyees-logic-analizer-saleale-logic-8-clone)
 
 <!-- vim-markdown-toc -->
 
@@ -363,7 +367,6 @@ I keep my custom commands in a file called### Create custom commands
 I keep my custom commands in a file called `.custom_commands.sh`. This file is sourced by `.bashrc` where I added this line at the bottom `source .custom_commands.sh`. Inside the file `.custom_commands.sh` I create my custom functions:
 
 ```
-# Custom Function
 my_function () {
 place your code here
 }
@@ -560,6 +563,28 @@ The Canon 7D has a mini HDMI port out. With the Canon firmware 2.0.3 I cannot ob
 Canon M6 has a micro HDMI port. With the Canon M6 I can obtain a clean HDMI out in manual focus. But controlling the camera settings is just annoying. USB tether does not seem to work and there is a Canon App which is so faulty. 
 
 Magic Lantern is not available for the M6. It could run [CHDK](https://chdk.fandom.com/wiki/CHDK) but at the moment of writing the firmware is still unported.
+
+### Virtual webcam from OBS output
+
+![composite](img/composite-small.png)
+
+There is a way. Tricky, not trivial, to pipe the output of OBS studio into a virtual webcam that you can use in a videoconference (for instance). Here's how I do it.
+
+#### v4l2loopback
+
+First clone and install `v4l2loopback` from here [https://github.com/umlaeute/v4l2loopback](https://github.com/umlaeute/v4l2loopback). You can load the kernel module like this:
+
+`sudo modprobe v4l2loopback video_nr=9`
+
+This will create a virtual video device `/dev/video9`
+
+When you want to remove the device use `sudo rmprobe v4l2loopback`
+
+#### OBS Studio Plugin
+
+I installed the AUR package `obs-v4l2sink` which is actually a sink where OBS will pour the virtual webcam. Then in OBS top menu select `tools/v4l2sink` and choose the video device `/dev/video9` that you activated before and `YUV12` format.
+
+You will be able now to use a new webcam that will appear (working in zoom and Firefox). Not yet working for Chrome.
 
 ## Dummy serial and lp ports
 
@@ -1039,3 +1064,8 @@ Section "InputClass"
     Option "DisableWhileTyping" "false"
 EndSection
 ```
+
+### Keeyees Logic Analizer (Saleale Logic 8 clone)
+
+During Fab Academy Instructors' Bootcamp I learned about this logic analyzer. Henk was using it in his Linux computer so I got one from Amazon. Is the Keeyees 8Ch 24Mhz. I downloaded Saleale Logic 1.2.18, set the permissions according to the instructions in Drivers folder and it just works perfectly.
+
