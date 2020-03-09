@@ -952,17 +952,7 @@ Source  Event                  Ch  Data
 
 ![canon Lide 60](img/canonlide.jpg)
 
-At the time of writing `sane 1.0.28` has a bug that prevents using the Canon LiDE 60:
-
-`Failed to open device 'genesis:libusb:001:005': Invalid argument.`
-
-Downgrade/install an old version of sane:
-
-`sudo pacman -U https://archive.archlinux.org/packages/s/sane/sane-1.0.27-2-x86_64.pkg.tar.xz`
-
-And ignore the sane package to prevent an upgrade in `/etc/pacman.conf` until a fix is found.
-
-Install also the frontend `xsane`. Add yourself to the scanner group and reboot `sudo usermod -a -G scanner $USER`
+Install `sane` and optional the frontend `xsane`. Add yourself to the scanner group and reboot `sudo usermod -a -G scanner $USER`
 
 Check that your scanner is listed `scanimage -L`. If you don't want your cameras to be listed comment `v4l` in `/etc/sane.d/dll.conf`.
 
