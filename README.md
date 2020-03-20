@@ -50,47 +50,47 @@ This is how I do my computing now
 	* [Install a font](#install-a-font)
 	* [VNC server](#vnc-server)
 		* [Starting a VNC server](#starting-a-vnc-server)
-* [Screen](#screen)
-	* [Show the connected displays](#show-the-connected-displays)
-	* [Set physical dimensions of your display](#set-physical-dimensions-of-your-display)
-	* [Fix overscan problems in HDMI](#fix-overscan-problems-in-hdmi)
-* [Network](#network)
-	* [Changing the network interface names](#changing-the-network-interface-names)
-	* [Activating or deactivating network devices](#activating-or-deactivating-network-devices)
-	* [Obtaining DHCP address](#obtaining-dhcp-address)
-	* [Get your public IP](#get-your-public-ip)
-	* [Check current UL/DL speed](#check-current-uldl-speed)
-	* [Extend free wifi at airports](#extend-free-wifi-at-airports)
-		* [Change MAC address with `macchanger`](#change-mac-address-with-macchanger)
-		* [Change MAC address with vanilla commands](#change-mac-address-with-vanilla-commands)
-		* [Change MAC address to a rooted Android in terminal](#change-mac-address-to-a-rooted-android-in-terminal)
-		* [Block/unblock wireless devices to save battery](#blockunblock-wireless-devices-to-save-battery)
-* [Video and YouTube](#video-and-youtube)
-	* [Download youtube video and subtitles](#download-youtube-video-and-subtitles)
-	* [Download youtube audio](#download-youtube-audio)
-	* [Hardcode subtitles into video](#hardcode-subtitles-into-video)
-	* [Download a specific format from youtube video](#download-a-specific-format-from-youtube-video)
-	* [Convert GIF to MP4](#convert-gif-to-mp4)
-	* [DSLR Video Webcam](#dslr-video-webcam)
-		* [Hardware required](#hardware-required)
-		* [Software required](#software-required)
-		* [Canon 7D](#canon-7d)
-		* [Canon M6](#canon-m6)
-	* [Virtual webcam from OBS output](#virtual-webcam-from-obs-output)
-		* [v4l2loopback](#v4l2loopback)
-		* [OBS Studio Plugin](#obs-studio-plugin)
-* [Dummy serial and lp ports](#dummy-serial-and-lp-ports)
-* [Polybar](#polybar)
-* [Audio](#audio)
-	* [Jack Audio](#jack-audio)
-	* [alsamixer](#alsamixer)
-	* [Ardour](#ardour)
-	* [Helm](#helm)
-	* [Anbox](#anbox)
-	* [Piskel](#piskel)
-	* [gallery-dl](#gallery-dl)
-	* [Ghostwriter](#ghostwriter)
-	* [sway](#sway)
+	* [Screen](#screen)
+		* [Show the connected displays](#show-the-connected-displays)
+		* [Set physical dimensions of your display](#set-physical-dimensions-of-your-display)
+		* [Fix overscan problems in HDMI](#fix-overscan-problems-in-hdmi)
+	* [Network](#network)
+		* [Changing the network interface names](#changing-the-network-interface-names)
+		* [Activating or deactivating network devices](#activating-or-deactivating-network-devices)
+		* [Obtaining DHCP address](#obtaining-dhcp-address)
+		* [Get your public IP](#get-your-public-ip)
+		* [Check current UL/DL speed](#check-current-uldl-speed)
+		* [Extend free wifi at airports](#extend-free-wifi-at-airports)
+			* [Change MAC address with `macchanger`](#change-mac-address-with-macchanger)
+			* [Change MAC address with vanilla commands](#change-mac-address-with-vanilla-commands)
+			* [Change MAC address to a rooted Android in terminal](#change-mac-address-to-a-rooted-android-in-terminal)
+			* [Block/unblock wireless devices to save battery](#blockunblock-wireless-devices-to-save-battery)
+	* [Video and YouTube](#video-and-youtube)
+		* [Download youtube video and subtitles](#download-youtube-video-and-subtitles)
+		* [Download youtube audio](#download-youtube-audio)
+		* [Hardcode subtitles into video](#hardcode-subtitles-into-video)
+		* [Download a specific format from youtube video](#download-a-specific-format-from-youtube-video)
+		* [Convert GIF to MP4](#convert-gif-to-mp4)
+		* [DSLR Video Webcam](#dslr-video-webcam)
+			* [Hardware required](#hardware-required)
+			* [Software required](#software-required)
+			* [Canon 7D](#canon-7d)
+			* [Canon M6](#canon-m6)
+		* [Virtual webcam from OBS output](#virtual-webcam-from-obs-output)
+			* [v4l2loopback](#v4l2loopback)
+			* [OBS Studio Plugin](#obs-studio-plugin)
+	* [Dummy serial and lp ports](#dummy-serial-and-lp-ports)
+	* [Polybar](#polybar)
+	* [Audio](#audio)
+		* [Jack Audio](#jack-audio)
+		* [alsamixer](#alsamixer)
+		* [Ardour](#ardour)
+		* [Helm](#helm)
+		* [Anbox](#anbox)
+		* [Piskel](#piskel)
+		* [gallery-dl](#gallery-dl)
+		* [Ghostwriter](#ghostwriter)
+		* [sway](#sway)
 * [Hardware](#hardware)
 	* [PS3 Eye](#ps3-eye)
 	* [DNIe reader](#dnie-reader)
@@ -409,56 +409,56 @@ To start `x0vncserver -display :0 -passwordfile .vnc/passwd`
 
 To stop just close the terminal process.
 
-## Screen
+### Screen
 
-### Show the connected displays
+#### Show the connected displays
 
 `xrandr`
 
-### Set physical dimensions of your display
+#### Set physical dimensions of your display
 
 Useful for showing real dimensions at 100% `xrandr --fbmm 310x175`
 
-### Fix overscan problems in HDMI
+#### Fix overscan problems in HDMI
 
 This should work `xrandr --output HDMI1 --set underscan on --set "underscan vborder" 25 --set "underscan hborder" 40` but it is not working in my case
 
-## Network
+### Network
 
-### Changing the network interface names
+#### Changing the network interface names
 
 Add/edit a file in `/etc/udev/rules.d/10-network.rules` and reboot
 
-```
+```bash
 SUBSYSTEM=="net", ACTION=="add", ATTR{address}=="c8:5b:76:e5:fc:23", NAME="cable0"
 SUBSYSTEM=="net", ACTION=="add", ATTR{address}=="00:28:f8:2b:12:18", NAME="wifi0"
 ```
 
-### Activating or deactivating network devices
+#### Activating or deactivating network devices
 
 Activate ethernet: `sudo ip link set cable0 up`
 
 Deactivate wifi: `sudo ip link set wifi0 down`
 
-### Obtaining DHCP address
+#### Obtaining DHCP address
 
 `dhcpcd cable0`
 
-### Get your public IP
+#### Get your public IP
 
 `curl https://ipinfo.io/ip` you can pipe it to `iponmap`
 
 `curl https://ipinfo.io/ip | iponmap`
 
-### Check current UL/DL speed
+#### Check current UL/DL speed
 
 `vnstat --live -i wifi0`
 
-### Extend free wifi at airports
+#### Extend free wifi at airports
 
 They usually bind the 1h free connection to the MAC address of the device. So after the 1h is out just change the MAC address and connect again.
 
-#### Change MAC address with `macchanger`
+##### Change MAC address with `macchanger`
 
 First install `macchanger` and then use it like this:
 
@@ -466,7 +466,7 @@ First install `macchanger` and then use it like this:
 
 `macchanger -p wifi0` return to the hardware factory MAC address
 
-#### Change MAC address with vanilla commands
+##### Change MAC address with vanilla commands
 
 This process is a bit longer, just if your haven't yet downloaded `macchanger`, use this instead:
 
@@ -477,7 +477,7 @@ ip link set dev wifi0 address xx:xx:xx:yy:yy:yy
 ip link set dev wifi0 up
 ```
 
-#### Change MAC address to a rooted Android in terminal
+##### Change MAC address to a rooted Android in terminal
 
 Open `termux` or any other terminal app and look for your wifi interface (here `wlan0`):
 
@@ -490,11 +490,11 @@ busybox ifconfig wlan0 hw ether xx:xx:xx:yy:yy:yy
 
 > **Warning!** These changes are permanent
 
-#### Block/unblock wireless devices to save battery
+##### Block/unblock wireless devices to save battery
 
 List the wireless devices `rfkill`
 
-```
+```bash
 [unix ~]$ rfkill
 ID TYPE      DEVICE                   SOFT      HARD
  0 bluetooth tpacpi_bluetooth_sw   blocked unblocked
@@ -503,27 +503,27 @@ ID TYPE      DEVICE                   SOFT      HARD
 
 And block (or unblock) the desired one `sudo rfkill block 1`.
 
-## Video and YouTube
+### Video and YouTube
 
-### Download youtube video and subtitles
+#### Download youtube video and subtitles
 
 `youtube-dl --write-auto-sub` URL-VIDEO
 
-### Download youtube audio
+#### Download youtube audio
 
 `youtube-dl -x --audio-format mp3` URL-VIDEO 
 
-### Hardcode subtitles into video
+#### Hardcode subtitles into video
 
 `ffmpeg -i` VIDEO-FILE `-vf subtitles=`SUBS-FILE OUTPUT-FILE
 
-### Download a specific format from youtube video
+#### Download a specific format from youtube video
 
 First check the available formats
 
 `youtube-dl -F GKgfCthuiV0` where GKgfCthuiV0 is the youtube code of the video
 
-```
+```bash
 [youtube] GKgfCthuiV0: Downloading webpage
 [youtube] GKgfCthuiV0: Downloading video info webpage
 [info] Available formats for GKgfCthuiV0:
@@ -549,7 +549,7 @@ Optional: transcode the webm file into wav (or any other) format you want
 
 `ffmpeg -i file.webm file.wav`
 
-### Convert GIF to MP4
+#### Convert GIF to MP4
 
 `ffmpeg -i animated.gif -movflags faststart -pix_fmt yuv420p -vf "scale=trunc(iw/2)*2:trunc(ih/2)*2" video.mp4`
 
@@ -559,9 +559,9 @@ Explanation
 - `pix_fmt` – MP4 videos store pixels in different formats. We include this option to specify a specific format which has maximum compatibility across all browsers.
 - `vf` – MP4 videos using H.264 need to have a dimensions that are divisible by 2. This option ensures that’s the case.
 
-### DSLR Video Webcam
+#### DSLR Video Webcam
 
-#### Hardware required
+##### Hardware required
 
 You need a capture card to get the HDMI out signal from the DSLR. I bought a cheap HDMI to USB3 capture card in Amazon that works with the V4L2 module without drivers, just plug and play. The card is unbranded and the chipset inside is:
 
@@ -575,27 +575,27 @@ The DSLR camera will become now a Webcam. You can even select it in your videoco
 
 It is convenient that you also get a AC battery adapter to make sure the battery won't die during capture.
 
-#### Software required
+##### Software required
 
 You can capture video with pretty much anything but I mostly use [OBS Studio](https://obsproject.com/). It allows you to create scenes, overlays, green screen, etc.
 
-#### Canon 7D
+##### Canon 7D
 
 The Canon 7D has a mini HDMI port out. With the Canon firmware 2.0.3 I cannot obtain a clean HDMI out. There is always the focus rectangle there. So I downloaded [Magoc Lantern Firmware](https://magiclantern.fm/). To control the camera settings I use [Entangle](https://entangle-photo.org/) which allows me to capture images as well as control the camera settings.
 
-#### Canon M6
+##### Canon M6
 
 Canon M6 has a micro HDMI port. With the Canon M6 I can obtain a clean HDMI out in manual focus. But controlling the camera settings is just annoying. USB tether does not seem to work and there is a Canon App which is so faulty. 
 
 Magic Lantern is not available for the M6. It could run [CHDK](https://chdk.fandom.com/wiki/CHDK) but at the moment of writing the firmware is still unported.
 
-### Virtual webcam from OBS output
+#### Virtual webcam from OBS output
 
 ![composite](img/composite-small.png)
 
 There is a way. Tricky, not trivial, to pipe the output of OBS studio into a virtual webcam that you can use in a videoconference (for instance). Here's how I do it.
 
-#### v4l2loopback
+##### v4l2loopback
 
 First clone and install `v4l2loopback` from here [https://github.com/umlaeute/v4l2loopback](https://github.com/umlaeute/v4l2loopback). You can load the kernel module like this:
 
@@ -605,13 +605,13 @@ This will create a virtual video device `/dev/video9`
 
 When you want to remove the device use `sudo rmprobe v4l2loopback`
 
-#### OBS Studio Plugin
+##### OBS Studio Plugin
 
 I installed the AUR package `obs-v4l2sink` which is actually a sink where OBS will pour the virtual webcam. Then in OBS top menu select `tools/v4l2sink` and choose the video device `/dev/video9` that you activated before and `YUV12` format.
 
 You will be able now to use a new webcam that will appear (working in zoom and Firefox). Not yet working for Chrome.
 
-## Dummy serial and lp ports
+### Dummy serial and lp ports
 
 In order to create a dummy serial port for developing purposes install `tty0tty-git` AUR package and load the module:
 
@@ -620,25 +620,29 @@ sudo depmod
 sudo modprobe tty0tty
 ```
 
-You will see a number of serial ports `/dev/tntx`, make sure you give them permissions `sudo chmod 666 /dev/tnt*`
+You will see a number of serial ports `/dev/tntx`, make sure you give them permissions 
+
+```bash
+sudo chmod 666 /dev/tnt*
+```
 
 For testing printers and other devices, just send to `/dev/null`
 
-## Polybar
+### Polybar
 
 For displaying siji fonts `xfd -fa siji` check the glyph code and display with the code. For example `printf "\ue101"`
 
-## Audio
+### Audio
 
-### Jack Audio
+#### Jack Audio
 
 The default audio server in Linux is `pulseaudio`. That is fine for standard use (one recording sink). But once you start having more complex situations, where you want to record the output of the speakers or you want multiple recordings or playbacks, you will find limitations. That cannot be achieved with `pulseaudio`. You need a more advanced audio server. That server is `jack`.
 
 Installing jack is a bit tricky: install the following packages `jack2 libffado cadence jack_capture python-dbus realtime-privileges pulseaudio-jack`, add yourself to the groups `audio` and `realtime` then reboot. You should be able to start jack via `cadence`. Then make sure you autostart at boot. Otherwise you might notice that you cannot start `jack` if there is any other program using the audio, including browsers since they might block the interface. Hence the need to start `jack` server before starting any other audio software.
 
- Also bridge **ALSA Audio** using `ALSA > PulseAudio > JACK (Plugin)` option and bridge **PulseAudio** with Auto-start at login. Otherwise you might realise that you cannot play youtube videos while `jack` is running. 
+Also bridge **ALSA Audio** using `ALSA > PulseAudio > JACK (Plugin)` option and bridge **PulseAudio** with Auto-start at login. Otherwise you might realise that you cannot play youtube videos while `jack` is running. 
  
- In that case install the pakage `pulseaudio-jack`. Then edit `/etc/pulse/default.pa` and the following below `#load-module module-alsa-sink` section:
+In that case install the pakage `pulseaudio-jack`. Then edit `/etc/pulse/default.pa` and the following below `#load-module module-alsa-sink` section:
 
 ```bash
 load-module module-jack-sink
@@ -647,7 +651,7 @@ load-module module-jack-source
 
 And restart pulseaudio with `killall pulseaudio`
 
-### alsamixer
+#### alsamixer
 
 To set the default sound card. Check your devices `cat /proc/asound/cards`
 
@@ -708,31 +712,31 @@ ctl.!default {
 
 To set the default mutes/levels in alsamixer `su` and `alsactl store`
 
-### Ardour
+#### Ardour
 
 Ardour requires you to start jack server previously.
 
-### Helm
+#### Helm
 
 Placeholder for
 
-### Anbox
+#### Anbox
 
 Placeholder for
 
-### Piskel
+#### Piskel
 
 Placeholder for
 
-### gallery-dl
+#### gallery-dl
 
 Placeholder for
 
-### Ghostwriter
+#### Ghostwriter
 
 Placeholder for
 
-### sway
+#### sway
 
 Placeholder for
 
