@@ -84,6 +84,26 @@ This is how I do my computing now
 * [Audio](#audio)
 	* [Jack Audio](#jack-audio)
 	* [alsamixer](#alsamixer)
+	* [Ardour](#ardour)
+	* [Helm](#helm)
+	* [Anbox](#anbox)
+	* [Piskel](#piskel)
+	* [gallery-dl](#gallery-dl)
+	* [Ghostwriter](#ghostwriter)
+	* [sway](#sway)
+* [Hardware](#hardware)
+	* [PS3 Eye](#ps3-eye)
+	* [DNIe reader](#dnie-reader)
+	* [Asus MB168B+ USB display](#asus-mb168b-usb-display)
+	* [HDMI](#hdmi)
+	* [Space Navigator](#space-navigator)
+	* [Contour Shuttle Pro 2](#contour-shuttle-pro-2)
+	* [Wacom Intuos 3](#wacom-intuos-3)
+	* [Yamaha P-45](#yamaha-p-45)
+	* [Canon LiDE 60](#canon-lide-60)
+	* [eGPU Beast 8.5c](#egpu-beast-85c)
+		* [For Radeon HD 6450](#for-radeon-hd-6450)
+	* [Trackpad tips](#trackpad-tips)
 	* [Keeyees Logic Analizer (Saleale Logic 8 clone)](#keeyees-logic-analizer-saleale-logic-8-clone)
 
 <!-- vim-markdown-toc -->
@@ -639,9 +659,9 @@ To set the default sound card. Check your devices `cat /proc/asound/cards`
                       VXIS Inc FHD Capture at usb-0000:00:14.0-2.2, super speed
 ```
 
- `aplay -l`
+Type `aplay -l`
  
- ```bash
+```bash
  **** List of PLAYBACK Hardware Devices ****
 card 0: PCH [HDA Intel PCH], device 0: CX8200 Analog [CX8200 Analog]
   Subdevices: 0/1
@@ -666,7 +686,7 @@ card 1: Microphone [Yeti Stereo Microphone], device 0: USB Audio [USB Audio]
   Subdevice #0: subdevice #0
 ```
  
- and modify `sudo nano /etc/asound.conf` to use CX8200 by default
+and modify `sudo nano /etc/asound.conf` to use CX8200 by default
 
 
 ```bash
@@ -693,25 +713,33 @@ Ardour requires you to start jack server previously.
 
 ### Helm
 
-### Carla
-
-### MindMapp
+Placeholder for
 
 ### Anbox
 
+Placeholder for
+
 ### Piskel
+
+Placeholder for
 
 ### gallery-dl
 
+Placeholder for
+
 ### Ghostwriter
 
+Placeholder for
+
 ### sway
+
+Placeholder for
 
 ## Hardware
 
 ### PS3 Eye
 
-> Placeholder for Playstation 3 Eye
+Placeholder for Playstation 3 Eye
 
 ### DNIe reader
 
