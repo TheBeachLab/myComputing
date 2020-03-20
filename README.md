@@ -2,6 +2,7 @@
  
 This is how I do my computing now
 
+
 <!-- vim-markdown-toc GFM -->
 
 * [The Operating System](#the-operating-system)
@@ -362,15 +363,13 @@ You will need another passphrase to embed the secret into the image. To extract 
 
 ### Create custom commands
 
-I keep my custom commands in a file called### Create custom commands
-
 I keep my custom commands in a file called `.custom_commands.sh`. This file is sourced by `.bashrc` where I added this line at the bottom `source .custom_commands.sh`. Inside the file `.custom_commands.sh` I create my custom functions:
 
 ```
 my_function () {
 place your code here
 }
-``` 
+```
 
 ### Install a font
 
@@ -626,7 +625,7 @@ And restart pulseaudio with `killall pulseaudio`
 
 To set the default sound card. Check your devices `cat /proc/asound/cards`
 
-```
+```bash
  0 [PCH            ]: HDA-Intel - HDA Intel PCH
                       HDA Intel PCH at 0xe2340000 irq 137
  1 [Microphone     ]: USB-Audio - Yeti Stereo Microphone
@@ -637,7 +636,7 @@ To set the default sound card. Check your devices `cat /proc/asound/cards`
 
  `aplay -l`
  
- ```
+ ```bash
  **** List of PLAYBACK Hardware Devices ****
 card 0: PCH [HDA Intel PCH], device 0: CX8200 Analog [CX8200 Analog]
   Subdevices: 0/1
@@ -665,7 +664,7 @@ card 1: Microphone [Yeti Stereo Microphone], device 0: USB Audio [USB Audio]
  and modify `sudo nano /etc/asound.conf` to use CX8200 by default
 
 
-```
+```bash
 pcm.!default {
   type hw
   card 0
@@ -721,7 +720,7 @@ And an ACR38 from Estonia digital citizenship
 
 Insert your DNIe reader and check with `lsusb`, you should see one of your readers, among other USB devices
 
-```
+```bash
 [unix ~]$ lsusb
 Bus 001 Device 013: ID 0783:0006 C3PO LTC31v2
 Bus 001 Device 015: ID 072f:90cc Advanced Card Systems, Ltd ACR38 SmartCard Reader
@@ -730,7 +729,7 @@ Bus 001 Device 015: ID 072f:90cc Advanced Card Systems, Ltd ACR38 SmartCard Read
 
 Install the following packages `opensc ccid` other sources say ` pcsc-perl pcsc-tools pcsclite ` and AUR `libpkcs11-dnie ca-certificates-dnie`. Then try to read the scanner with `pcsc_scan`
 
-```
+```bash
 [unix ~]$ pcsc_scan
 Using reader plug'n play mechanism
 Scanning present readers...
@@ -747,7 +746,7 @@ Wed Dec  4 11:14:10 2019
 
 With a DNIe inserted you should see this:
 
-```
+```bash
 [unix ~]$ pcsc_scan
 Using reader plug'n play mechanism
 Scanning present readers...
@@ -907,6 +906,7 @@ client 14: 'Midi Through' [type=kernel]
 client 20: 'Digital Piano' [type=kernel,card=1]
     0 'Digital Piano MIDI 1'
 ```
+
 And you can connect this device to your DAW or MIDI software. Check the activity with `aseqdump`. So far is not detecting pressure sensitivity. I haven't checked the foot pedal yet.
 
 ```bash
@@ -982,7 +982,7 @@ I use `libinput` driver instead of the former `xf86-input-synaptic`. Something t
 
 There is another problem. By default touchpad is disabled while typing. But for playing with the synths knobs you will want it activated. In order to have the touchpad working while a key is pressed do the following:
 
-```
+```bash
 [unix ~]$ xinput
 ⎡ Virtual core pointer                          id=2    [master pointer  (3)]
 ⎜   ↳ Virtual core XTEST pointer                id=4    [slave  pointer  (2)]
@@ -1000,7 +1000,7 @@ There is another problem. By default touchpad is disabled while typing. But for 
 
 In my case it is the touchpad id is 14. But this number is not persistent across sessions, so it is better to use the name. Now list the properties:
 
-```
+```bash
 [unix ~]$ xinput list-props 'TM3289-002'
 Device 'Synaptics TM3289-002':
         Device Enabled (169):   1
@@ -1044,7 +1044,7 @@ And I see the property that causes the problem is *libinput Disable While Typing
 
 To make these changes persistent at every login, write your desired settings in `/etc/X11/xorg.conf.d/30-touchpad.conf`. These are mine, where I have disabled tapping (my hand are shaky with so much coffee) and I have also disabled the 3 regions with the CLickMethod option. Check libinput documentation for the available options.
 
-```
+```bash
 Section "InputClass"
 	Identifier "touchpad"
 	Driver "libinput"

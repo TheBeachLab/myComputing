@@ -1,3 +1,0 @@
-[PortAudio]
-InputDeviceIndex= 6
-OutputDeviceIndex= 6
