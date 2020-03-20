@@ -101,6 +101,7 @@ This is how I do my computing now
 	* [Wacom Intuos 3](#wacom-intuos-3)
 	* [Yamaha P-45](#yamaha-p-45)
 	* [Canon LiDE 60](#canon-lide-60)
+	* [eGPU Nvidia RTX2070 Super in a Razer X Thunderbolt external enclosure](#egpu-nvidia-rtx2070-super-in-a-razer-x-thunderbolt-external-enclosure)
 	* [eGPU Beast 8.5c](#egpu-beast-85c)
 		* [For Radeon HD 6450](#for-radeon-hd-6450)
 	* [Trackpad tips](#trackpad-tips)
@@ -992,6 +993,17 @@ Check that your scanner is listed `scanimage -L`. If you don't want your cameras
 Try to scan something through xsane or manually using the device name shown in the step above:
 
 `scanimage --device "genesys:libusb:001:004" --format=png > test.png`
+
+### eGPU Nvidia RTX2070 Super in a Razer X Thunderbolt external enclosure
+
+First make sure that your BIOS has a security setting that allows you to use the Thunderbolt port as a display port. Install the `nvidia nvidia-settings nvidia-utils opencl-nvidia cuda cudnn nvtop` packages. You can use the card as a coprocessor for training neural networks, blender cycles, etc. But if you want to use Blender EEVEE, X-Plane, etc you need to connect an external monitor to the card and switch GPUs.
+
+How to switch GPUs for internal to eGPU:
+
+- Clone the following repository <https://github.com/TheBeachLab/gswitch>
+- Follow the installation instructions
+- To switch to eGPU `sudo gswitch egpu`
+- To switch to internal `sudo gswitch internal` 
 
 ### eGPU Beast 8.5c
 
