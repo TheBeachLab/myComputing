@@ -67,6 +67,7 @@ This is how I do my computing now
 		* [Block/unblock wireless devices to save battery](#blockunblock-wireless-devices-to-save-battery)
 * [Video and YouTube](#video-and-youtube)
 	* [Download youtube video and subtitles](#download-youtube-video-and-subtitles)
+	* [Download youtube audio](#download-youtube-audio)
 	* [Hardcode subtitles into video](#hardcode-subtitles-into-video)
 	* [Download a specific format from youtube video](#download-a-specific-format-from-youtube-video)
 	* [Convert GIF to MP4](#convert-gif-to-mp4)
@@ -486,6 +487,10 @@ And block (or unblock) the desired one `sudo rfkill block 1`.
 ### Download youtube video and subtitles
 
 `youtube-dl --write-auto-sub` URL-VIDEO
+
+### Download youtube audio
+
+`youtube-dl -x --audio-format mp3` URL-VIDEO 
 
 ### Hardcode subtitles into video
 
