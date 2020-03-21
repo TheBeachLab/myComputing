@@ -1,14 +1,18 @@
 # Linux troublehooting
 
-- [Canon Lide 120](#canon-lide-120)
-- [Old libraries not found](#old-libraries-not-found)
-- [Pacman troubleshooting](#pacman-troubleshooting)
-- [No audio in Lightworks using JACK Audio](#no-audio-in-lightworks-using-jack-audio)
-- [CUPS](#cups)
-  - [Cannot access http://localhost:631](#cannot-access-httplocalhost631)
-  - [Roland does not appear in CUPS](#roland-does-not-appear-in-cups)
-- [Send to Roland Vinyl](#send-to-roland-vinyl)
-- [TODO X220](#todo-x220)
+<!-- vim-markdown-toc GFM -->
+
+* [Canon Lide 120](#canon-lide-120)
+* [Old libraries not found](#old-libraries-not-found)
+* [Pacman troubleshooting](#pacman-troubleshooting)
+* [No audio in Lightworks using JACK Audio](#no-audio-in-lightworks-using-jack-audio)
+* [CUPS](#cups)
+	* [Cannot access http://localhost:631](#cannot-access-httplocalhost631)
+	* [Roland does not appear in CUPS](#roland-does-not-appear-in-cups)
+* [Send to Roland Vinyl](#send-to-roland-vinyl)
+* [TODO X220](#todo-x220)
+
+<!-- vim-markdown-toc -->
 
 ## Canon Lide 120
 
