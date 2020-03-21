@@ -7,12 +7,9 @@
 * [Check file sizes with `du` `ncdu` and `df`](#check-file-sizes-with-du-ncdu-and-df)
 * [Monitor the system with `htop` `gtop` and `powertop`](#monitor-the-system-with-htop-gtop-and-powertop)
 * [iponmap](#iponmap)
-* [wego](#wego)
 * [instantmusic](#instantmusic)
 * [neomutt](#neomutt)
 * [mapscii](#mapscii)
-* [midnight commander](#midnight-commander)
-* [vifm](#vifm)
 * [asciinema](#asciinema)
 * [nms](#nms)
 * [cmatrix](#cmatrix)
@@ -47,10 +44,6 @@ I bet you didn't know this one. Start with `Betty what time is it?`
 
 Mandatory tool for hackers pretending be cool. It will place a dot in a map when you supply an IP address. Try `iponmap 4.4.4.4` 
 
-## wego
-
-An awesome ASCII CLI weather tool for the terminal. You need to register for an API key [here](https://developer.forecast.io/register).
-  
 ## instantmusic
 
 `instantmusic` is a `youtube-dl` variant for downloading music. Just type `instantmusic` and the tool will ask you to enter any detail about the song you want (artist, song name, etc...). It will display a list of options for you to download. The resulting format will be a `mp3` file
@@ -62,27 +55,6 @@ The classic mail client `mutt` just supercharged with some extra functionalities
 ## mapscii
 
 That is one of these amazing cli tools! Just explore highly detailed maps from the command line.
-
-## midnight commander
-
-A file navigation system for the CLI to easily copy/move/detete files and folders. It's main characteristic is the split screen. Some useful shortcuts to get used to it:
-
-- `CONTROL` + `o` toggle MC and terminal
-- `ALT` + `.` toggle hidden files
-- `CONTROL` + `u` swap the panels
-- `ALT` + `i` bring inactive panel to the same directory as the active panel
-- `TAB` jump between panels
-- `ALT` + `s` find as you type and select. Next by using `ALT` + `s` again
-- `INSERT` or right click toggle select file/folder under the cursor
-- `*` invert the selection
-- `+` or `-` select or deselect using a pattern
-- When copying or moving, the opposite panel is selected as the destination
-- `F3` quick view a text file
-- `F4` quick edit a text file
-
-## vifm
-
-Another cli file manager
 
 ## asciinema
 
