@@ -2,6 +2,7 @@
 
 <!-- vim-markdown-toc GFM -->
 
+* [corona-cli](#corona-cli)
 * [scrot](#scrot)
 * [Betty, the CLI Siri](#betty-the-cli-siri)
 * [Check file sizes with `du` `ncdu` and `df`](#check-file-sizes-with-du-ncdu-and-df)
@@ -27,6 +28,12 @@
 * [gallery-dl](#gallery-dl)
 
 <!-- vim-markdown-toc -->
+
+## corona-cli
+
+Track the coronavirus from the command line. <https://github.com/ahmadawais/corona-cli>.
+
+![corona](img/corona.gif)
 
 ## scrot
 
