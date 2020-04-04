@@ -3,6 +3,7 @@
 
 <!-- vim-markdown-toc GFM -->
 
+* [Get persistent sound card numbers](#get-persistent-sound-card-numbers)
 * [Jack Audio](#jack-audio)
 * [alsamixer](#alsamixer)
 * [Add the USB mic Yeti to `jack`](#add-the-usb-mic-yeti-to-jack)
@@ -11,6 +12,15 @@
 * [Helm](#helm)
 
 <!-- vim-markdown-toc -->
+
+## Get persistent sound card numbers
+
+Check the sound modules and their numbers `cat /proc/asound/modules` and create a file `/etc/modprobe.d/alsa-base.conf` with this content:
+
+```bash
+options snd_hda_intel index=0
+```
+
 
 ## Jack Audio
 
