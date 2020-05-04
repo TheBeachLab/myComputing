@@ -286,6 +286,8 @@ How to switch GPUs for internal to eGPU:
 - To switch to eGPU `sudo gswitch egpu`
 - To switch to internal `sudo gswitch internal` 
 
+> Note: From time to time the PCI ID of the egpu will change and switching to the egpu will stop working. In that case run `sudo gswitch setup` again.
+
 ## eGPU Beast 8.5c
 
 This is an external GPU adapter that I bought on [Amazon](https://amzn.to/2nruDnH). My version has a expresscard that I use for my Thinkpad X220. Seems to work with the Radeon HD6450. The following command detects the card:
