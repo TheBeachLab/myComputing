@@ -16,6 +16,7 @@
 	* [For Radeon HD 6450](#for-radeon-hd-6450)
 * [Trackpad tips](#trackpad-tips)
 * [Keeyees Logic Analizer (Saleale Logic 8 clone)](#keeyees-logic-analizer-saleale-logic-8-clone)
+* [Remapping a secondary keyboard](#remapping-a-secondary-keyboard)
 
 <!-- vim-markdown-toc -->
 
@@ -29,7 +30,7 @@ I have an LTC31
 
 ![ltc31](img/ltc31.jpg)
 
-And an ACR38 from Estonia digital citizenship 
+And an ACR38 from Estonia digital citizenship
 
 ![acr38](img/acr38.png)
 
@@ -49,12 +50,12 @@ Install the following packages `opensc ccid` other sources say ` pcsc-perl pcsc-
 Using reader plug'n play mechanism
 Scanning present readers...
 0: C3PO LTC31 v2 (00426712) 00 00
- 
+
 Wed Dec  4 11:14:10 2019
  Reader 0: C3PO LTC31 v2 (00426712) 00 00
   Event number: 1
-  Card state: Card removed, 
- / 
+  Card state: Card removed,
+ /
 ```
 
 > If you see something like `SCardEstablishContext: Service not available` try restarting the service with `systemctl restart pcscd.socket` and try again.
@@ -66,11 +67,11 @@ With a DNIe inserted you should see this:
 Using reader plug'n play mechanism
 Scanning present readers...
 0: C3PO LTC31 v2 (00426712) 00 00
- 
+
 Wed Dec  4 11:16:59 2019
  Reader 0: C3PO LTC31 v2 (00426712) 00 00
   Event number: 2
-  Card state: Card inserted, 
+  Card state: Card inserted,
   ATR: 3B 7F 96 00 00 00 6A 44 4E 49 65 10 01 01 55 04 21 03 90 00
 
 ATR: 3B 7F 96 00 00 00 6A 44 4E 49 65 10 01 01 55 04 21 03 90 00
@@ -93,7 +94,7 @@ Possibly identified card (using /usr/share/pcsc/smartcard_list.txt):
 3B 7F 96 00 00 00 6A 44 4E 49 65 10 01 01 55 04 .. 03 90 00
         DNIE Spain (eID)
         http://www.dnielectronico.es/PortalDNIe/
- | 
+ |
 ```
 
 Now in Firefox go to preferences, search for `devices` and click on `security devices`. Click `load` and add a meaningful name like `DNIe` and locate the following file `/usr/lib/libpkcs11-dnietif.so`. Now you should see the reader, if you select the reader and click on `log in` you can enter your DNIe pin/password and you are all set.
@@ -117,7 +118,7 @@ Section "OutputClass"
 EndSection
 ```
 
-and reboot. There is a flickering in the cursor sometimes. I still haven't debug the origin. 
+and reboot. There is a flickering in the cursor sometimes. I still haven't debug the origin.
 
 My config for `xrandr` screen on the right side:
 
@@ -127,7 +128,7 @@ If I want it rotated then
 
 `xrandr --output eDP-1 --primary --auto --output DVI-I-1-1 --rotate left --left-of eDP-1 --auto`
 
-It is preferable to place the rotated screen on the left side due to the view angle specs of the screen. The view angle from above is much greater than from below. So if you place it on the right side, you are viewing the screen from below. Whilst if you place it on the left side you are viewing it from above. 
+It is preferable to place the rotated screen on the left side due to the view angle specs of the screen. The view angle from above is much greater than from below. So if you place it on the right side, you are viewing the screen from below. Whilst if you place it on the left side you are viewing it from above.
 
 mirror screen:
 
@@ -167,7 +168,7 @@ https://www.lwks.com/index.php?option=com_kunena&func=view&catid=217&id=83353&It
 
 https://www.lwks.com/index.php?option=com_kunena&func=view&catid=217&id=116188&Itemid=81
 
-http://freshmeat.sourceforge.net/projects/shuttlepro 
+http://freshmeat.sourceforge.net/projects/shuttlepro
 
 ## Wacom Intuos 3
 
@@ -177,9 +178,9 @@ My old tablet for drawing and painting, still works like a charm. I am learning 
 
 ```bash
 [unix ~]$ xsetwacom list devices
-Wacom Intuos3 6x8 Pen stylus            id: 10  type: STYLUS    
-Wacom Intuos3 6x8 Pad pad               id: 11  type: PAD       
-Wacom Intuos3 6x8 Pen eraser            id: 17  type: ERASER    
+Wacom Intuos3 6x8 Pen stylus            id: 10  type: STYLUS
+Wacom Intuos3 6x8 Pad pad               id: 11  type: PAD
+Wacom Intuos3 6x8 Pen eraser            id: 17  type: ERASER
 Wacom Intuos3 6x8 Pen cursor            id: 18  type: CURSOR
 ```
 
@@ -284,7 +285,7 @@ How to switch GPUs for internal to eGPU:
 - Clone the following repository <https://github.com/TheBeachLab/gswitch>
 - Follow the installation instructions
 - To switch to eGPU `sudo gswitch egpu`
-- To switch to internal `sudo gswitch internal` 
+- To switch to internal `sudo gswitch internal`
 
 > Note: From time to time the PCI ID of the egpu will change and switching to the egpu will stop working. In that case run `sudo gswitch setup` again.
 
@@ -298,15 +299,15 @@ But does not detect my Nvidia 8800GT so far. Still researching.
 
 ### For Radeon HD 6450
 
-Install the open source driver `xf86-video-ati`. Install also `radeon-profile-git` AUR package which installs a qt application `radeon-profile` to display info about a Radeon card. 
+Install the open source driver `xf86-video-ati`. Install also `radeon-profile-git` AUR package which installs a qt application `radeon-profile` to display info about a Radeon card.
 
-If I insert the expresscard after booting, `radeon-profile` shows no card. I suspect the Kernel module is not loaded. 
+If I insert the expresscard after booting, `radeon-profile` shows no card. I suspect the Kernel module is not loaded.
 
 If I reboot with the expresscard inserted then the radeon kernel module loads and the screen goes to the radeon HDMI, leaving the laptop screen black. `startx` fails: XF86enableIOPorts operation not permitted. KMS Kernel modesetting enabled
 
 ## Trackpad tips
 
-I use `libinput` driver instead of the former `xf86-input-synaptic`. Something that I hate of the standars behaviour of the trackpad is the area for middle and right click, because I usually accidentally click the wrong button. 
+I use `libinput` driver instead of the former `xf86-input-synaptic`. Something that I hate of the standars behaviour of the trackpad is the area for middle and right click, because I usually accidentally click the wrong button.
 
 There is another problem. By default touchpad is disabled while typing. But for playing with the synths knobs you will want it activated. In order to have the touchpad working while a key is pressed do the following:
 
@@ -378,7 +379,7 @@ Section "InputClass"
 	Driver "libinput"
 	MatchIsTouchpad "on"
 	Option "Tapping" "off"
-	Option "ClickMethod" "clickfinger" 
+	Option "ClickMethod" "clickfinger"
     Option "DisableWhileTyping" "false"
 EndSection
 ```
@@ -386,3 +387,24 @@ EndSection
 ## Keeyees Logic Analizer (Saleale Logic 8 clone)
 
 During Fab Academy Instructors' Bootcamp I learned about this logic analyzer. Henk was using it in his Linux computer so I got one from Amazon. Is the Keeyees 8Ch 24Mhz. I downloaded Saleale Logic 1.2.18, set the permissions according to the instructions in Drivers folder and it just works perfectly.
+
+## Remapping a secondary keyboard
+
+Connect the keyboard and find the device ID `xinput list`. I am connecting an Apple keyboard:
+
+```bash
+⎣ Virtual core keyboard                         id=3    [master keyboard (2)]
+    ↳ Virtual core XTEST keyboard               id=5    [slave  keyboard (3)]
+    ↳ Power Button                              id=6    [slave  keyboard (3)]
+    ↳ Video Bus                                 id=7    [slave  keyboard (3)]
+    ↳ Sleep Button                              id=8    [slave  keyboard (3)]
+    ↳ Integrated Camera: Integrated C           id=13   [slave  keyboard (3)]
+    ↳ AT Translated Set 2 keyboard              id=15   [slave  keyboard (3)]
+    ↳ ThinkPad Extra Buttons                    id=16   [slave  keyboard (3)]
+    ↳ Apple, Inc Apple Keyboard                 id=9    [slave  keyboard (3)]
+    ↳ Apple, Inc Apple Keyboard                 id=10   [slave  keyboard (3)]
+```
+
+Now find out one key you want to remap `xev | awk -F'[ )]+' '/^KeyPress/ { a[NR+2] } NR in a { printf "%-3s %s\n", $5, $8 }'`
+
+For example pressing `p` in the external keyboard shows `33 p`

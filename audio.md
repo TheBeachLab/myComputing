@@ -10,6 +10,7 @@
 * [Check when the headphone is plugged and unplugged](#check-when-the-headphone-is-plugged-and-unplugged)
 * [Ardour](#ardour)
 * [Helm](#helm)
+* [Bluetooth](#bluetooth)
 
 <!-- vim-markdown-toc -->
 
@@ -150,4 +151,23 @@ Ardour requires you to start jack server previously.
 
 Placeholder for Helm synth
 
+## Bluetooth
 
+Install `bluez bluez-utils pulseaudio-bluetooth pulseaudio-alsa` and start/enable `bluetooth.service`. Make sure is not blocked `rfkill unblock bluetooth`
+
+Run `bluetoothctl`:
+- `power on`
+- `list` computer controller
+- `scan on/off` scan for devices
+- `devices` list discovered devices
+- `paired-devices` list them
+- `info` *device* check device info
+- `pair` *device* 
+- `trust` *device*
+- `connect` *device*  
+
+If you are getting a connection error `org.bluez.Error.Failed` retry by restarting PulseAudio daemon first `pulseaudio -k` and the `pulseaudio` and try again.
+
+`pacmd list-cards` to get the card number and `pacmd set-card-profile card_number a2dp_sink`
+
+But A2DP high fidelity profile is not working. No audio out. To keep fixing later.
