@@ -4,7 +4,9 @@
 
 * [Time and timezones](#time-and-timezones)
 * [Find all files containing specific text](#find-all-files-containing-specific-text)
-* [Reduce a PDF filesize](#reduce-a-pdf-filesize)
+* [PDF](#pdf)
+	* [Reduce a PDF filesize](#reduce-a-pdf-filesize)
+	* [Merge PDF files](#merge-pdf-files)
 * [Mount a USB drive](#mount-a-usb-drive)
 * [Encrypt a file or directory with GPG. Paranoid level 1](#encrypt-a-file-or-directory-with-gpg-paranoid-level-1)
 * [Steganography. Paranoid level 2](#steganography-paranoid-level-2)
@@ -68,11 +70,17 @@ For directories it's possible to exclude a particular directory(ies) through --e
 
 `grep --exclude-dir={dir1,dir2,*.dst} -rnw '/path/to/somewhere/' -e "pattern"`
 
-## Reduce a PDF filesize
+## PDF
+
+### Reduce a PDF filesize
 
 With ghostscript `gs -sDEVICE=pdfwrite -dCompatibilityLevel=1.4 -dPDFSETTINGS=/screen -dNOPAUSE -dQUIET -dBATCH -sOutputFile=output.pdf input.pdf`
 
 You can change the `screen` option (72 dpi) to `ebook` (150 dpi), `prepress` (300 dpi), `printer` (300 dpi) and `default`.
+
+### Merge PDF files
+
+`pdfunite in-1.pdf in-2.pdf in-n.pdf out.pdf`
 
 ## Mount a USB drive
 
