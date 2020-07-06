@@ -5,7 +5,7 @@
 * [Xournal](#xournal)
 * [Losless Cut](#losless-cut)
 * [Anbox](#anbox)
-* [ghostwriter](#ghostwriter)
+* [siril](#siril)
 
 <!-- vim-markdown-toc -->
 
@@ -23,6 +23,7 @@ A simple tool to fill out and annotate PDFs
 
 Run Android apps in Linux <https://anbox.io/>
 
-## ghostwriter
+## siril
 
-A distraction-free markdown editor <https://wereturtle.github.io/ghostwriter/>
+Siril is an astronomical image processing tool, able to convert, pre-process images, help aligning them automatically or manually, stack them and enhance final images. <https://www.siril.org/>
+
