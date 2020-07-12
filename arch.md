@@ -39,7 +39,7 @@ I am currently exploring the move to sway <https://swaywm.org/>
 
 ## Terminal emulator
 
-I am using uxterm with [Iosevka](https://github.com/be5invis/Iosevka) font. 
+I am using urxvt. 
 
 ## Cursor theme
 
