@@ -11,7 +11,7 @@
 * [instantmusic](#instantmusic)
 * [neomutt](#neomutt)
 * [mapscii](#mapscii)
-* [asciinema](#asciinema)
+* [asciinema and asciicast2gif](#asciinema-and-asciicast2gif)
 * [nms](#nms)
 * [cmatrix](#cmatrix)
 * [lolcat](#lolcat)
@@ -49,7 +49,7 @@ I bet you didn't know this one. Start with `Betty what time is it?`
 
 ## iponmap
 
-Mandatory tool for hackers pretending be cool. It will place a dot in a map when you supply an IP address. Try `iponmap 4.4.4.4` 
+Mandatory tool for hackers pretending be cool. It will place a dot in a map when you supply an IP address. Try `iponmap 4.4.4.4`
 
 ## instantmusic
 
@@ -61,21 +61,27 @@ The classic mail client `mutt` just supercharged with some extra functionalities
 
 ## mapscii
 
-That is one of these amazing cli tools! Just explore highly detailed maps from the command line.
+[Mapscii](https://github.com/rastapasta/mapscii) is one of these amazing cli tools! Just explore highly detailed maps from the command line.
 
-## asciinema
+## asciinema and asciicast2gif
 
-`asciinema` is a tool to record and share terminal sessions.
+[asciinema](https://asciinema.org/) is a tool to record and share terminal sessions. You can install the `asciinema` package in arch, record with `arciinema rec`, stop recording with `Ctrl+D`. You can upload it to asciinema.org or save the `.cast` file locally.
+
+I haven't found an easy way to embed and view the cast file in the markdown files so I use another tool called [asciicast2gif](https://github.com/asciinema/asciicast2gif) that you can install with the AUR package and use it `asciicast2gif -S 1 -s 2 -w 80 -h 5 file.cast file.gif`. Not ideal since the gif files are usually large. See an example below.
 
 ## nms
 
 Did you watch [Sneakers](https://en.wikipedia.org/wiki/Sneakers_(1992_film)) the movie? You will probably remember this [scene](https://www.youtube-nocookie.com/embed/GS3npSv8iuM).
-
 `nms` is a command that does exactly that! I usually use it in a pipe. Try `ls | nms` and pretend you are a hacker decoding your own disk.
+
+![](img/nms.gif)
 
 ## cmatrix
 
-For those like me who like to pretend they are hackers you have this tool that will show a matrix encoded screen.
+For those like me who like to pretend they are hackers you have this tool that will show a matrix encoded screen. Consider it like a terminal screensaver.
+
+![](img/cmatrix.gif)
+
 
 ## lolcat
 
@@ -137,4 +143,4 @@ TODO:
 
 ## gallery-dl
 
-A command-line program to download image-galleries and -collections from several image hosting sites <https://github.com/mikf/gallery-dl/blob/master/docs/supportedsites.rst> 
+A command-line program to download image-galleries and -collections from several image hosting sites <https://github.com/mikf/gallery-dl/blob/master/docs/supportedsites.rst>
