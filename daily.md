@@ -168,4 +168,19 @@ For testing printers and other devices, just send to `/dev/null`
 
 ## Polybar
 
-For displaying siji fonts `xfd -fa siji` check the glyph code and display with the code. For example `printf "\ue101"`
+For displaying siji fonts `xfd -fa 'Wuncon Siji'` 
+
+
+![](img/siji.png)
+
+Note the glyph code and display display it in a terminal replacing 0x00 `printf "\ue0d4"`
+
+![](img/siji2.png)
+
+Copy that character and paste in want it in polybar config file
+
+![](img/siji3.png)
+
+And it will show properly in polybar
+
+![](img/siji4.png)
