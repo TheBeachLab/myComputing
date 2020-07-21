@@ -2,6 +2,7 @@
 
 <!-- vim-markdown-toc GFM -->
 
+* [Download youtube video](#download-youtube-video)
 * [Download youtube video and subtitles](#download-youtube-video-and-subtitles)
 * [Download youtube audio](#download-youtube-audio)
 * [Hardcode subtitles into video](#hardcode-subtitles-into-video)
@@ -17,6 +18,12 @@
 	* [OBS Studio Plugin](#obs-studio-plugin)
 
 <!-- vim-markdown-toc -->
+
+## Download youtube video 
+
+`youtube-dl` URL-VIDEO
+
+>  Slow downloads? Try  `youtube-dl --format best` URL-VIDEO
 
 ## Download youtube video and subtitles
 
