@@ -61,7 +61,7 @@ format code  extension  resolution note
 18           mp4        400x300    240p  147k , avc1.42001E, mp4a.40.2@ 96k (44100Hz), 7.90MiB (best)
 ```
 
-Select the one you want, in my case 251, which is the highest qudio uality
+Select the one you want, in my case 251, which is the highest audio quality
 
 `youtube-dl -f 251 GKgfCthuiV0`
 
