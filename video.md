@@ -8,6 +8,7 @@
 * [Hardcode subtitles into video](#hardcode-subtitles-into-video)
 * [Download a specific format from youtube video](#download-a-specific-format-from-youtube-video)
 * [Convert GIF to MP4](#convert-gif-to-mp4)
+* [Unsorted ffmpeg-fu](#unsorted-ffmpeg-fu)
 * [DSLR Video Webcam](#dslr-video-webcam)
 	* [Hardware required](#hardware-required)
 	* [Software required](#software-required)
@@ -78,6 +79,12 @@ Explanation
 - `movflags` – This option optimizes the structure of the MP4 file so the browser can load it as quickly as possible.
 - `pix_fmt` – MP4 videos store pixels in different formats. We include this option to specify a specific format which has maximum compatibility across all browsers.
 - `vf` – MP4 videos using H.264 need to have a dimensions that are divisible by 2. This option ensures that’s the case.
+
+## Unsorted ffmpeg-fu
+
+- Neil's variable bit rate 1080p MP3: `ffmpeg -i input_video -vcodec libx264 -crf 25 -preset medium -vf scale=-2:1080 -acodec libmp3lame -q:a 4 -ar 48000 -ac 2 output_video.mp4`
+- Neil's no audio: `ffmpeg -i input_video -vcodec libx264 -b:v 1000k -vf scale=-2:1080 -an output_video.mp4`
+- Use nvidia hw encoder `-vcodec h264_nvenc`
 
 ## DSLR Video Webcam
 
