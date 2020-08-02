@@ -128,9 +128,11 @@ First clone and install `v4l2loopback` from here [https://github.com/umlaeute/v4
 
 `sudo modprobe v4l2loopback video_nr=9`
 
-This will create a virtual video device `/dev/video9`
+This will create a virtual video device `/dev/video9`. You can also create more than one virtual camera and label them:
 
-When you want to remove the device use `sudo rmprobe v4l2loopback`
+`sudo modprobe v4l2loopback devices=2 video_nr=10,20 card_label=TimerCam,StreamCam`
+
+When you want to remove the device use `sudo modprobe -r v4l2loopback` or `sudo rmprobe v4l2loopback`. Finally remember to rebuild the kernel module every time you update the kernel!
 
 ### OBS Studio Plugin
 
