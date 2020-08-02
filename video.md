@@ -85,6 +85,8 @@ Explanation
 - Neil's variable bit rate 1080p MP3: `ffmpeg -i input_video -vcodec libx264 -crf 25 -preset medium -vf scale=-2:1080 -acodec libmp3lame -q:a 4 -ar 48000 -ac 2 output_video.mp4`
 - Neil's no audio: `ffmpeg -i input_video -vcodec libx264 -b:v 1000k -vf scale=-2:1080 -an output_video.mp4`
 - Use nvidia hw encoder `-vcodec h264_nvenc`
+- Convert single image to a 5s video `ffmpeg -loop 1 -i image.png  -t 5  output.mp4`
+- Concatenate videos `ffmpeg -i "concat:video1.mp4|video2.mp4" -c copy output.mp4`
 
 ## DSLR Video Webcam
 
