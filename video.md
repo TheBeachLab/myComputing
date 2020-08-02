@@ -86,7 +86,12 @@ Explanation
 - Neil's no audio: `ffmpeg -i input_video -vcodec libx264 -b:v 1000k -vf scale=-2:1080 -an output_video.mp4`
 - Use nvidia hw encoder `-vcodec h264_nvenc`
 - Convert single image to a 5s video `ffmpeg -loop 1 -i image.png  -t 5  output.mp4`
-- Concatenate videos `ffmpeg -i "concat:video1.mp4|video2.mp4" -c copy output.mp4`
+- Concatenate videos `ffmpeg -f concat -safe 0 -i videos.txt -c copy output.mp4` Where `videos.txt` is:  
+```
+file '/path/to/file1'
+file '/path/to/file2'
+file '/path/to/file3'
+```
 
 ## DSLR Video Webcam
 
