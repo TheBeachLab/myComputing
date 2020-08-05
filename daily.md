@@ -8,10 +8,13 @@
 	* [Reduce a PDF filesize](#reduce-a-pdf-filesize)
 	* [Merge PDF files](#merge-pdf-files)
 * [Mount a USB drive](#mount-a-usb-drive)
-* [Encrypt a file or directory with GPG. Paranoid level 1](#encrypt-a-file-or-directory-with-gpg-paranoid-level-1)
-* [Steganography. Paranoid level 2](#steganography-paranoid-level-2)
-* [Create custom commands](#create-custom-commands)
-* [Install a font](#install-a-font)
+* [Encryption](#encryption)
+	* [Encrypt a file or directory with GPG. Paranoid level 1](#encrypt-a-file-or-directory-with-gpg-paranoid-level-1)
+	* [Steganography. Paranoid level 2](#steganography-paranoid-level-2)
+* [Create custom functions](#create-custom-functions)
+* [Fonts](#fonts)
+	* [Install a font](#install-a-font)
+	* [Siji Font in Polybar](#siji-font-in-polybar)
 * [VNC server](#vnc-server)
 	* [Starting a VNC server](#starting-a-vnc-server)
 * [Screen](#screen)
@@ -19,7 +22,8 @@
 	* [Set physical dimensions of your display](#set-physical-dimensions-of-your-display)
 	* [Fix overscan problems in HDMI](#fix-overscan-problems-in-hdmi)
 * [Dummy serial and lp ports](#dummy-serial-and-lp-ports)
-* [Polybar](#polybar)
+* [Terminal](#terminal)
+	* [Find the width and height of a terminal window](#find-the-width-and-height-of-a-terminal-window)
 
 <!-- vim-markdown-toc -->
 
@@ -87,7 +91,9 @@ You can change the `screen` option (72 dpi) to `ebook` (150 dpi), `prepress` (30
 Check the device name with `lsblk` and then use `pmount device [ label ]` and `pumount` to mount/unmount it. If label is given, the mount point will be `/media/label`,
 otherwise it will be `/media/device`.
 
-## Encrypt a file or directory with GPG. Paranoid level 1
+## Encryption
+
+### Encrypt a file or directory with GPG. Paranoid level 1
 
 To **encrypt a file*** `gpg -c filename` outputs `filename.gpg`. To **decrypt a file** `gpg filename.gpg`.
 
@@ -95,9 +101,9 @@ To **encrypt directories** `gpgtar -c -o file.gpg dirname`. To **decrypt a direc
 
 You will then be prompted for a passphrase.
 
-## Steganography. Paranoid level 2
+### Steganography. Paranoid level 2
 
-When you need to hide a secret you can encrypt the file. But an adversary will know that something is hidden, and they can attempt to break the code by putting some brute force. But if you embed this encrypted secret into an apparently normal file. The third person would not even be aware of the fact that a seemingly harmless looking image or audio file carries a secret message or a file embedded in it. This type of encryption where you hide one file securely into another is called **Steganography**. And I use it a lot. 
+When you need to hide a secret you can encrypt the file. But an adversary will know that something is hidden, and they can attempt to break the code by putting some brute force. But if you embed this encrypted secret into an apparently normal file. The third person would not even be aware of the fact that a seemingly harmless looking image or audio file carries a secret message or a file embedded in it. This type of encryption where you hide one file securely into another is called **Steganography**. And I use it a lot.
 
 Install `steghide` command line utility. To embed a secret into an image run:
 
@@ -107,9 +113,9 @@ You will need another passphrase to embed the secret into the image. To extract 
 
 `steghide extract -sf image.jpg`
 
-## Create custom commands
+## Create custom functions
 
-I keep my custom commands in a file called `.custom_commands.sh`. This file is sourced by `.bashrc` where I added this line at the bottom `source .custom_commands.sh`. Inside the file `.custom_commands.sh` I create my custom functions:
+I keep my custom commands in a file called `.custom_functions.sh`. This file is sourced by `.bashrc` where I added this line at the bottom `source .custom_functions.sh`. Inside the file `.custom_functions.sh` I create my custom functions:
 
 ```
 my_function () {
@@ -117,9 +123,30 @@ place your code here
 }
 ```
 
-## Install a font
+## Fonts
+
+### Install a font
 
 Move it to `~/.local/share/fonts`. More info [here](https://wiki.archlinux.org/index.php/Fonts)
+
+### Siji Font in Polybar
+
+For displaying siji fonts in Polybar `xfd -fa 'Wuncon Siji'`
+
+
+![](img/siji.png)
+
+Note the glyph code and display display it in a terminal replacing 0x00 `printf "\ue0d4"`
+
+![](img/siji2.png)
+
+Copy that character and paste in want it in polybar config file
+
+![](img/siji3.png)
+
+And it will show properly in polybar
+
+![](img/siji4.png)
 
 ## VNC server
 
@@ -158,7 +185,7 @@ sudo depmod
 sudo modprobe tty0tty
 ```
 
-You will see a number of serial ports `/dev/tntx`, make sure you give them permissions 
+You will see a number of serial ports `/dev/tntx`, make sure you give them permissions
 
 ```bash
 sudo chmod 666 /dev/tnt*
@@ -166,21 +193,11 @@ sudo chmod 666 /dev/tnt*
 
 For testing printers and other devices, just send to `/dev/null`
 
-## Polybar
+## Terminal
 
-For displaying siji fonts `xfd -fa 'Wuncon Siji'` 
+### Find the width and height of a terminal window
+
+- `tput cols` tells you the number of columns.
+- `tput lines` tells you the number of rows.
 
 
-![](img/siji.png)
-
-Note the glyph code and display display it in a terminal replacing 0x00 `printf "\ue0d4"`
-
-![](img/siji2.png)
-
-Copy that character and paste in want it in polybar config file
-
-![](img/siji3.png)
-
-And it will show properly in polybar
-
-![](img/siji4.png)
