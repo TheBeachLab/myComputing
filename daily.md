@@ -24,6 +24,7 @@
 * [Dummy serial and lp ports](#dummy-serial-and-lp-ports)
 * [Terminal](#terminal)
 	* [Find the width and height of a terminal window](#find-the-width-and-height-of-a-terminal-window)
+* [Cron jobs](#cron-jobs)
 
 <!-- vim-markdown-toc -->
 
@@ -174,8 +175,6 @@ Useful for showing real dimensions at 100% `xrandr --fbmm 310x175`
 
 This should work `xrandr --output HDMI1 --set underscan on --set "underscan vborder" 25 --set "underscan hborder" 40` but it is not working in my case
 
-
-
 ## Dummy serial and lp ports
 
 In order to create a dummy serial port for developing purposes install `tty0tty-git` AUR package and load the module:
@@ -200,4 +199,25 @@ For testing printers and other devices, just send to `/dev/null`
 - `tput cols` tells you the number of columns.
 - `tput lines` tells you the number of rows.
 
+## Cron jobs
+
+Install `cronie` package.  List cron jobs with `crontab -l`. Add jobs with `crontab -e`. Use this snippet as a cheat sheet:
+
+```bash
+#* * * * * command to be executed
+#- - - - -
+#| | | | |
+#| | | | +----- day of week (0 - 6) (Sunday=0)
+#| | | +------- month (1 - 12)
+#| | +--------- day of month (1 - 31)
+#| +----------- hour (0 - 23)
+#+------------- min (0 - 59)
+```
+
+My crontab
+
+```bash
+# Clear cache every Monday at 10pm
+0 22 * * 1 yay -Scc --noconfirm 
+```
 
