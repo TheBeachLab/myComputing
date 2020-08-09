@@ -214,6 +214,8 @@ Install `cronie` package and `systemctl start cronie && systemctl enable cronie`
 #+------------- min (0 - 59)
 ```
 
+You can also use keywords instead `@yearly @monthly @weekly @daily @hourly @reboot`
+
 My crontab
 
 ```bash
