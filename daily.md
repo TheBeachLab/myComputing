@@ -201,7 +201,7 @@ For testing printers and other devices, just send to `/dev/null`
 
 ## Cron jobs
 
-Install `cronie` package.  List cron jobs with `crontab -l`. Add jobs with `crontab -e`. Use this snippet as a cheat sheet:
+Install `cronie` package and `systemctl start cronie && systemctl enable cronie`. List cron jobs with `crontab -l`. Add jobs with `crontab -e`. Use this snippet as a cheat sheet:
 
 ```bash
 #* * * * * command to be executed
