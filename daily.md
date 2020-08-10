@@ -214,12 +214,12 @@ Install `cronie` package and `systemctl start cronie && systemctl enable cronie`
 #+------------- min (0 - 59)
 ```
 
-You can also use keywords instead `@yearly @monthly @weekly @daily @hourly @reboot`
+You can also use keywords instead `@yearly @monthly @weekly @daily @hourly @reboot`. Cron jobs are great to do some background tasks *while your computer is on*.
 
-My crontab
+There are some other jobs you want to execute at specific intervals, and when you miss a scheduled task, as soon as the computer is up. Cronie includes `anacron` which processes jobs asynchronously, even if the computer was down at the time of the job. My `/etc/anacrontab`
 
 ```bash
 # Clear cache every Monday at 10pm
-0 22 * * 1 yay -Scc --noconfirm 
+7 15 clear-cache.weekly yay -Scc --noconfirm 
 ```
 
