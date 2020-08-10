@@ -201,7 +201,7 @@ For testing printers and other devices, just send to `/dev/null`
 
 ## Cron jobs
 
-Install `cronie` package and `systemctl start cronie && systemctl enable cronie`. List cron jobs with `crontab -l`. Add jobs with `crontab -e`. Use this snippet as a cheat sheet:
+Install `cronie` package and `systemctl start cronie && systemctl enable cronie`. List cron jobs with `crontab -l`. Add jobs with `crontab -e`. This is my crontab with a snippet as a cheat sheet:
 
 ```bash
 #* * * * * command to be executed
@@ -212,6 +212,9 @@ Install `cronie` package and `systemctl start cronie && systemctl enable cronie`
 #| | +--------- day of month (1 - 31)
 #| +----------- hour (0 - 23)
 #+------------- min (0 - 59)
+
+# Clear cache every Monday at 10pm
+0 22 * * 1 yay -Scc --noconfirm 
 ```
 
 You can also use keywords instead `@yearly @monthly @weekly @daily @hourly @reboot`. Cron jobs are great to do some background tasks *while your computer is on*.
@@ -219,7 +222,26 @@ You can also use keywords instead `@yearly @monthly @weekly @daily @hourly @rebo
 There are some other jobs you want to execute at specific intervals, and when you miss a scheduled task, as soon as the computer is up. Cronie includes `anacron` which processes jobs asynchronously, even if the computer was down at the time of the job. My `/etc/anacrontab`
 
 ```bash
+# /etc/anacrontab: configuration file for anacron
+
+# See anacron(8) and anacrontab(5) for details.
+
+SHELL=/bin/sh
+PATH=/sbin:/bin:/usr/sbin:/usr/bin
+MAILTO=root
+# the maximal random delay added to the base delay of the jobs
+RANDOM_DELAY=45
+# the jobs will be started during the following hours only
+START_HOURS_RANGE=3-22
+
+#period in days   delay in minutes   job-identifier   command
+1	5	cron.daily		nice run-parts /etc/cron.daily
+7	25	cron.weekly		nice run-parts /etc/cron.weekly
+@monthly 45	cron.monthly		nice run-parts /etc/cron.monthly
+
 # Clear cache every Monday at 10pm
-7 15 clear-cache.weekly yay -Scc --noconfirm 
+7 15 clear-cache-weekly yay -Scc --noconfirm 
 ```
+
+You can check the validity of your anacrontab file with `anacron -T`
 
