@@ -10,6 +10,7 @@
 * [Contour Shuttle Pro 2](#contour-shuttle-pro-2)
 * [Wacom Intuos 3](#wacom-intuos-3)
 * [Yamaha P-45](#yamaha-p-45)
+* [Electronic drum](#electronic-drum)
 * [Canon LiDE 60](#canon-lide-60)
 * [eGPU Nvidia RTX2070 Super in a Razer X Thunderbolt external enclosure](#egpu-nvidia-rtx2070-super-in-a-razer-x-thunderbolt-external-enclosure)
 * [eGPU Beast 8.5c](#egpu-beast-85c)
@@ -263,6 +264,47 @@ Source  Event                  Ch  Data
  20:0   Active Sensing
  20:0   Note off                0, note 91
 ```
+
+## Electronic drum
+
+I bought this electronic drum for my kid in fab12 Shenzhen and today while I was about to pack it for the basement I saw USB MIDI among the chinese characters. So I decided to give it a try and see if if was a USB device. When I plug it `dmesg -w` says
+
+```bash
+[ 2576.677890] usb 1-1: new full-speed USB device number 20 using xhci_hcd
+[ 2576.820549] usb 1-1: New USB device found, idVendor=0c45, idProduct=7114, bcdDevice= 1.01
+[ 2576.820557] usb 1-1: New USB device strings: Mfr=1, Product=2, SerialNumber=0
+[ 2576.820561] usb 1-1: Product: USB DEVICE
+[ 2576.820565] usb 1-1: Manufacturer: SONiX
+[ 2576.825350] hid-generic 0003:0C45:7114.0003: hiddev0,hidraw1: USB HID v1.11 Device [SONiX USB DEVICE] on usb-0000:00:14.0-1/input0
+```
+
+and `aconnect -i`
+
+```bash
+[unix ~]$ aconnect -i
+client 0: 'System' [type=kernel]
+    0 'Timer           '
+    1 'Announce        '
+client 14: 'Midi Through' [type=kernel]
+    0 'Midi Through Port-0'
+client 28: 'USB DEVICE' [type=kernel,card=3]
+    0 'USB DEVICE MIDI 1'
+```
+
+So it't a MIDI device!!! Let's listen `aseqdump -p 28`
+
+```bash
+Waiting for data. Press Ctrl+C to end.
+Source  Event                  Ch  Data
+ 28:0   Note on                 9, note 43, velocity 127
+ 28:0   Note off                9, note 43, velocity 127
+ 28:0   Note on                 9, note 44, velocity 127
+ 28:0   Note off                9, note 44, velocity 127
+ 28:0   Note on                 9, note 36, velocity 127
+ 28:0   Note off                9, note 36, velocity 127
+```
+
+It has notes 49, 48 and 51 in the top row, 38, 46, 45, 43 in the bottom row, and 36, 44 in the pedals. With this and the p45 keyboard I should be able to produce some music.
 
 ## Canon LiDE 60
 

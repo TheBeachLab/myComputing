@@ -3,6 +3,7 @@
 
 <!-- vim-markdown-toc GFM -->
 
+* [Reset ALSA/Pulse to factory](#reset-alsapulse-to-factory)
 * [Restart ALSA](#restart-alsa)
 * [Get persistent sound card numbers](#get-persistent-sound-card-numbers)
 * [Set default sound card](#set-default-sound-card)
@@ -16,6 +17,22 @@
 * [Add the USB mic Yeti to `jack`](#add-the-usb-mic-yeti-to-jack)
 
 <!-- vim-markdown-toc -->
+
+## Reset ALSA/Pulse to factory
+
+This is required after messing up with jack and getting strange behaviour.
+
+- Pulseaudio config files
+	- It will check first user level
+		- ~/.config/pulse
+	- System wide
+		- /etc/pulse/
+
+- ALSA config files
+	- User level
+		- ~/.asoundrc
+	- System wide
+		- /etc/asound.conf
 
 ## Restart ALSA
 
