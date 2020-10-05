@@ -267,7 +267,9 @@ Source  Event                  Ch  Data
 
 ## Electronic drum
 
-I bought this electronic drum for my kid in fab12 Shenzhen and today while I was about to pack it for the basement I saw USB MIDI among the chinese characters. So I decided to give it a try and see if if was a USB device. When I plug it `dmesg -w` says
+![electronic drum](img/drum.jpg)
+
+I bought this electronic drum for my kid in fab12 Shenzhen and today while I was about to pack it for the basement I saw USB MIDI among the chinese characters. So I decided to give it a try and see if if was a USB MIDI device. When I plug it `dmesg -w` says
 
 ```bash
 [ 2576.677890] usb 1-1: new full-speed USB device number 20 using xhci_hcd
