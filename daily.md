@@ -24,6 +24,7 @@
 * [Dummy serial and lp ports](#dummy-serial-and-lp-ports)
 * [Terminal](#terminal)
 	* [Find the width and height of a terminal window](#find-the-width-and-height-of-a-terminal-window)
+	* [Open a terminal emulator in Thunar](#open-a-terminal-emulator-in-thunar)
 * [Cron jobs](#cron-jobs)
 
 <!-- vim-markdown-toc -->
@@ -198,6 +199,12 @@ For testing printers and other devices, just send to `/dev/null`
 
 - `tput cols` tells you the number of columns.
 - `tput lines` tells you the number of rows.
+
+### Open a terminal emulator in Thunar
+
+Edit `~/.config/xfce4/helpers.rc` and add/edit `TerminalEmulator=urxvt` and then add a custom action in Thunar:
+
+`exo-open --working-directory %f --launch TerminalEmulator`
 
 ## Cron jobs
 
