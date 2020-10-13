@@ -15,6 +15,7 @@
 * [Bluetooth](#bluetooth)
 * [Jack Audio](#jack-audio)
 * [Add the USB mic Yeti to `jack`](#add-the-usb-mic-yeti-to-jack)
+* [Music on the CLI](#music-on-the-cli)
 
 <!-- vim-markdown-toc -->
 
@@ -222,3 +223,42 @@ In this case the name of the device is `Microphone`. So add it with `alsa_in -j 
 - `2>&1` sends all the output to std output
 - `1> /dev/null ` trashes std output
 - `&` puts the process in the background
+
+## Music on the CLI
+
+Install `mpd` and add a config file in `~/.config/mpd/mpd.conf` like
+
+```bash
+####### MPD CONFIG #######
+
+# Required files
+db_file            "~/.config/mpd/database"
+log_file           "~/.config/mpd/log"
+
+# Optional
+music_directory    "~/Music"
+playlist_directory "~/.config/mpd/playlists"
+pid_file           "~/.config/mpd/pid"
+state_file         "~/.config/mpd/state"
+sticker_file       "~/.config/mpd/sticker.sql"
+
+audio_output {  
+      type  "pulse"  
+      name  "pulse audio"
+}
+
+audio_output {  
+type               "fifo"  
+name               "toggle_visualizer"
+path               "/tmp/mpd.fifo"
+format             "44100:16:2"
+}
+
+####### END MPD CONFIG #######
+```
+
+Create the playlist dir `mkdir ~/.config/mpd/playlists`
+
+Start/enable the mpd service `systemctl start --user mpd.service` and `systemctl enable --user mpd.service`.
+
+Install `ncmpcpp` and probably set a better alias for it. 
