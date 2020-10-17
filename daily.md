@@ -15,6 +15,7 @@
 * [Fonts](#fonts)
 	* [Install a font](#install-a-font)
 	* [Siji Font in Polybar](#siji-font-in-polybar)
+	* [Add new glyghs to Siji](#add-new-glyghs-to-siji)
 * [VNC server](#vnc-server)
 	* [Starting a VNC server](#starting-a-vnc-server)
 * [Screen](#screen)
@@ -135,7 +136,6 @@ Move it to `~/.local/share/fonts`. More info [here](https://wiki.archlinux.org/i
 
 For displaying siji fonts in Polybar `xfd -fa 'Wuncon Siji'`
 
-
 ![](img/siji.png)
 
 Note the glyph code and display display it in a terminal replacing 0x00 `printf "\ue0d4"`
@@ -149,6 +149,10 @@ Copy that character and paste in want it in polybar config file
 And it will show properly in polybar
 
 ![](img/siji4.png)
+
+### Add new glyghs to Siji
+
+[Clone](https://github.com/TheBeachLab/siji) the repo with the font. Install `gbdfed`, add/edit a glyph, save it and run `install.sh`
 
 ## VNC server
 
