@@ -8,7 +8,6 @@
 * [Check file sizes with `du` `ncdu` and `df`](#check-file-sizes-with-du-ncdu-and-df)
 * [Monitor the system with `htop` `gtop` and `powertop`](#monitor-the-system-with-htop-gtop-and-powertop)
 * [iponmap](#iponmap)
-* [instantmusic](#instantmusic)
 * [neomutt](#neomutt)
 * [mapscii](#mapscii)
 * [asciinema and asciicast2gif](#asciinema-and-asciicast2gif)
@@ -50,10 +49,6 @@ I bet you didn't know this one. Start with `Betty what time is it?`
 ## iponmap
 
 Mandatory tool for hackers pretending be cool. It will place a dot in a map when you supply an IP address. Try `iponmap 4.4.4.4`
-
-## instantmusic
-
-`instantmusic` is a `youtube-dl` variant for downloading music. Just type `instantmusic` and the tool will ask you to enter any detail about the song you want (artist, song name, etc...). It will display a list of options for you to download. The resulting format will be a `mp3` file
 
 ## neomutt
 
