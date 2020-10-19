@@ -8,7 +8,8 @@
 * [Get persistent sound card numbers](#get-persistent-sound-card-numbers)
 * [Set default sound card](#set-default-sound-card)
 * [Set default alsamixer levels](#set-default-alsamixer-levels)
-* [Create a virtual microphone](#create-a-virtual-microphone)
+* [Rename pulse audio sinks and sources](#rename-pulse-audio-sinks-and-sources)
+* [Create a virtual microphone and virtual speaker](#create-a-virtual-microphone-and-virtual-speaker)
 * [Check when the headphone is plugged and unplugged](#check-when-the-headphone-is-plugged-and-unplugged)
 * [Ardour](#ardour)
 * [Helm](#helm)
@@ -109,7 +110,34 @@ ctl.!default {
 
 To persistently set the default mutes/levels in alsamixer run `sudo alsactl store`
 
-## Create a virtual microphone
+## Rename pulse audio sinks and sources
+
+You might want to install the AUR package `pamac` to identify the DEVICE or just look it up with `pacmd list-sinks` and `pacmd list-sources`. Then rename a sink with:
+
+`pacmd 'update-sink-proplist DEVICE device.description="DESCRIPTION" '`
+
+And for the sources:
+
+`pacmd 'update-source-proplist DEVICE device.description="DESCRIPTION" '`
+
+If you want this at login add this to `~/.config/pulse/default.pa`
+
+```bash
+update-sink-proplist DEVICE device.description="DESCRIPTION"
+update-source-proplist DEVICE device.description="DESCRIPTION"
+```
+
+In my case I have:
+
+```bash
+update-sink-proplist alsa_output.pci-0000_00_1f.3.analog-stereo device.description="Internal Output"
+update-source-proplist alsa_input.pci-0000_00_1f.3.analog-stereo device.description=device.description="Monitor of Internal Output"
+update-source-proplist alsa_output.pci-0000_00_1f.3.analog-stereo.monitor device.description="Monitor of Internal Output"
+```
+
+## Create a virtual microphone and virtual speaker
+
+You might want to do that to output the sound of one app to another
 
 Create the file `/etc/modprobe.d/alsa-aloop.conf` with this content `options snd-aloop index=9 pcm_substreams=1 id=Virtual_Mic`
 
