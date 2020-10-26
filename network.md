@@ -12,6 +12,7 @@
 	* [Change MAC address with vanilla commands](#change-mac-address-with-vanilla-commands)
 	* [Change MAC address to a rooted Android in terminal](#change-mac-address-to-a-rooted-android-in-terminal)
 	* [Block/unblock wireless devices to save battery](#blockunblock-wireless-devices-to-save-battery)
+* [Check if a remote port is open](#check-if-a-remote-port-is-open)
 
 <!-- vim-markdown-toc -->
 
@@ -92,3 +93,14 @@ ID TYPE      DEVICE                   SOFT      HARD
 ```
 
 And block (or unblock) the desired one `sudo rfkill block 1`.
+
+## Check if a remote port is open
+
+```bash
+[unix ~]$ telnet
+telnet> open beachlab.org 80
+Trying 95.17.151.251...
+Connected to beachlab.org.
+Escape character is '^]'.
+```
+

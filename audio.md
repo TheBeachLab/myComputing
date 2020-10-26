@@ -137,31 +137,8 @@ update-source-proplist alsa_output.pci-0000_00_1f.3.analog-stereo.monitor device
 
 ## Create a virtual microphone and virtual speaker
 
-You might want to do that to output the sound of one app to another
+`pactl load-module module-null-sink sink_name=Virtual-Speaker sink_properties=device.description=VirtualSpeaker'`
 
-Create the file `/etc/modprobe.d/alsa-aloop.conf` with this content `options snd-aloop index=9 pcm_substreams=1 id=Virtual_Mic`
-
-Manually start the kernel module `sudo modprobe snd_aloop` or (recommended) automatically load the kernel at boot by creating a file in `/etc/modules-load.d/snd_aloop.conf` with this content:
-
-```bash
-# Load snd_aloop.ko at boot
-snd_aloop
-``` 
-
-Now you will have a virtual card `cat /proc/asound/cards`
-
-```bash
- 0 [PCH            ]: HDA-Intel - HDA Intel PCH
-                      HDA Intel PCH at 0xec340000 irq 160
- 1 [NVidia         ]: HDA-Intel - HDA NVidia
-                      HDA NVidia at 0xbd000000 irq 19
- 2 [Microphone     ]: USB-Audio - Yeti Stereo Microphone
-                      Blue Microphones Yeti Stereo Microphone at usb-0000:00:14.0-2.4, full speed
- 3 [Capture        ]: USB-Audio - FHD Capture
-                      VXIS Inc FHD Capture at usb-0000:00:14.0-2.3, super speed
- 9 [VirtualMic     ]: Loopback - Loopback
-                      Loopback 1
-```
 
 ## Check when the headphone is plugged and unplugged
 
