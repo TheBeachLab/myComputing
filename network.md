@@ -3,8 +3,7 @@
 <!-- vim-markdown-toc GFM -->
 
 * [Changing the network interface names](#changing-the-network-interface-names)
-* [Activating or deactivating network devices](#activating-or-deactivating-network-devices)
-* [Obtaining DHCP address](#obtaining-dhcp-address)
+* [Activating or deactivating network profiles](#activating-or-deactivating-network-profiles)
 * [Get your public IP](#get-your-public-ip)
 * [Check current UL/DL speed](#check-current-uldl-speed)
 * [Extend free wifi at airports](#extend-free-wifi-at-airports)
@@ -25,15 +24,15 @@ SUBSYSTEM=="net", ACTION=="add", ATTR{address}=="c8:5b:76:e5:fc:23", NAME="cable
 SUBSYSTEM=="net", ACTION=="add", ATTR{address}=="00:28:f8:2b:12:18", NAME="wifi0"
 ```
 
-## Activating or deactivating network devices
+## Activating or deactivating network profiles
 
-Activate ethernet: `sudo ip link set cable0 up`
+Create network profiles in '/etc/netctl/. There are sample ones in the `examples` folder.
 
-Deactivate wifi: `sudo ip link set wifi0 down`
+Stop all profiles: `sudo netctl stop-all`
 
-## Obtaining DHCP address
+Activate ethernet: `sudo netctl start ethernet-static`
 
-`dhcpcd cable0`
+Activate ethernet dhcp: `sudo netctl start ethernet-dhcp`
 
 ## Get your public IP
 
