@@ -26,7 +26,7 @@ SUBSYSTEM=="net", ACTION=="add", ATTR{address}=="00:28:f8:2b:12:18", NAME="wifi0
 
 ## Activating or deactivating network profiles
 
-Create network profiles in '/etc/netctl/. There are sample ones in the `examples` folder.
+Create network profiles in `/etc/netctl/`. There are sample ones in the `examples` folder.
 
 Stop all profiles: `sudo netctl stop-all`
 
