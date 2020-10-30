@@ -137,8 +137,23 @@ update-source-proplist alsa_output.pci-0000_00_1f.3.analog-stereo.monitor device
 
 ## Create a virtual microphone and virtual speaker
 
-`pactl load-module module-null-sink sink_name=Virtual-Speaker sink_properties=device.description=VirtualSpeaker'`
+A null sink is a virtual sink that discards audio sent to it. That’s not very useful by itself, but the monitor that comes with it can be very useful. In `~/.config/pulse/default.pa`
 
+```bash
+.ifexists module-null-sink.so
+load-module module-null-sink sink_name=Source sink_properties='device.description="Virtual Sink"'
+.endif
+```
+
+Most applications won't allow you to select a microphone from a source. Here is where a virtual source comes handy.
+
+```bash
+# virtual source
+# This will create a virtual source (a microphone you can select) from a monitor
+.ifexists module-virtual-source.so
+load-module module-virtual-source source_name=VirtualMic master=nulla.monitor source_properties='device.description="Virtual Mic A"'
+.endif
+```
 
 ## Check when the headphone is plugged and unplugged
 
