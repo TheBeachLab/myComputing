@@ -9,6 +9,7 @@ This is how I do my full-time Linux computing now:
 - [Network in Linux](network.md)
 - [Audio in Linux](audio.md)
 - [Video in Linux](video.md)
+- [OBS in Linux](obs.md)
 - [My hardware in Linux](hardware.md)
 - [Troubleshooting](troubleshooting.md)
 
