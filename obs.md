@@ -38,6 +38,7 @@ This will build and generate a folder in `~/obs-studio-portable`
 ```bash
 cd ~/opt/obs-studio
 git pull --recurse-submodules
+cd build
 cmake -DUNIX_STRUCTURE=0 -DCMAKE_INSTALL_PREFIX="${HOME}/obs-studio-portable" -DBUILD_BROWSER=ON -DCEF_ROOT_DIR="../../cef_binary_3770_linux64" ..
 make -j4 && make install
 ```
