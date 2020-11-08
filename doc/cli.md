@@ -32,7 +32,7 @@
 
 Track the coronavirus from the command line. <https://github.com/ahmadawais/corona-cli>.
 
-![corona](img/corona.gif)
+![corona](../img/corona.gif)
 
 ## scrot
 
@@ -69,13 +69,13 @@ I haven't found an easy way to embed and view the cast file in the markdown file
 Did you watch [Sneakers](https://en.wikipedia.org/wiki/Sneakers_(1992_film)) the movie? You will probably remember this [scene](https://www.youtube-nocookie.com/embed/GS3npSv8iuM).
 `nms` is a command that does exactly that! I usually use it in a pipe. Try `ls | nms` and pretend you are a hacker decoding your own disk.
 
-![](img/nms.gif)
+![](../img/nms.gif)
 
 ## cmatrix
 
 For those like me who like to pretend they are hackers you have this tool that will show a matrix encoded screen. Consider it like a terminal screensaver.
 
-![](img/cmatrix.gif)
+![](../img/cmatrix.gif)
 
 
 ## lolcat
@@ -86,7 +86,7 @@ For those like me who like to pretend they are hackers you have this tool that w
 
 `cowsay` is a funny way to echo messages to the screen. I usually pipe it to `lolcat`
 
-![cowsay and lolcat](img/cowsay.png)
+![cowsay and lolcat](../img/cowsay.png)
 
 ## ponysay
 
@@ -104,7 +104,7 @@ A great IRC client for the cli. I really miss those IRC days and I use it all th
 
 This simple tool allows you to display a simple calendar with many display options available.
 
-![cal](img/cal.png)
+![cal](../img/cal.png)
 
 ## bat
 

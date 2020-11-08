@@ -125,7 +125,7 @@ Magic Lantern is not available for the M6. It could run [CHDK](https://chdk.fand
 
 ## Virtual webcam from OBS output
 
-![composite](img/composite-small.png)
+![composite](../img/composite-small.png)
 
 There is a way. Tricky, not trivial, to pipe the output of OBS studio into a virtual webcam that you can use in a videoconference (for instance). Here's how I do it.
 

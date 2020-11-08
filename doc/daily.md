@@ -136,19 +136,19 @@ Move it to `~/.local/share/fonts`. More info [here](https://wiki.archlinux.org/i
 
 For displaying siji fonts in Polybar `xfd -fa 'Wuncon Siji'`
 
-![](img/siji.png)
+![](../img/siji.png)
 
 Note the glyph code and display display it in a terminal replacing 0x00 `printf "\ue0d4"`
 
-![](img/siji2.png)
+![](../img/siji2.png)
 
 Copy that character and paste in want it in polybar config file
 
-![](img/siji3.png)
+![](../img/siji3.png)
 
 And it will show properly in polybar
 
-![](img/siji4.png)
+![](../img/siji4.png)
 
 ### Add new glyghs to Siji
 

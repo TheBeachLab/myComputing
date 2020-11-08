@@ -29,11 +29,11 @@ Placeholder for Playstation 3 Eye
 
 I have an LTC31
 
-![ltc31](img/ltc31.jpg)
+![ltc31](../img/ltc31.jpg)
 
 And an ACR38 from Estonia digital citizenship
 
-![acr38](img/acr38.png)
+![acr38](../img/acr38.png)
 
 Insert your DNIe reader and check with `lsusb`, you should see one of your readers, among other USB devices
 
@@ -106,7 +106,7 @@ To electronically sign documents like PDF install the AUR package `autofirma`.
 
 ## Asus MB168B+ USB display
 
-![Asus MB168B+](img/asusmonitor.jpg)
+![Asus MB168B+](../img/asusmonitor.jpg)
 
 This is a displaylink USB screen I use for video editing and also following tutorials while I run a program. Make sure you have `linux-headers` package already installed. You must install the [displaylink](https://aur.archlinux.org/packages/displaylink/) AUR package that allows configuring displaylink monitors using [Xrandr](https://wiki.archlinux.org/index.php/Xrandr). Then create the file `/usr/share/X11/xorg.conf.d/20-evdidevice.conf` with the following content:
 
@@ -147,7 +147,7 @@ or mirror:
 
 ## Space Navigator
 
-![Space Navigator](img/spacenav.png)
+![Space Navigator](../img/spacenav.png)
 
 For a [free, open source alternative driver](http://spacenav.sourceforge.net/) to the proprietary [3DConnexion](https://www.3dconnexion.com), install the packages `spacenavd` and the config tool `spnavcfg`. Start the mouse with:
 
@@ -161,7 +161,7 @@ At the time of writing (September 2019) Space Navigator is having trouble with t
 
 ## Contour Shuttle Pro 2
 
-![Contour Shuttle Pro V2](img/shuttlepro2.jpg)
+![Contour Shuttle Pro V2](../img/shuttlepro2.jpg)
 
 This is a device I use to edit video. I Installed `contour-shuttle-git` AUR package and now I am missing the key configuration file for Lightworks
 
@@ -173,7 +173,7 @@ http://freshmeat.sourceforge.net/projects/shuttlepro
 
 ## Wacom Intuos 3
 
-![Intuos 3](img/intuos3.jpg)
+![Intuos 3](../img/intuos3.jpg)
 
 My old tablet for drawing and painting, still works like a charm. I am learning to use it now with grease pencil, the new feature in blender 2.8. You need to install the  `xf86-input-wacom` and reboot. You should now see some devices with the command `xsetwacom list devices`.
 
@@ -196,7 +196,7 @@ Graphical config tool `kcm-wacomtablet`.
 
 ## Yamaha P-45
 
-![p45](img/p45.jpg)
+![p45](../img/p45.jpg)
 
 This electronic piano can be used as a MIDI input in LMMS and other software. I like it because it has pressure sensitive keys and it's full size. It does not need any driver. Just connect it via usb and check that it is properly detected:
 
@@ -267,7 +267,7 @@ Source  Event                  Ch  Data
 
 ## Electronic drum
 
-![electronic drum](img/drum.jpg)
+![electronic drum](../img/drum.jpg)
 
 I bought this electronic drum for my kid in fab12 Shenzhen and today while I was about to pack it for the basement I saw USB MIDI among the chinese characters. So I decided to give it a try and see if if was a USB MIDI device. When I plug it `dmesg -w` says
 
@@ -310,7 +310,7 @@ It has notes 49, 48 and 51 in the top row, 38, 46, 45, 43 in the bottom row, and
 
 ## Canon LiDE 60
 
-![canon Lide 60](img/canonlide.jpg)
+![canon Lide 60](../img/canonlide.jpg)
 
 Install `sane` and optional the frontend `xsane`. Add yourself to the scanner group and reboot `sudo usermod -a -G scanner $USER`
 
