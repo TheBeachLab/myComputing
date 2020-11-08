@@ -2,6 +2,7 @@
 
 <!-- vim-markdown-toc GFM -->
 
+* [Search and replace text in files](#search-and-replace-text-in-files)
 * [Time and timezones](#time-and-timezones)
 * [Find all files containing specific text](#find-all-files-containing-specific-text)
 * [PDF](#pdf)
@@ -29,6 +30,20 @@
 * [Cron jobs](#cron-jobs)
 
 <!-- vim-markdown-toc -->
+
+
+## Search and replace text in files
+
+You can do it without even opening the files
+
+`sed -i -- 's/foo/bar/g' file`
+
+- `foo` is the text you search
+- `bar` is the replacement text
+- `file` is the file or files in that folder like `README.md` or `*.md` or `*`
+
+You have to escape some characters like `space` and `.` `*` `^` `$` `[` `]`  `\` `/` with the `\` character
+
 
 ## Time and timezones
 
@@ -225,7 +240,7 @@ Install `cronie` package and `systemctl start cronie && systemctl enable cronie`
 #+------------- min (0 - 59)
 
 # Clear cache every Monday at 10pm
-0 22 * * 1 yay -Scc --noconfirm 
+0 22 * * 1 yay -Scc --noconfirm
 ```
 
 You can also use keywords instead `@yearly @monthly @weekly @daily @hourly @reboot`. Cron jobs are great to do some background tasks *while your computer is on*.
@@ -251,8 +266,7 @@ START_HOURS_RANGE=3-22
 @monthly 45	cron.monthly		nice run-parts /etc/cron.monthly
 
 # Clear cache every Monday at 10pm
-7 15 clear-cache-weekly yay -Scc --noconfirm 
+7 15 clear-cache-weekly yay -Scc --noconfirm
 ```
 
 You can check the validity of your anacrontab file with `anacron -T`
-
