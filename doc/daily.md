@@ -3,7 +3,9 @@
 <!-- vim-markdown-toc GFM -->
 
 * [Search and replace text in files](#search-and-replace-text-in-files)
-* [Time and timezones](#time-and-timezones)
+* [Time and date](#time-and-date)
+	* [Change timezone](#change-timezone)
+	* [Sync Time with network](#sync-time-with-network)
 * [Find all files containing specific text](#find-all-files-containing-specific-text)
 * [PDF](#pdf)
 	* [Reduce a PDF filesize](#reduce-a-pdf-filesize)
@@ -45,7 +47,9 @@ You can do it without even opening the files
 You have to escape some characters like `space` and `.` `*` `^` `$` `[` `]`  `\` `/` with the `\` character
 
 
-## Time and timezones
+## Time and date
+
+### Change timezone
 
 In my laptop the hardware clock (BIOS clock) is considered by the operating system (arch) as UTC. So it is important to set that appropiately first.
 
@@ -68,6 +72,18 @@ System clock synchronized: no
 
 `timedatectl list-timezones` check the timezones
 `timedatectl set-timezone zone/subzone` Set the timezone
+
+### Sync Time with network
+
+There are many ways to do that, this is the one I use. Start/enable `systemd-timesyncd`. Add time servers in the config file `/etc/systemd/timesyncd.conf`
+
+```bash
+[Time]
+NTP=0.arch.pool.ntp.org 1.arch.pool.ntp.org 2.arch.pool.ntp.org 3.arch.pool.ntp.org
+FallbackNTP=0.pool.ntp.org 1.pool.ntp.org 2.pool.ntp.org 3.pool.ntp.org
+```
+
+Check the sync status `timedatectl show-timesync --all`
 
 ## Find all files containing specific text
 
