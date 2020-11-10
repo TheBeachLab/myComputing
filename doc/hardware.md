@@ -374,7 +374,7 @@ There is another problem. By default touchpad is disabled while typing. But for 
 In my case it is the touchpad id is 14. But this number is not persistent across sessions, so it is better to use the name. Now list the properties:
 
 ```bash
-[unix ~]$ xinput list-props 'TM3289-002'
+[unix ~]$ xinput list-props 'Synaptics TM3289-002'
 Device 'Synaptics TM3289-002':
         Device Enabled (169):   1
         Coordinate Transformation Matrix (171): 1.000000, 0.000000, 0.000000, 0.000000, 1.000000, 0.000000, 0.000000, 0.000000, 1.000000
