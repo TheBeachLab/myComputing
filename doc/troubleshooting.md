@@ -101,7 +101,7 @@ Program terminated with signal SIGSEGV, Segmentation fault.
 [Current thread is 1 (Thread 0x7f87954af740 (LWP 199894))]
 ```
 
-Seems that I have multiple versions of `libQt5XcbQpa.so.5` I link the version in `site-packages` to the main `/usr/lib` but then complains
+From there you can backtrace at the gdb prompt `(gdb) bt`. Seems that I have multiple versions of `libQt5XcbQpa.so.5` I link the version in `site-packages` to the main `/usr/lib` but then complains
 
 ```bash
 [unix ~]$ cadence
@@ -110,14 +110,7 @@ Cannot mix incompatible Qt library (5.14.1) with this library (5.15.1)
 Aborted (core dumped)
 ```
 
-I repeat the above steps and now seems that `/usr/lib/libc.so.6` is from 5.14. Who installed this file?
-
-```bash
-[unix /etc]$ pacman -Qo /usr/lib/libc.so.6
-/usr/lib/libc.so.6 is owned by glibc 2.32-5
-```
-
-Not solved. QT and python package management are nasty. At least I learnt some debugging tools
+> SOLVED! Removed all QT5 installed via pip and reinstalled it via pacman. QT and python package managements are nasty. At least I learnt some debugging tools
 
 ## Canon Lide 120
 
