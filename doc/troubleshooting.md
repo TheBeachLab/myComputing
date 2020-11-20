@@ -2,6 +2,7 @@
 
 <!-- vim-markdown-toc GFM -->
 
+* [Wacom tablet not scrolling in QT apps](#wacom-tablet-not-scrolling-in-qt-apps)
 * [Fixing a segmentation fault](#fixing-a-segmentation-fault)
 * [Canon Lide 120](#canon-lide-120)
 * [Old libraries not found](#old-libraries-not-found)
@@ -14,9 +15,14 @@
 * [TODO X220](#todo-x220)
 
 <!-- vim-markdown-toc -->
+
+## Wacom tablet not scrolling in QT apps
+
+Wacom tablet scrolls in gtk apps but not in qt apps (kdenlive, freecad, etc). `xinput test 21` shows button press 4 and 5 for scroll actions but seems that QT does not naturally recognize them as scroll actions. Firefox. terminals, etc work fine though.
+
 ## Fixing a segmentation fault
 
-I am going to try and fix the following problem
+I am going to show how I fixed the following problem
 
 ```bash
 [unix ~]$ cadence
