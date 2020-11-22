@@ -17,6 +17,8 @@
 * [Virtual webcam from OBS output](#virtual-webcam-from-obs-output)
 	* [v4l2loopback](#v4l2loopback)
 	* [OBS Studio Plugin](#obs-studio-plugin)
+* [Teleprompter](#teleprompter)
+* [Video production tips (Not Linux related)](#video-production-tips-not-linux-related)
 
 <!-- vim-markdown-toc -->
 
@@ -147,3 +149,22 @@ I installed the AUR package `obs-v4l2sink` which is actually a sink where OBS wi
 
 You will be able now to use a new webcam that will appear (working in zoom and Firefox). Not yet working for Chrome.
 
+## Teleprompter
+
+I use [Imaginary Teleprompter](https://imaginary.tech/teleprompter/) with a custom glass frame. The problem I face is slight ghosting of the text but nothing too annoying for the price (free). If I keep teleprompting I will consider purchasing a glass or a prompter from <https://imaginary.tech/teleprompter/>
+
+## Video production tips (Not Linux related)
+
+- Chroma
+	- Green: For daylight scenes
+	- Blue: For dark scenes
+	- RGB Green: For low light
+- RGB backgrounds
+	- Keep Iso low
+	- Aperture full open
+	- 180 degree rule
+	- Better grey than white backdrop
+- Teleprompter
+	- Use street language, not written language
+	- Use peripheral vision to read
+	- Use reminder keywords not word by word script

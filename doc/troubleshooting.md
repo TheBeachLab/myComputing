@@ -20,6 +20,31 @@
 
 Wacom tablet scrolls in gtk apps but not in qt apps (kdenlive, freecad, etc). `xinput test 21` shows button press 4 and 5 for scroll actions but seems that QT does not naturally recognize them as scroll actions. Firefox. terminals, etc work fine though.
 
+The tablet scroll strip in the tablet works. Here is the output of `xinput test 10`
+
+```bash
+button press   4 a[3]=2 a[4]=0 a[5]=0 
+button release 4 a[3]=2 a[4]=0 a[5]=0 
+motion a[3]=2 a[4]=0 a[5]=0 
+button press   4 a[3]=1 a[4]=0 a[5]=0 
+button release 4 a[3]=1 a[4]=0 a[5]=0 
+motion a[3]=1 a[4]=0 a[5]=0
+```
+
+Compare it with the output of the cursor
+
+```bash
+button press   5 
+button release 5 
+motion a[2]=0 a[3]=0 a[4]=0 a[5]=0 
+button press   5 
+button release 5 
+motion a[2]=0 a[3]=0 a[4]=0 a[5]=0 
+button press   5 
+button release 5 
+motion a[2]=0 a[3]=0 a[4]=0 a[5]=0
+```
+
 ## Fixing a segmentation fault
 
 I am going to show how I fixed the following problem
