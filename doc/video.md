@@ -9,6 +9,7 @@
 * [Download a specific format from youtube video](#download-a-specific-format-from-youtube-video)
 * [Convert GIF to MP4](#convert-gif-to-mp4)
 * [Unsorted ffmpeg-fu](#unsorted-ffmpeg-fu)
+* [Adjust webcam settings](#adjust-webcam-settings)
 * [DSLR Video Webcam](#dslr-video-webcam)
 	* [Hardware required](#hardware-required)
 	* [Software required](#software-required)
@@ -94,6 +95,39 @@ file '/path/to/file1'
 file '/path/to/file2'
 file '/path/to/file3'
 ```
+
+## Adjust webcam settings
+
+Check webcams:
+
+```bash
+[unix ~]$ v4l2-ctl --list-devices
+Integrated Camera: Integrated C (usb-0000:00:14.0-8):
+	/dev/video0
+	/dev/video1
+	/dev/media0
+```
+
+Check available settings
+
+```bash
+[unix ~]$ v4l2-ctl -d /dev/video0 --list-ctrls
+                     brightness 0x00980900 (int)    : min=0 max=255 step=1 de
+                       contrast 0x00980901 (int)    : min=0 max=255 step=1 de
+                     saturation 0x00980902 (int)    : min=0 max=100 step=1 de
+                            hue 0x00980903 (int)    : min=-180 max=180 step=1
+ white_balance_temperature_auto 0x0098090c (bool)   : default=1 value=1
+                          gamma 0x00980910 (int)    : min=90 max=150 step=1 d
+           power_line_frequency 0x00980918 (menu)   : min=0 max=2 default=1 v
+      white_balance_temperature 0x0098091a (int)    : min=2800 max=6500 step=e
+                      sharpness 0x0098091b (int)    : min=0 max=7 step=1 defa
+         backlight_compensation 0x0098091c (int)    : min=0 max=2 step=1 defa
+                  exposure_auto 0x009a0901 (menu)   : min=0 max=3 default=3 v
+              exposure_absolute 0x009a0902 (int)    : min=4 max=1250 step=1 d
+         exposure_auto_priority 0x009a0903 (bool)   : default=0 value=0
+```
+
+Set a parameter `v4l2-ctl -d /dev/video0 --set-ctrl=exposure_auto=3`
 
 ## DSLR Video Webcam
 
