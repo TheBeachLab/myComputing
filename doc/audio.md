@@ -11,10 +11,12 @@
 	* [Set default alsamixer levels](#set-default-alsamixer-levels)
 * [Pulseaudio](#pulseaudio)
 	* [Reset Pulse to factory](#reset-pulse-to-factory)
+	* [Output audio through HDMI port](#output-audio-through-hdmi-port)
 	* [Rename Pulseaudio sinks and sources](#rename-pulseaudio-sinks-and-sources)
 	* [Create a virtual microphone and virtual speaker](#create-a-virtual-microphone-and-virtual-speaker)
 * [Jack Audio](#jack-audio)
 	* [Add the USB mic Yeti to `jack`](#add-the-usb-mic-yeti-to-jack)
+	* [Output audio through HDMI port](#output-audio-through-hdmi-port-1)
 * [Software](#software)
 	* [Ardour](#ardour)
 	* [Helm](#helm)
@@ -116,6 +118,10 @@ This is required after messing up with jack and getting strange behaviour. Pulse
 - It will check first user level `~/.config/pulse`
 - System wide `/etc/pulse/`
 
+### Output audio through HDMI port
+
+In the configuration tab of pavucontrol select the appropiate profile you wish.
+
 ### Rename Pulseaudio sinks and sources
 
 You might want to install the AUR package `pamac` to identify the DEVICE or just look it up with `pacmd list-sinks` and `pacmd list-sources`. Then rename a sink with:
@@ -208,6 +214,10 @@ In this case the name of the device is `Microphone`. So add it with `alsa_in -j 
 - `2>&1` sends all the output to std output
 - `1> /dev/null ` trashes std output
 - `&` puts the process in the background
+
+### Output audio through HDMI port
+
+Not working for me yet
 
 ## Software
 
