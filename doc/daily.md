@@ -2,6 +2,7 @@
 
 <!-- vim-markdown-toc GFM -->
 
+* [Run sudo without a password (absolutely not recommended)](#run-sudo-without-a-password-absolutely-not-recommended)
 * [Search and replace text in files](#search-and-replace-text-in-files)
 * [Time and date](#time-and-date)
 	* [Change timezone](#change-timezone)
@@ -33,6 +34,15 @@
 
 <!-- vim-markdown-toc -->
 
+## Run sudo without a password (absolutely not recommended)
+
+This is more to check if this is happening rather than actually doing it. Edit `/etc/sudoers` with `sudo visudo` and you can add your username
+
+`my_username ALL=(ALL) NOPASSWD:ALL`
+
+or a group like `wheel`
+
+`%wheeel ALL=(ALL) NOPASSWD:ALL`
 
 ## Search and replace text in files
 
