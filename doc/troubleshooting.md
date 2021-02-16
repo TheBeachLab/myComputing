@@ -261,8 +261,8 @@ Default sample rate         = 48000
 Connection refused: Make sure CUPS is installed and activated:
 
 ```bash
-systemctl enable org.cups.cupsd.service
-systemctl start org.cups.cupsd.service
+systemctl enable cups
+systemctl start cups
 ```
 
 CUPS web config 403 Forbidden: Add yourself to `wheel` group
