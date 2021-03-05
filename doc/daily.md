@@ -11,6 +11,7 @@
 * [PDF](#pdf)
 	* [Reduce a PDF filesize](#reduce-a-pdf-filesize)
 	* [Merge PDF files](#merge-pdf-files)
+	* [Convert PDF to PNG image](#convert-pdf-to-png-image)
 * [Mount a USB drive](#mount-a-usb-drive)
 * [Encryption](#encryption)
 	* [Encrypt a file or directory with GPG. Paranoid level 1](#encrypt-a-file-or-directory-with-gpg-paranoid-level-1)
@@ -129,6 +130,10 @@ You can change the `screen` option (72 dpi) to `ebook` (150 dpi), `prepress` (30
 ### Merge PDF files
 
 `pdfunite in-1.pdf in-2.pdf in-n.pdf out.pdf`
+
+### Convert PDF to PNG image
+
+`pdftoppm file.pdf newfilename -png`
 
 ## Mount a USB drive
 
