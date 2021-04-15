@@ -18,6 +18,7 @@
 * [Trackpad tips](#trackpad-tips)
 * [Keeyees Logic Analizer (Saleale Logic 8 clone)](#keeyees-logic-analizer-saleale-logic-8-clone)
 * [Remapping a secondary keyboard](#remapping-a-secondary-keyboard)
+* [Preonic keyboard](#preonic-keyboard)
 
 <!-- vim-markdown-toc -->
 
@@ -452,3 +453,24 @@ Connect the keyboard and find the device ID `xinput list`. I am connecting an Ap
 Now find out one key you want to remap `xev | awk -F'[ )]+' '/^KeyPress/ { a[NR+2] } NR in a { printf "%-3s %s\n", $5, $8 }'`
 
 For example pressing `p` in the external keyboard shows `33 p`
+
+## Preonic keyboard
+
+Create a `firmware.bin` file at <https://config.qmk.fm/>
+
+Flashing the device requires to enter dfu mode (press reset under the keyboard), check with `dfu-util -l`
+
+```
+dfu-util 0.10
+
+Copyright 2005-2009 Weston Schmidt, Harald Welte and OpenMoko Inc.
+Copyright 2010-2020 Tormod Volden and Stefan Schmidt
+This program is Free Software and has ABSOLUTELY NO WARRANTY
+Please report bugs to http://sourceforge.net/p/dfu-util/tickets/
+
+Found DFU: [0483:df11] ver=2200, devnum=27, cfg=1, intf=0, path="1-2", alt=1, name="@Option Bytes  /0x1FFFF800/01*016 e", serial="206839502037"
+Found DFU: [0483:df11] ver=2200, devnum=27, cfg=1, intf=0, path="1-2", alt=0, name="@Internal Flash  /0x08000000/128*0002Kg", serial="206839502037"
+```
+
+Flash the `internal flash` device with `dfu-util -a 0 -s 0x08000000 -D firmware.bin`
+
