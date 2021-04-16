@@ -472,5 +472,5 @@ Found DFU: [0483:df11] ver=2200, devnum=27, cfg=1, intf=0, path="1-2", alt=1, na
 Found DFU: [0483:df11] ver=2200, devnum=27, cfg=1, intf=0, path="1-2", alt=0, name="@Internal Flash  /0x08000000/128*0002Kg", serial="206839502037"
 ```
 
-Flash the `internal flash` device with `dfu-util -a 0 -s 0x08000000 -D firmware.bin`
+Flash the `internal flash` device with `dfu-util -a 0 -s 0x08000000:leave -D firmware.bin`
 
