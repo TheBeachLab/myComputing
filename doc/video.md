@@ -23,7 +23,7 @@
 
 <!-- vim-markdown-toc -->
 
-## Download youtube video 
+## Download youtube video
 
 `youtube-dl` URL-VIDEO
 
@@ -35,7 +35,7 @@
 
 ## Download youtube audio
 
-`youtube-dl -x --audio-format mp3` URL-VIDEO 
+`youtube-dl -x --audio-format mp3` URL-VIDEO
 
 ## Hardcode subtitles into video
 
@@ -89,7 +89,7 @@ Explanation
 - Neil's no audio: `ffmpeg -i input_video -vcodec libx264 -b:v 1000k -vf scale=-2:1080 -an output_video.mp4`
 - Use nvidia hw encoder `-vcodec h264_nvenc`
 - Convert single image to a 5s video `ffmpeg -loop 1 -i image.png  -t 5  output.mp4`
-- Concatenate videos `ffmpeg -f concat -safe 0 -i videos.txt -c copy output.mp4` Where `videos.txt` is:  
+- Concatenate videos `ffmpeg -f concat -safe 0 -i videos.txt -c copy output.mp4` Where `videos.txt` is:
 ```
 file '/path/to/file1'
 file '/path/to/file2'
@@ -151,13 +151,98 @@ You can capture video with pretty much anything but I mostly use [OBS Studio](ht
 
 ### Canon 7D
 
-The Canon 7D has a mini HDMI port out. With the Canon firmware 2.0.3 I cannot obtain a clean HDMI out. There is always the focus rectangle there. So I downloaded [Magoc Lantern Firmware](https://magiclantern.fm/). To control the camera settings I use [Entangle](https://entangle-photo.org/) which allows me to capture images as well as control the camera settings.
+The Canon 7D has a mini HDMI port out. With the Canon firmware 2.0.3 I cannot obtain a clean HDMI out. There is always the focus rectangle there. So I downloaded [Magic Lantern Firmware](https://magiclantern.fm/). To control the camera settings I use [Entangle](https://entangle-photo.org/) which allows me to capture images as well as control the camera settings.
 
 ### Canon M6
 
-Canon M6 has a micro HDMI port. With the Canon M6 I can obtain a clean HDMI out in manual focus. But controlling the camera settings is just annoying. USB tether does not seem to work and there is a Canon App which is so faulty. 
+Canon M6 has a micro HDMI port. With the Canon M6 I can obtain a clean HDMI out in manual focus. But controlling the camera settings is just annoying. USB tether does not seem to work and there is a Canon App which is so faulty.
 
 Magic Lantern is not available for the M6. It could run [CHDK](https://chdk.fandom.com/wiki/CHDK) but at the moment of writing the firmware is still unported.
+
+The camera turns black every 30 minutes which is annoying. To override this I followed the instructions found in [CHDK forum](https://chdk.setepontos.com/index.php?topic=13489.msg141507#msg141507)
+
+1. Prepare the SD card, format it low level in the camera or as FAT32 (not exFAT!). Save this script as `makeCanonSDCard.sh`
+
+```
+#!/bin/bash
+#Enable powershot basic scripting on a memory card
+if [ $# -ne 1 ] ; then
+  echo
+  echo "Usage : ./makeCanonSDCard.sh [ device ]"
+  echo
+  echo " [ device ] is a fat32 / fat16 partition on the memory card"
+  echo " example : ./makeCanonSDCard.sh /dev/sdb1"
+  echo "NOTE: please run as root"
+  exit 112
+fi
+echo Boot sector of $1 will be modified. If you are not sure this is what you want then cancel with Ctrl-C
+sleep 8
+#TAG on boot sector
+if ! echo -n SCRIPT | dd bs=1 count=6 seek=496 of=$1 ; then {
+   echo failed writing to boot sector
+   exit 113
+} fi
+if mount | grep /mnt ; then {
+    umount /mnt
+} fi
+if ! mount $1 /mnt ; then {
+    echo failed to mount
+    exit 114
+} fi
+#create script request file
+echo -n "for DC_scriptdisk" > /mnt/script.req
+#Canon M6 script
+echo 'DIM palette_buffer_ptr = 0x11d4c
+DIM active_palette_buffer = 0x11d44
+DIM palette_to_zero = 0
+private sub RegisterProcs()
+    System.Create()
+    ExecuteEventProcedure("UI.CreatePublic")
+end sub
+private sub Initialize()
+    RegisterProcs()
+    LockMainPower()
+    adr = *palette_buffer_ptr
+    adr = adr + (palette_to_zero * 4)
+    if *adr <> 0 then
+        adr = *adr + 4
+        memset(adr, 0, 256 * 4)
+    end if
+end sub
+'>/mnt/extend.m
+#Done !
+echo "Please check /mnt for files extend.m and script.req"
+```
+
+This includes saving the following script as `extend.m` in the root directory of the card.
+
+```
+DIM palette_buffer_ptr = 0x11d4c
+DIM active_palette_buffer = 0x11d44
+DIM palette_to_zero = 0
+
+private sub RegisterProcs()
+    System.Create()
+    ExecuteEventProcedure("UI.CreatePublic")
+end sub
+
+private sub Initialize()
+    RegisterProcs()
+    LockMainPower()
+    adr = *palette_buffer_ptr
+    adr = adr + (palette_to_zero * 4)
+    if *adr <> 0 then
+        adr = *adr + 4
+        memset(adr, 0, 256 * 4)
+    end if
+end sub
+```
+
+2. Run the script as a superuser. SERIOUS WARNING!! MAKE SURE YOU SPECIFY THE CORRECT SD CARD DEVICE!!! If you don't know what I am talking about **don't do it**.
+
+3. Every time you start the camera you need to enter PLAYBACK mode and do a single press of SET. This will cause the script execution. Go back to shooting mode, if the overlays are not present, the display will stay ON.
+
+4. Do not format the card in low level or you will have to repeat steps 1 and 2 again.
 
 ## Virtual webcam from OBS output
 
@@ -176,6 +261,7 @@ This will create a virtual video device `/dev/video9`. You can also create more 
 `sudo modprobe v4l2loopback devices=2 video_nr=10,20 card_label=TimerCam,StreamCam`
 
 When you want to remove the device use `sudo modprobe -r v4l2loopback` or `sudo rmprobe v4l2loopback`. Finally remember to rebuild the kernel module every time you update the kernel!
+
 
 ### OBS Studio Plugin
 
