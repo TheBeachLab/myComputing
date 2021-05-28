@@ -238,9 +238,9 @@ private sub Initialize()
 end sub
 ```
 
-2. Run the script as a superuser. SERIOUS WARNING!! MAKE SURE YOU SPECIFY THE CORRECT SD CARD DEVICE!!! If you don't know what I am talking about **don't do it**.
+2. Check the sdcard devide with `lsblk` and run the script as a superuser. SERIOUS WARNING!! MAKE SURE YOU SPECIFY THE CORRECT SD CARD DEVICE!!! If you don't know what I am talking about **don't do it**.
 
-3. Every time you start the camera you need to enter PLAYBACK mode and do a single press of SET. This will cause the script execution. Go back to shooting mode, if the overlays are not present, the display will stay ON.
+3. Every time you start the camera you need will see the overlays. Enter PLAYBACK mode and do a single press of SET. This will cause the script execution. Go back to shooting mode, if the overlays are not present, the display will stay ON.
 
 4. Do not format the card in low level or you will have to repeat steps 1 and 2 again.
 
