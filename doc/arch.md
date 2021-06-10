@@ -74,5 +74,6 @@ Unfortunately my Full Spectrum Laser controller only works in Windows Operating 
 - Install the `qemu` and `samba` packages and have a Windows install image on hand.
 - Make a qcow2 image `qemu-img create -f qcow2 win7.img 20G`
 - `qemu-system-x86_64 -hda win7.img -cdrom win7sp1u64.iso -boot d -enable-kvm -cpu host -smp 2 -m 3G -vga std -net nic,model=e1000 -net user,smb=/home/unix -usbdevice tablet`
+- The shared folders will be located at `\\10.0.2.4\qemu`
 
 
