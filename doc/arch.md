@@ -8,6 +8,7 @@ I started using Linux distributions in the mid 90's. In the age of Windows 95 -s
 * [The Window Manager](#the-window-manager)
 * [Terminal emulator](#terminal-emulator)
 * [Cursor theme](#cursor-theme)
+* [Virtual Machines](#virtual-machines)
 
 <!-- vim-markdown-toc -->
 
@@ -65,4 +66,13 @@ Name[ar]=Bibata Ice
 Name[bg]=Bibata Ice
 ...
 ```
+
+## Virtual Machines
+
+Unfortunately my Full Spectrum Laser controller only works in Windows Operating system. It became bothering to restart the computer to use the laser so I run Windows 7 in qemu. Here's how:
+
+- Install the `qemu` and `samba` packages and have a Windows install image on hand.
+- Make a qcow2 image `qemu-img create -f qcow2 win7.img 20G`
+- `qemu-system-x86_64 -hda win7.img -cdrom win7sp1u64.iso -boot d -enable-kvm -cpu host -smp 2 -m 3G -vga std -net nic,model=e1000 -net user,smb=/home/unix -usbdevice tablet`
+
 
