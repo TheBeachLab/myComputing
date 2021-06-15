@@ -6,6 +6,7 @@
 * [DNIe reader](#dnie-reader)
 * [Asus MB168B+ USB display](#asus-mb168b-usb-display)
 * [HDMI](#hdmi)
+* [Control OSD via software](#control-osd-via-software)
 * [Space Navigator](#space-navigator)
 * [Contour Shuttle Pro 2](#contour-shuttle-pro-2)
 * [Wacom Intuos 3](#wacom-intuos-3)
@@ -145,6 +146,115 @@ mirror screen:
 or mirror:
 
 `xrandr --output eDP-1 --primary --auto --output HDMI-1 --same-as eDP-1 --auto`
+
+## Control OSD via software
+
+I am building a custom computer and I bought a bare display with a controller. In order to control bribhtness, contrast, etc, I am using the DDC/CI protocol. I had to install the `ddcutil` package.
+
+```bash
+[unix ~]$ sudo ddcutil detect
+Display 1
+   I2C bus:  /dev/i2c-4
+   EDID synopsis:
+      Mfg id:               XXX
+      Model:                HDMI
+      Product code:         5472
+      Serial number:        
+      Binary serial number: 16843009 (0x01010101)
+      Manufacture year:     2019,  Week: 12
+   VCP version:         2.2
+
+Display 2
+   I2C bus:  /dev/i2c-12
+   EDID synopsis:
+      Mfg id:               RTK
+      Model:                RTK FHD
+      Product code:         10811
+      Serial number:        J257M96B00FL
+      Binary serial number: 16843009 (0x01010101)
+      Manufacture year:     2011,  Week: 23
+   VCP version:         Detection failed
+```
+
+```bash
+[unix ~]$ sudo ddcutil -b 4 capabilities
+Model: RTK
+MCCS version: 2.2
+Commands:
+   Op Code: 01 (VCP Request)
+   Op Code: 02 (VCP Response)
+   Op Code: 03 (VCP Set)
+   Op Code: 07 (Timing Request)
+   Op Code: 0C (Save Settings)
+   Op Code: E3 (Capabilities Reply)
+   Op Code: F3 (Capabilities Request)
+VCP Features:
+   Feature: 02 (New control value)
+   Feature: 04 (Restore factory defaults)
+   Feature: 05 (Restore factory brightness/contrast defaults)
+   Feature: 06 (Restore factory geometry defaults)
+   Feature: 08 (Restore color defaults)
+   Feature: 0B (Color temperature increment)
+   Feature: 0C (Color temperature request)
+   Feature: 10 (Brightness)
+   Feature: 12 (Contrast)
+   Feature: 14 (Select color preset)
+      Values:
+         01: sRGB
+         02: Display Native
+         04: 5000 K
+         05: 6500 K
+         06: 7500 K
+         08: 9300 K
+         0b: User 1
+   Feature: 16 (Video gain: Red)
+   Feature: 18 (Video gain: Green)
+   Feature: 1A (Video gain: Blue)
+   Feature: 52 (Active control)
+   Feature: 60 (Input Source)
+      Values:
+         01: VGA-1
+         03: DVI-1
+         04: DVI-2
+         0f: DisplayPort-1
+         10: DisplayPort-2
+         11: HDMI-1
+         12: HDMI-2
+   Feature: 87 (Sharpness)
+   Feature: AC (Horizontal frequency)
+   Feature: AE (Vertical frequency)
+   Feature: B2 (Flat panel sub-pixel layout)
+   Feature: B6 (Display technology type)
+   Feature: C6 (Application enable key)
+   Feature: C8 (Display controller type)
+   Feature: CA (OSD/Button Control)
+   Feature: CC (OSD Language)
+      Values:
+         01: Chinese (traditional, Hantai)
+         02: English
+         03: French
+         04: German
+         06: Japanese
+         0a: Spanish
+         0d: Chinese (simplified / Kantai)
+   Feature: D6 (Power mode)
+      Values:
+         01: DPM: On,  DPMS: Off
+         04: DPM: Off, DPMS: Off
+         05: Write only value to turn off display
+   Feature: DF (VCP Version)
+   Feature: FD (Manufacturer specific feature)
+   Feature: FF (Manufacturer specific feature)
+```
+
+Some capabilites work, other apparently don't and other seem to have incorrect data. I will keep posting here the findings. To get the current value of a feature:
+
+```bash
+[unix ~]$ sudo ddcutil getvcp 60
+VCP code 0x60 (Input Source                  ): HDMI-2 (sl=0x12)
+```
+
+To set a value `sudo ddcutil -b 4 setvcp 12 4`. Note that if there are 2 displays detected it is recommended to specify the bus.
 
 ## Space Navigator
 
