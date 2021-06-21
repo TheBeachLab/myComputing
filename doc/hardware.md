@@ -14,6 +14,7 @@
 * [Electronic drum](#electronic-drum)
 * [Canon LiDE 60](#canon-lide-60)
 * [eGPU Nvidia RTX2070 Super in a Razer X Thunderbolt external enclosure](#egpu-nvidia-rtx2070-super-in-a-razer-x-thunderbolt-external-enclosure)
+	* [Patch nvidia driver](#patch-nvidia-driver)
 * [eGPU Beast 8.5c](#egpu-beast-85c)
 	* [For Radeon HD 6450](#for-radeon-hd-6450)
 * [Trackpad tips](#trackpad-tips)
@@ -159,7 +160,7 @@ Display 1
       Mfg id:               XXX
       Model:                HDMI
       Product code:         5472
-      Serial number:        
+      Serial number:
       Binary serial number: 16843009 (0x01010101)
       Manufacture year:     2019,  Week: 12
    VCP version:         2.2
@@ -444,6 +445,10 @@ How to switch GPUs for internal to eGPU:
 
 > Note: From time to time the PCI ID of the egpu will change and switching to the egpu will stop working. In that case run `sudo gswitch setup` again.
 
+### Patch nvidia driver
+
+At every kernel update go to `~/opt/nvidia-patch` and `git pull` then check if your version `nvidia-smi` is compatible with the patch `sudo bash patch.sh -l` then `sudo bash patch.sh` and `sudo bash patch-fbc.sh`
+
 ## eGPU Beast 8.5c
 
 This is an external GPU adapter that I bought on [Amazon](https://amzn.to/2nruDnH). My version has a expresscard that I use for my Thinkpad X220. Seems to work with the Radeon HD6450. The following command detects the card:
@@ -583,4 +588,3 @@ Found DFU: [0483:df11] ver=2200, devnum=27, cfg=1, intf=0, path="1-2", alt=0, na
 ```
 
 Flash the `internal flash` device with `dfu-util -a 0 -s 0x08000000:leave -D firmware.bin`
-
