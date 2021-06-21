@@ -13,6 +13,7 @@
 	* [Roland does not appear in CUPS](#roland-does-not-appear-in-cups)
 * [Send to Roland Vinyl](#send-to-roland-vinyl)
 * [TODO X220](#todo-x220)
+* [Intel NUC freezes with eGPU](#intel-nuc-freezes-with-egpu)
 
 <!-- vim-markdown-toc -->
 
@@ -330,3 +331,7 @@ It works with:
 - dotfiles
 - Dual Intel / Radeon
 - Hotplug Radeon
+
+## Intel NUC freezes with eGPU
+
+I experienced random freezes with intel NUC 11 running an external GPU. At the beginning I thought it was a memory fault but it ended up being some sort of power saving settings in the BIOS. I followed the instructions given by `marCH` here https://community.intel.com/t5/Intel-NUCs/NUC10i7FNH-Issue-with-Thunderbolt3-eGPU/m-p/1279791/highlight/true and so far the issue is not happening again. Also make sure the thunderbolt cable is not loose. That can also cause freezer in Linux.
