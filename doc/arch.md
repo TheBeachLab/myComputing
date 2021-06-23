@@ -41,7 +41,7 @@ I am currently exploring the move to sway <https://swaywm.org/>
 
 ## Terminal emulator
 
-I am using urxvt. 
+I am using ~~URxvt~~ kitty. 
 
 ## Cursor theme
 
