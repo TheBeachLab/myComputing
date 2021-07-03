@@ -217,7 +217,7 @@ In this case the name of the device is `Microphone`. So add it with `alsa_in -j 
 
 ### Output audio through HDMI port
 
-Not working for me yet
+In `cadence` go to `configure` and change the output device to the HDMI. Make sure you also have `duplex mode` selected. Stop and restart jack and the pulseaudio bridge.
 
 ## Software
 
