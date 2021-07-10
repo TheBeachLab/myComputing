@@ -338,4 +338,10 @@ I experienced random freezes with intel NUC 11 running an external GPU. At the b
 
 I SOLVED the issue by issuing `nvidia-settings -a [gpu:0]/GPUPowerMizerMode=1` at the start of the session. I created an alias for that `stayhot` which is the equivalent of `dontfreeze` but sounds better.
 
+Alternatively you can make this change persistent in `/etc/X11/xorg.conf`
+
+```
+Option         "RegistryDwords" "PowerMizerEnable=0x1; PerfLevelSrc=0x2222; PowerMizerDefault=0x1; PowerMizerDefaultAC=0x1"
+```
+
 Also make sure the thunderbolt cable is not loose. That can also cause freezes in Linux.
