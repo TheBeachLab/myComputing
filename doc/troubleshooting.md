@@ -7,7 +7,6 @@
 * [Canon Lide 120](#canon-lide-120)
 * [Old libraries not found](#old-libraries-not-found)
 * [Pacman troubleshooting](#pacman-troubleshooting)
-* [No audio in Lightworks using JACK Audio](#no-audio-in-lightworks-using-jack-audio)
 * [CUPS](#cups)
 	* [Cannot access http://localhost:631](#cannot-access-httplocalhost631)
 	* [Roland does not appear in CUPS](#roland-does-not-appear-in-cups)
@@ -200,62 +199,6 @@ lrwxrwxrwx 1 root root 27 May  2 13:37 libtinfo.so.6 -> /usr/lib/libncursesw.so.
 
 `sudo pacman -Syyu`
 
-
-## No audio in Lightworks using JACK Audio
-
-Lightworks has no UI for audio settings, but you can still change an output device within ~/Lightworks/GlobalSettings.txt file, placing a section like this one:
-
-```
-[PortAudio]
-InputDeviceName=system
-OutputDeviceName=system
-```
-
-In ~/Lightworks/Logs/error.log you'll find device names. Find a device related to Jack and type it's name as OutputDeviceName in GlobalSettings.txt
-
-```
---------------------------------------- device #9
-[ Default JACK Audio Connection Kit Input, Default JACK Audio Connection Kit Output ]
-Name                        = system
-Host API                    = JACK Audio Connection Kit
-Is full duplex              = 1
-Is input only               = 0
-Is output only              = 0
-Max inputs = 2, Max outputs = 2
-Default low input latency   = 0.0213333
-Default low output latency  = 0.0426667
-Default high input latency  = 0.0213333
-Default high output latency = 0.0426667
-Default sample rate         = 48000
---------------------------------------- device #10
-Name                        = PulseAudio JACK Source
-Host API                    = JACK Audio Connection Kit
-Is full duplex              = 0
-Is input only               = 0
-Is output only              = 1
-Max inputs = 0, Max outputs = 2
-Default low input latency   = 0
-Default low output latency  = 0
-Default high input latency  = 0
-Default high output latency = 0
-Default sample rate         = 48000
---------------------------------------- device #11
-Name                        = PulseAudio JACK Sink
-Host API                    = JACK Audio Connection Kit
-Is full duplex              = 0
-Is input only               = 1
-Is output only              = 0
-Max inputs = 2, Max outputs = 0
-Default low input latency   = 0
-Default low output latency  = 0
-Default high input latency  = 0
-Default high output latency = 0
-Default sample rate         = 48000
-----------------------------------------------
-2019-11-26 13:00:52.078: PortAudio is using [system](9) for OUTPUT
-2019-11-26 13:00:52.078: PortAudio is using [system](9) for INPUT
-2019-11-26 13:00:52.079: Success
-```
 ## CUPS
 
 ### Cannot access http://localhost:631
