@@ -13,7 +13,7 @@
 * [Send to Roland Vinyl](#send-to-roland-vinyl)
 * [TODO X220](#todo-x220)
 * [Intel NUC freezes with eGPU](#intel-nuc-freezes-with-egpu)
-* [X not starting](#x-not-starting)
+* [X Troubleshooting](#x-troubleshooting)
 
 <!-- vim-markdown-toc -->
 
@@ -290,12 +290,19 @@ Option         "RegistryDwords" "PowerMizerEnable=0x1; PerfLevelSrc=0x2222; Powe
 
 Also make sure the thunderbolt cable is not loose. That can also cause freezes in Linux.
 
-## X not starting
+## X Troubleshooting
 
-Usually due to an error in `xorg.conf`. Do the following:
+If X doesn't start usually is due to an error in `xorg.conf`. Do the following:
 
 - `CTRL+ALT+F1` to enter a new login screen
 - `sudo systemctl stop ly` note that `ly` is my display manager
 - Fix the offending `/etc/X11/xorg.conf`
 - `sudo systemctl start ly`
+
+If you are testing features you can restart X with `sudo systemctl restart ly`. To check for errors or warnings in X check the logs
+
+```
+grep EE ~/.local/share/xorg/Xorg.0.log
+grep WW ~/.local/share/xorg/Xorg.0.log
+```
 
