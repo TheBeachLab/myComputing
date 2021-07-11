@@ -14,7 +14,10 @@
 	* [Convert PDF to PNG image](#convert-pdf-to-png-image)
 * [Mount a USB drive](#mount-a-usb-drive)
 * [Encryption](#encryption)
-	* [Encrypt a file or directory with GPG. Paranoid level 1](#encrypt-a-file-or-directory-with-gpg-paranoid-level-1)
+	* [GPG Keys](#gpg-keys)
+	* [Encryption using asymmetric GPG keys](#encryption-using-asymmetric-gpg-keys)
+	* [Transparent edit of gpg encrypted files in vim](#transparent-edit-of-gpg-encrypted-files-in-vim)
+	* [Encrypt a file or directory with Symmetric GPG](#encrypt-a-file-or-directory-with-symmetric-gpg)
 	* [Steganography. Paranoid level 2](#steganography-paranoid-level-2)
 * [Create custom functions](#create-custom-functions)
 * [Fonts](#fonts)
@@ -142,11 +145,37 @@ otherwise it will be `/media/device`.
 
 ## Encryption
 
-### Encrypt a file or directory with GPG. Paranoid level 1
+### GPG Keys
 
-To **encrypt a file*** `gpg -c filename` outputs `filename.gpg`. To **decrypt a file** `gpg filename.gpg`.
+- Generate a keypair `gpg --full-gen-key`. **Warning:** The passphrase is usually the weakest link in protecting your private key
+- List keys in your keyring `gpg --list-keys`. Your keyring is in `~/.gnupg` most likely
+- Export your **public** key `gpg --export --armor --output public.key user-id`
+- Backup your **private** key `gpg --export-secret-keys --armor --output privkey.asc user-id`. Place the key in a secure inaccessible place.
+- Import the backup of your private key `gpg --import privkey.asc`
 
-To **encrypt directories** `gpgtar -c -o file.gpg dirname`. To **decrypt a directory** `gpgtar -d file.gpg`
+### Encryption using asymmetric GPG keys
+
+- `gpg --recipient user-id --encrypt doc` in my case `gpg -r hola@beachlab.org -e file` it will output `file.gpg`
+
+### Transparent edit of gpg encrypted files in vim
+
+Install the `jamessan/vim-gnupg` plugin. Adjust the default recipient in `.vimrc` options. Here's mine
+
+```
+" GPG options
+let g:GPGPreferArmor=0
+" set the default option
+let g:GPGDefaultRecipients=["me@beachlab.org"]
+``` 
+
+If the file extension is not `md` add at the bottom of the file `/* vim: set filetype=markdown : */`
+
+### Encrypt a file or directory with Symmetric GPG
+
+Symmetric encryption does not require the generation of a key pair and can be used to simply encrypt data with a passphrase.
+
+- To **encrypt a file*** `gpg -c filename` outputs `filename.gpg`. To **decrypt a file** `gpg filename.gpg`.
+- To **encrypt directories** `gpgtar -c -o file.gpg dirname`. To **decrypt a directory** `gpgtar -d file.gpg`
 
 You will then be prompted for a passphrase.
 
