@@ -155,7 +155,8 @@ otherwise it will be `/media/device`.
 
 ### Encryption using asymmetric GPG keys
 
-- `gpg --recipient user-id --encrypt doc` in my case `gpg -r hola@beachlab.org -e file` it will output `file.gpg`
+- `gpg --recipient user-id --armor --encrypt doc` in my case `gpg -r hola@beachlab.org -a -e file` it will output an ascii `file.asc`
+- To decrypt `gpg -o file -d file.pgp`
 
 ### Transparent edit of gpg encrypted files in vim
 
