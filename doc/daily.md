@@ -35,6 +35,8 @@
 	* [Find the width and height of a terminal window](#find-the-width-and-height-of-a-terminal-window)
 	* [Open a terminal emulator in Thunar](#open-a-terminal-emulator-in-thunar)
 * [Cron jobs](#cron-jobs)
+* [Pandoc](#pandoc)
+* [Convert docx to md (with images)](#convert-docx-to-md-with-images)
 
 <!-- vim-markdown-toc -->
 
@@ -331,3 +333,13 @@ START_HOURS_RANGE=3-22
 ```
 
 You can check the validity of your anacrontab file with `anacron -T`
+
+## Pandoc
+
+## Convert docx to md (with images)
+
+`pandoc --extract-media=. -s file.docx --wrap=none --reference-links -t markdown_strict -o file.md`
+
+for a batch of files
+
+`for i in *.docx ; do echo '$i' && pandoc --extract-media=. -s $i --wrap=none --reference-links -t markdown_strict -o $(basename $i .docx).md ; done`
