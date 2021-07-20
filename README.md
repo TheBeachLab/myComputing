@@ -9,6 +9,7 @@ This is how I do my full-time Linux computing now:
 - [Network in Linux](doc/network.md)
 - [Audio in Linux](doc/audio.md)
 - [Video in Linux](doc/video.md)
+- [Flutter development in Linux](doc/flutter.md)
 - [OBS in Linux](doc/obs.md)
 - [My hardware in Linux](doc/hardware.md)
 - [Troubleshooting](doc/troubleshooting.md)
