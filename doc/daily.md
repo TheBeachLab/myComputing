@@ -8,6 +8,8 @@
 	* [Change timezone](#change-timezone)
 	* [Sync Time with network](#sync-time-with-network)
 * [Find all files containing specific text](#find-all-files-containing-specific-text)
+* [vim](#vim)
+	* [Search and replace](#search-and-replace)
 * [PDF](#pdf)
 	* [Reduce a PDF filesize](#reduce-a-pdf-filesize)
 	* [Merge PDF files](#merge-pdf-files)
@@ -123,6 +125,12 @@ This will exclude searching all the files ending with .o extension:
 For directories it's possible to exclude a particular directory(ies) through --exclude-dir parameter. For example, this will exclude the dirs dir1/, dir2/ and all of them matching *.dst/:
 
 `grep --exclude-dir={dir1,dir2,*.dst} -rnw '/path/to/somewhere/' -e "pattern"`
+
+## vim
+
+### Search and replace
+
+`:%s/search/replace/g` use escape char)`\` for escaping `/`
 
 ## PDF
 
