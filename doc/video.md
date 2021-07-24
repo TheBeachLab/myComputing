@@ -262,12 +262,14 @@ This will create a virtual video device `/dev/video9`. You can also create more 
 
 When you want to remove the device use `sudo modprobe -r v4l2loopback` or `sudo rmprobe v4l2loopback`. Finally remember to rebuild the kernel module every time you update the kernel!
 
+> Note: Now obs will do the modprobe as long as the module is compiled for the kernel (reinstall the module after rebooting in a new kernel)
+
 
 ### OBS Studio Plugin
 
-I installed the AUR package `obs-v4l2sink` which is actually a sink where OBS will pour the virtual webcam. Then in OBS top menu select `tools/v4l2sink` and choose the video device `/dev/video9` that you activated before and `YUV12` format.
+~~I installed the AUR package `obs-v4l2sink` which is actually a sink where OBS will pour the virtual webcam. Then in OBS top menu select `tools/v4l2sink` and choose the video device `/dev/video9` that you activated before and `YUV12` format.~~ Now OBS includes a `Start Virtual Camera` button that does just that.
 
-You will be able now to use a new webcam that will appear (working in zoom and Firefox). Not yet working for Chrome.
+You will be able now to use a new webcam that will appear (tested in zoom and Firefox).
 
 ## Teleprompter
 
