@@ -240,6 +240,8 @@ And it will show properly in polybar
 
 [Clone](https://github.com/TheBeachLab/siji) the repo with the font. Install `gbdfed`, add/edit a glyph, save it and run `install.sh`
 
+> Note: Sometimes after rebooting siji fonts are not displayed in polybar until I reinstall the font again and reload polybar. #TOFIX
+
 ## VNC server
 
 I use [TigerVNC](https://tigervnc.org/) for it's easy use.
