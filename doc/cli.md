@@ -2,6 +2,7 @@
 
 <!-- vim-markdown-toc GFM -->
 
+* [croc](#croc)
 * [corona-cli](#corona-cli)
 * [scrot](#scrot)
 * [Betty, the CLI Siri](#betty-the-cli-siri)
@@ -27,6 +28,10 @@
 * [gallery-dl](#gallery-dl)
 
 <!-- vim-markdown-toc -->
+
+## croc
+
+Install `croc` package and easily send files or folders to another person. Just `croc send file-or-folder` or `croc receive croc-code` 
 
 ## corona-cli
 
