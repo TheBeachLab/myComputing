@@ -21,6 +21,8 @@
 	* [Ardour](#ardour)
 	* [Helm](#helm)
 	* [Music on the CLI](#music-on-the-cli)
+* [Tools](#tools)
+	* [Batch convert .wav files to .mp3](#batch-convert-wav-files-to-mp3)
 * [Bluetooth](#bluetooth)
 * [Check when the headphone is plugged and unplugged](#check-when-the-headphone-is-plugged-and-unplugged)
 
@@ -267,6 +269,15 @@ Create the playlist dir `mkdir ~/.config/mpd/playlists`
 Start/enable the mpd service `systemctl start --user mpd.service` and `systemctl enable --user mpd.service`.
 
 Install `ncmpcpp` and probably set a better alias for it.
+
+## Tools
+
+### Batch convert .wav files to .mp3
+
+```bash
+mkdir outputs
+for f in *.wav; do ffmpeg -i "$f" -c:a libmp3lame "outputs/${f%}.mp3"; done
+```
 
 ## Bluetooth
 
