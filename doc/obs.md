@@ -22,12 +22,12 @@ I used to install the pacman package but I prefer now to **build from source in 
 
 ```bash
 cd ~/opt
-wget https://cdn-fastly.obsproject.com/downloads/cef_binary_3770_linux64.tar.bz2
-tar -xjf ./cef_binary_3770_linux64.tar.bz2
+wget https://cdn-fastly.obsproject.com/downloads/cef_binary_4280_linux64.tar.bz2
+tar -xjf ./cef_binary_4280_linux64.tar.bz2
 git clone --recursive https://github.com/obsproject/obs-studio.git
 cd obs-studio
 mkdir build && cd build
-cmake -DUNIX_STRUCTURE=0 -DCMAKE_INSTALL_PREFIX="${HOME}/obs-studio-portable" -DBUILD_BROWSER=ON -DCEF_ROOT_DIR="../../cef_binary_3770_linux64" ..
+cmake -DUNIX_STRUCTURE=0 -DCMAKE_INSTALL_PREFIX="${HOME}/obs-studio-portable" -DBUILD_BROWSER=ON -DCEF_ROOT_DIR="../../cef_binary_4280_linux64" ..
 make -j4 && make install
 ```
 
@@ -39,7 +39,7 @@ This will build and generate a folder in `~/obs-studio-portable`
 cd ~/opt/obs-studio
 git pull --recurse-submodules
 cd build
-cmake -DUNIX_STRUCTURE=0 -DCMAKE_INSTALL_PREFIX="${HOME}/obs-studio-portable" -DBUILD_BROWSER=ON -DCEF_ROOT_DIR="../../cef_binary_3770_linux64" ..
+cmake -DUNIX_STRUCTURE=0 -DCMAKE_INSTALL_PREFIX="${HOME}/obs-studio-portable" -DBUILD_BROWSER=ON -DCEF_ROOT_DIR="../../cef_binary_4280_linux64" ..
 make -j4 && make install
 ```
 
