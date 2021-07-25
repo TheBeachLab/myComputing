@@ -3,13 +3,14 @@
 <!-- vim-markdown-toc GFM -->
 
 * [Run sudo without a password (absolutely not recommended)](#run-sudo-without-a-password-absolutely-not-recommended)
-* [Search and replace text in files](#search-and-replace-text-in-files)
+* [Search](#search)
+	* [Search files](#search-files)
+	* [Find all files containing specific text](#find-all-files-containing-specific-text)
+	* [Search and replace text in files](#search-and-replace-text-in-files)
+	* [Search and replace inside vim](#search-and-replace-inside-vim)
 * [Time and date](#time-and-date)
 	* [Change timezone](#change-timezone)
 	* [Sync Time with network](#sync-time-with-network)
-* [Find all files containing specific text](#find-all-files-containing-specific-text)
-* [vim](#vim)
-	* [Search and replace](#search-and-replace)
 * [PDF](#pdf)
 	* [Reduce a PDF filesize](#reduce-a-pdf-filesize)
 	* [Merge PDF files](#merge-pdf-files)
@@ -52,7 +53,36 @@ or a group like `wheel`
 
 `%wheeel ALL=(ALL) NOPASSWD:ALL`
 
-## Search and replace text in files
+## Search
+
+### Search files
+
+If the file has been indexed `locate filename` otherwise `find . -name 'filename'
+
+### Find all files containing specific text
+
+`grep -rnw '/path/to/somewhere/' -e 'pattern'`
+
+- `-r` or `-R` is recursive,
+	- `-n` is line number
+	- `-w` stands for match the whole word.
+	- `-l` (lower-case L) can be added to just give the file name of matching files.
+
+Along with these, `--exclude`, `--include`, `--exclude-dir` flags could be used for efficient searching:
+
+This will only search through those files which have .c or .h extensions:
+
+`grep --include=\*.{c,h} -rnw '/path/to/somewhere/' -e "pattern"`
+
+This will exclude searching all the files ending with .o extension:
+
+`grep --exclude=*.o -rnw '/path/to/somewhere/' -e "pattern"`
+
+For directories it's possible to exclude a particular directory(ies) through --exclude-dir parameter. For example, this will exclude the dirs dir1/, dir2/ and all of them matching *.dst/:
+
+`grep --exclude-dir={dir1,dir2,*.dst} -rnw '/path/to/somewhere/' -e "pattern"`
+
+### Search and replace text in files
 
 You can do it without even opening the files
 
@@ -64,6 +94,9 @@ You can do it without even opening the files
 
 You have to escape some characters like `space` and `.` `*` `^` `$` `[` `]`  `\` `/` with the `\` character
 
+### Search and replace inside vim
+
+`:%s/search/replace/g` use escape char)`\` for escaping `/`
 
 ## Time and date
 
@@ -103,34 +136,7 @@ FallbackNTP=0.pool.ntp.org 1.pool.ntp.org 2.pool.ntp.org 3.pool.ntp.org
 
 Check the sync status `timedatectl show-timesync --all`
 
-## Find all files containing specific text
 
-`grep -rnw '/path/to/somewhere/' -e 'pattern'`
-
-- `-r` or `-R` is recursive,
-- `-n` is line number
-- `-w` stands for match the whole word.
-- `-l` (lower-case L) can be added to just give the file name of matching files.
-
-Along with these, `--exclude`, `--include`, `--exclude-dir` flags could be used for efficient searching:
-
-This will only search through those files which have .c or .h extensions:
-
-`grep --include=\*.{c,h} -rnw '/path/to/somewhere/' -e "pattern"`
-
-This will exclude searching all the files ending with .o extension:
-
-`grep --exclude=*.o -rnw '/path/to/somewhere/' -e "pattern"`
-
-For directories it's possible to exclude a particular directory(ies) through --exclude-dir parameter. For example, this will exclude the dirs dir1/, dir2/ and all of them matching *.dst/:
-
-`grep --exclude-dir={dir1,dir2,*.dst} -rnw '/path/to/somewhere/' -e "pattern"`
-
-## vim
-
-### Search and replace
-
-`:%s/search/replace/g` use escape char)`\` for escaping `/`
 
 ## PDF
 
