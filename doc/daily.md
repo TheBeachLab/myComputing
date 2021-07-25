@@ -57,7 +57,7 @@ or a group like `wheel`
 
 ### Search files
 
-If the file has been indexed `locate filename` otherwise `find . -name 'filename'
+If the file has been indexed `locate filename` otherwise `find . -name 'filename'`
 
 ### Find all files containing specific text
 
