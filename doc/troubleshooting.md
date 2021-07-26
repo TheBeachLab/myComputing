@@ -14,6 +14,7 @@
 * [TODO X220](#todo-x220)
 * [Intel NUC freezes with eGPU](#intel-nuc-freezes-with-egpu)
 * [X Troubleshooting](#x-troubleshooting)
+* [bash: append_path: command not found](#bash-append_path-command-not-found)
 
 <!-- vim-markdown-toc -->
 
@@ -306,3 +307,27 @@ grep EE ~/.local/share/xorg/Xorg.0.log
 grep WW ~/.local/share/xorg/Xorg.0.log
 ```
 
+## bash: append_path: command not found
+
+Everytime perl is updated this appears 3 times in every terminal window. This is because `.bashrc` sources `/etc/profile` which defines a function called `appendpath` and sources all files in the `/etc/profile.d` directory. And here's the problem: The file `/etc/profile.d/perlbin.sh` calls a function called `append_path` instead of `append 
+
+```bash
+# Set path to perl scriptdirs if they exist
+# https://wiki.archlinux.org/index.php/Perl_Policy#Binaries_and_scripts
+# Added /usr/bin/*_perl dirs for scripts
+
+[ -d /usr/bin/site_perl ] && append_path '/usr/bin/site_perl'
+
+[ -d /usr/bin/vendor_perl ] && append_path '/usr/bin/vendor_perl'
+
+[ -d /usr/bin/core_perl ] && append_path '/usr/bin/core_perl'
+
+export PATH
+
+# If you have modules in non-standard directories you can add them here.
+#export PERLLIB=dir1:dir2
+``` 
+
+At the beginning I was manually fixing the `perlbin.sh` but I got a better 
+
+**SOLUTION:** Create a new `alias append_path='appendpath'` and make sure that in `.bashrc` you load the aliases before sourcing `/etc/profile`
