@@ -309,7 +309,7 @@ grep WW ~/.local/share/xorg/Xorg.0.log
 
 ## bash: append_path: command not found
 
-Everytime perl is updated this appears 3 times in every terminal window. This is because `.bashrc` sources `/etc/profile` which defines a function called `appendpath` and sources all files in the `/etc/profile.d` directory. And here's the problem: The file `/etc/profile.d/perlbin.sh` calls a function called `append_path` instead of `append 
+Everytime perl is updated this appears 3 times in every terminal window. This is because `.bashrc` sources `/etc/profile` which defines a function called `appendpath` and sources all files in the `/etc/profile.d` directory. And here's the problem: The file `/etc/profile.d/perlbin.sh` calls a function called `append_path` instead of `appendpath`
 
 ```bash
 # Set path to perl scriptdirs if they exist
