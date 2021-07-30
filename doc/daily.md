@@ -39,7 +39,8 @@
 	* [Open a terminal emulator in Thunar](#open-a-terminal-emulator-in-thunar)
 * [Cron jobs](#cron-jobs)
 * [Pandoc](#pandoc)
-* [Convert docx to md (with images)](#convert-docx-to-md-with-images)
+	* [Convert docx to md (with images)](#convert-docx-to-md-with-images)
+* [Windows in i3](#windows-in-i3)
 
 <!-- vim-markdown-toc -->
 
@@ -352,10 +353,37 @@ You can check the validity of your anacrontab file with `anacron -T`
 
 ## Pandoc
 
-## Convert docx to md (with images)
+### Convert docx to md (with images)
 
 `pandoc --extract-media=. -s file.docx --wrap=none --reference-links -t markdown_strict -o file.md`
 
 for a batch of files
 
 `for i in *.docx ; do echo '$i' && pandoc --extract-media=. -s $i --wrap=none --reference-links -t markdown_strict -o $(basename $i .docx).md ; done`
+
+## Windows in i3
+
+To resize windows I use the package `wmctrl`. To list current opened windows `wmctrl -l`
+
+```bash
+0x0140000b  3 hal unix@hal:~/Repositories/Fab/interspecies2021
+0x0120000b  3 hal daily.md + (~/Repositories/Beach Lab/myComputing/doc) - VIM
+0x02200003  1 hal Resizing a window to a set size in Linux - Stack Overflow — Mozilla Firefox
+0x02c0001e  2 hal Zoom - Licensed Account
+0x02c00028  2 hal Zoom Meeting
+0x02c0002b  2 hal Zoom
+0x02c0003a  2 hal Settings
+```
+
+You can resize with `wmctrl -r 0x02c00028 -e 0,0,0,1280,720` or interactively in a script
+
+```bash
+#!/usr/bin/sh
+wmctrl -l
+echo ""
+read -p "window id -> " wid
+read -p "width -> " ww
+read -p "height -> " wh
+wmctrl -i -r $wid -e  0,0,0,$ww,$wh
+echo "Done!"
+```
