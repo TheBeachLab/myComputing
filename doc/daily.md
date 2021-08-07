@@ -153,7 +153,8 @@ You can change the `screen` option (72 dpi) to `ebook` (150 dpi), `prepress` (30
 
 ### Convert PDF to PNG image
 
-`pdftoppm file.pdf newfilename -png`
+`pdftoppm file.pdf newfilename -png`  
+`pdftoppm file.pdf newfilename -png -f 2 -scale-to-x 1920 -scale-to-y -1` start from page 2 and scale FHD
 
 ## Mount a USB drive
 
