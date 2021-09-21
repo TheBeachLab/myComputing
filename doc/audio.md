@@ -176,7 +176,7 @@ The default audio server in Linux is `pulseaudio`. That is fine for standard use
 
 Installing jack is a bit tricky: install the following packages `jack2 libffado cadence jack_capture python-dbus realtime-privileges pulseaudio-jack`, add yourself to the groups `audio` and `realtime` then reboot. You should be able to start jack via `cadence`. Then make sure you autostart at boot. 
 
-> NOTE: In arch/i3 to make start at login modify `/etc/X11/xinit/xinitrc.d/61-cadence-session-inject.sh` and add `$STARTUP` ant the end
+> NOTE: In arch/i3 to make start at login modify `/etc/X11/xinit/xinitrc.d/61-cadence-session-inject.sh` and add `$STARTUP` at the end
 >
 > ```bash
 > STARTUP="$INSTALL_PREFIX/bin/cadence-session-start --system-start-by-x11-startup $STARTUP"
@@ -319,4 +319,6 @@ You will be able to see the events.
 ## Replace pulseaudio and jack with pipewire
 
 Install `pipewire pipewire-jack pipewire-alsa pipewire-pulse` you will have to uninstall pulseaudio. 
+Prevent cadence loading jack at login (undo some things we did above). Edit `/etc/X11/xinit/xinitrc.d/61-cadence-session-inject.sh` and remove `$STARTUP` at the end.
 
+Now run a jack app with pipewire `pw-jack carla` is MINDBLOWING. You can pipe anything to anything!!! All devices and all apps! There is no way back from here. Pipewire now becomes my standard in audio for linux.
