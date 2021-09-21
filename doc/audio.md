@@ -25,6 +25,7 @@
 	* [Batch convert .wav files to .mp3](#batch-convert-wav-files-to-mp3)
 * [Bluetooth](#bluetooth)
 * [Check when the headphone is plugged and unplugged](#check-when-the-headphone-is-plugged-and-unplugged)
+* [Replace pulseaudio and jack with pipewire](#replace-pulseaudio-and-jack-with-pipewire)
 
 <!-- vim-markdown-toc -->
 
@@ -314,4 +315,8 @@ jack/microphone MICROPHONE plug
 You will be able to see the events.
 
 > To Fix: Note that plugging the headphones also makes the system think that there is a mic plugged-in. This mutes the laptop mic leaving you with no mic.
+
+## Replace pulseaudio and jack with pipewire
+
+Install `pipewire pipewire-jack pipewire-alsa pipewire-pulse` you will have to uninstall pulseaudio. 
 
