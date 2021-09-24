@@ -12,6 +12,7 @@
 	* [Change MAC address to a rooted Android in terminal](#change-mac-address-to-a-rooted-android-in-terminal)
 	* [Block/unblock wireless devices to save battery](#blockunblock-wireless-devices-to-save-battery)
 * [Check if a remote port is open](#check-if-a-remote-port-is-open)
+* [Download an entire website](#download-an-entire-website)
 
 <!-- vim-markdown-toc -->
 
@@ -103,3 +104,39 @@ Connected to beachlab.org.
 Escape character is '^]'.
 ```
 
+## Download an entire website
+
+`npm install website-scraper website-scraper-puppeteer`
+
+Create `index.js` with this content
+
+```js
+// index.js
+const scrape = require('website-scraper');
+const PuppeteerPlugin = require('website-scraper-puppeteer');
+const path = require('path');
+
+scrape({
+    // Provide the URL(s) of the website(s) that you want to clone
+    // In this example, you can clone the Our Code World website
+    urls: ['https://URL/'],
+    // Specify the path where the content should be saved
+    // In this case, in the current directory inside the ourcodeworld dir
+    directory: path.resolve(__dirname, 'DIRECTORY'),
+    // Load the Puppeteer plugin
+    plugins: [ 
+        new PuppeteerPlugin({
+            launchOptions: { 
+                // If you set  this to true, the headless browser will show up on screen
+                headless: true
+            }, /* optional */
+            scrollToBottom: {
+                timeout: 10000, 
+                viewportN: 10 
+            } /* optional */
+        })
+    ]
+});
+```
+
+And run `npm index.js`
