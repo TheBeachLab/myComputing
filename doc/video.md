@@ -18,6 +18,9 @@
 * [Virtual webcam from OBS output](#virtual-webcam-from-obs-output)
 	* [v4l2loopback](#v4l2loopback)
 	* [OBS Studio Plugin](#obs-studio-plugin)
+* [Multiplex video devices](#multiplex-video-devices)
+	* [Multiplex a physical webcam](#multiplex-a-physical-webcam)
+	* [Multiplex a virtual webcam](#multiplex-a-virtual-webcam)
 * [Teleprompter](#teleprompter)
 * [Video production tips (Not Linux related)](#video-production-tips-not-linux-related)
 
@@ -88,7 +91,7 @@ Explanation
 - Neil's variable bit rate 1080p MP3: `ffmpeg -i input_video -vcodec libx264 -crf 25 -preset medium -vf scale=-2:1080 -acodec libmp3lame -q:a 4 -ar 48000 -ac 2 output_video.mp4`
 - Neil's no audio: `ffmpeg -i input_video -vcodec libx264 -b:v 1000k -vf scale=-2:1080 -an output_video.mp4`
 - Use nvidia hw encoder `-vcodec h264_nvenc`
-- Convert single image to a 5s video `ffmpeg -loop 1 -i image.png  -t 5  output.mp4`
+- Convert single image to a 5s video `ffmpeg -loop 1 -i image.png  -t 5  output.mp4` or batch convert ``
 - Concatenate videos `ffmpeg -f concat -safe 0 -i videos.txt -c copy output.mp4` Where `videos.txt` is:
 ```
 file '/path/to/file1'
@@ -270,6 +273,43 @@ When you want to remove the device use `sudo modprobe -r v4l2loopback` or `sudo 
 ~~I installed the AUR package `obs-v4l2sink` which is actually a sink where OBS will pour the virtual webcam. Then in OBS top menu select `tools/v4l2sink` and choose the video device `/dev/video9` that you activated before and `YUV12` format.~~ Now OBS includes a `Start Virtual Camera` button that does just that.
 
 You will be able now to use a new webcam that will appear (tested in zoom and Firefox).
+
+## Multiplex video devices
+
+### Multiplex a physical webcam
+
+I asume here that /dev/video0 is the webcam. Create a loopcam as seen before
+
+`sudo modprobe v4l2loopback video_nr=10 card_label=COPYWebcam`
+
+Now examine the format of your original webcam
+
+`ffmpeg -f v4l2 -list_formats all -i /dev/video0` which will display something similar to
+
+```bash
+[video4linux2,v4l2 @ 0x559d808150c0] Raw       :     uyvy422 :           UYVY 4:2:2 : 1920x1080 1280x720 1024x768 640x480 320x240
+[video4linux2,v4l2 @ 0x559d808150c0] Compressed:       mjpeg :          Motion-JPEG : 1920x1080 1280x720 1024x768 640x480 320x240
+```
+
+Now dump the stream of the original webcam into the COPYWebcam device
+
+`ffmpeg -i /dev/video0 -f v4l2 -codec:v rawvideo -pix_fmt uyvy422 /dev/video10`
+
+### Multiplex a virtual webcam
+
+This is useful in the case you start a virtual cam in OBS and you want to use the virtual camera in ZOOM and a website. Create 2 virtual cameras 
+
+`sudo modprobe -r v4l2loopback && sudo modprobe v4l2loopback devices=2 video_nr=10,20 card_label=ZOOMCam,NINJAcam` 
+
+and start virtual camera in ZOOM. Then list the properties of the first virtual camera
+
+`ffmpeg -f v4l2 -list_formats all -i /dev/video10` which will show properties like this one
+
+`[video4linux2,v4l2 @ 0x56517d3c70c0] Raw       :     yuyv422 :           YUYV 4:2:2 : 1280x720`
+
+And now dump the contents of the first virtual camera into the second virtual camera
+
+`ffmpeg -i /dev/video10 -f v4l2 -codec:v rawvideo -pix_fmt yuyv422p /dev/video20`
 
 ## Teleprompter
 
