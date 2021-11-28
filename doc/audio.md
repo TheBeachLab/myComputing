@@ -156,7 +156,7 @@ A null sink is a virtual sink that discards audio sent to it. That’s not very 
 
 ```bash
 .ifexists module-null-sink.so
-load-module module-null-sink sink_name=Source sink_properties='device.description="Virtual Sink"'
+load-module module-null-sink sink_name=nulla sink_properties='device.description="Virtual Output A"'
 .endif
 ```
 
