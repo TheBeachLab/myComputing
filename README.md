@@ -1,6 +1,8 @@
 # My Computing
  
-This is how I do my full-time Linux computing now:
+This is how I do my full-time BSD/Linux computing now:
+
+## For Linux
 
 - [Arch Linux](doc/arch.md)
 - [Awesome CLI](doc/cli.md)
@@ -13,5 +15,8 @@ This is how I do my full-time Linux computing now:
 - [OBS in Linux](doc/obs.md)
 - [My hardware in Linux](doc/hardware.md)
 - [Troubleshooting](doc/troubleshooting.md)
+- And things that I still need [TODO](doc/TODO.md)
 
-And things that I still need [TODO](doc/TODO.md)
+## For BSD
+
+- [A bit of X11](bsd/x11.md)
