@@ -132,7 +132,87 @@ Check available settings
 
 Set a parameter `v4l2-ctl -d /dev/video0 --set-ctrl=exposure_auto=3`
 
-## DSLR Video Webcam
+## DSLR Video Webcam via gphoto2
+
+### Check camera
+
+`gphoto2 --auto-detect`
+
+output:
+
+```bash
+Model                          Port                                            
+----------------------------------------------------------
+Canon EOS M6                   usb:001,007     
+```
+
+### List capabilities
+
+`gphoto2 --summary`
+
+output:
+
+```bash
+Camera summary:                                                                
+Manufacturer: Canon Inc.
+Model: Canon EOS M6
+  Version: 3-15.0.1.0
+  Serial Number: 37B3BF29137941D7AA01C88F4B5CCA22
+Vendor Extension ID: 0xb (1.0)
+Vendor Extension Description: 
+
+Capture Formats: JPEG
+Display Formats: Association/Directory, Script, DPOF, MS Wave, JPEG, Defined Type, Unknown(b103), Unknown(b982), Unknown(b105), Unknown(bf01)
+
+Device Capabilities:
+	File Download, File Deletion, File Upload
+	No Image Capture, No Open Capture, Canon EOS Capture 2
+	Canon Wifi support
+
+Storage Devices Summary:
+store_00010001:
+	StorageDescription: SD
+	VolumeLabel: 
+	Storage Type: Removable RAM (memory card)
+	Filesystemtype: Digital Camera Layout (DCIM)
+	Access Capability: Read-Write
+	Maximum Capability: 7939850240 (7572 MB)
+	Free Space (Bytes): 7939784704 (7571 MB)
+	Free Space (Images): -1
+
+Device Property Summary:
+Event Emulate Mode(0xd045):(readwrite) (type=0x4) Enumeration [1,2,3,4,5,6,7] value: 2
+Property 0xd04a:(readwrite) (type=0x2) Enumeration [0,1,2,3] value: 0
+Size of Output Data from Camera(0xd02e):(read only) (type=0x6) 524288
+Size of Input Data to Camera(0xd02f):(read only) (type=0x6) 524288
+Battery Level(0x5001):(read only) (type=0x2) Enumeration [0,1,2,3] value: 3% (3)
+Battery Type(0xd002):(read only) (type=0x4) Enumeration [0,1,2,3,4,5] value: Unknown (0)
+Battery Mode(0xd003):(read only) (type=0x6) Enumeration [0,1,2,3] value: Normal (1)
+UNIX Time(0xd034):(readwrite) (type=0x6) 1640587702
+Type of Slideshow(0xd047):(read only) (type=0x4) 0
+DPOF Version(0xd046):(read only) (type=0x4) 257
+Remote API Version(0xd030):(read only) (type=0x6) 256
+Model ID(0xd049):(read only) (type=0x6) 67567616
+Camera Model(0xd032):(read only) (type=0xffff) 'Canon EOS M6'
+Camera Owner(0xd033): error 201b on query.
+Firmware Version(0xd031):(read only) (type=0x6) 16777216
+Property 0xd050:(read only) (type=0x2) 0
+Property 0xd051: error 201b on query.
+Property 0xd052:(read only) (type=0x2) 0
+Property 0xd053: error 201b on query.
+Property 0xd054: error 201b on query.
+Property 0xd057:(read only) (type=0xffff) '478251000023'
+Property 0xd402:(read only) (type=0xffff) 'Canon EOS M6'
+Property 0xd406:(readwrite) (type=0xffff) 'Windows'
+Property 0xd407:(read only) (type=0x6) 1
+Property 0xd303:(read only) (type=0x2) 1
+```
+
+### Capture video
+
+`gphoto2 --stdout --capture-movie | ffmpeg -i - -vcodec rawvideo -pix_fmt yuv420p -threads 0 -f v4l2 /dev/video30`
+
+## DSLR Video Webcam via HDMI out
 
 ### Hardware required
 
