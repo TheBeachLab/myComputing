@@ -19,4 +19,8 @@ This is how I do my full-time BSD/Linux computing now:
 
 ## For BSD
 
-- [A bit of X11](bsd/x11.md)
+- [A bit of X11](bsd/readme.md)
+
+## For MacOS
+
+- [Unsorted tips](mac/readme.md)
