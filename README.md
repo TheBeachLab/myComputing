@@ -24,3 +24,4 @@ This is how I do my full-time BSD/Linux computing now:
 ## For MacOS
 
 - [Unsorted tips](mac/readme.md)
+- [Enable Metal MPS GPU acceleration support in PyTorch](mac/pytorch.md)
