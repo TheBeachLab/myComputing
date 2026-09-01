@@ -252,15 +252,17 @@ And it will show properly in polybar
 
 ## VNC server
 
-I use [TigerVNC](https://tigervnc.org/) for it's easy use.
+I use [TigerVNC](https://tigervnc.org/) for it's easy use. On the X220, `x0vncserver` shares the live X session (`:0`) so you see i3, not a second desktop.
 
 ### Starting a VNC server
 
-Place a password/passphrase in `~/.vnc/passwd`
+Place a password/passphrase in `~/.vnc/passwd` (`vncpasswd` or `vncpasswd -f`).
 
-To start `x0vncserver -display :0 -passwordfile .vnc/passwd`
+To start once: `x0vncserver -display :0 -rfbauth ~/.vnc/passwd -rfbport 5900 -AlwaysShared`
 
-To stop just close the terminal process.
+On the X220 this is started from i3 (`exec --no-startup-id x0vncserver ...`) and also as a user systemd unit `x0vncserver.service`. Connect over Tailscale: `vnc://100.95.99.50:5900` (node `x220-2`). Do not expose 5900 on the public internet.
+
+To stop: `pkill x0vncserver` or `systemctl --user stop x0vncserver`.
 
 ## Screen
 

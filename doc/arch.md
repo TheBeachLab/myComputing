@@ -25,12 +25,7 @@ FONT=Lat2-Terminus16
 
 Do **not** set `FONT_MAP=8859-1` with modern ly: it remaps glyphs and the login box / DOOM fire look wrong.
 
-Ly’s PSX DOOM fire (`animation = doom`) on a Linux TTY:
-
-- `full_color = false` (8-color). With `full_color = true`, 24-bit RGB often looks wrong on the TTY ([ly#882](https://codeberg.org/fairyglade/ly/issues/882)).
-- In 8-color mode the doom colors **must** be termbox indexes, not `0xRRGGBB`. Feeding RGB (e.g. `0x009F2707`) maps to blue/cyan. Use `doom_top_color = 0x00000002` (red), `doom_middle_color = 0x00000004` (yellow), `doom_bottom_color = 0x00000008` (white).
-- Program a fire VGA palette in `/etc/ly/startup.sh` with `printf '\033]PnRRGGBB'`.
-- `hide_borders = true`. No `FONT_MAP=8859-1`.
+Ly’s PSX DOOM fire: `animation = doom` and **`full_color = true`** with the default RGB gradient (`doom_top_color = 0x009F2707` dark red, `doom_middle_color = 0x00C78F17` orange, `doom_bottom_color = 0x00FFFFFF` white). That is red/orange/yellow. `full_color = false` with those RGB values turns the fire blue (8-color indexes). Do not set `FONT_MAP=8859-1` (breaks ly glyphs). X220: `/etc/ly/startup.sh` only runs `setfont Lat2-Terminus16`.
 
 To use that font from from the early userspace I make sure I use the `consolefont` hook in `/etc/mkinitcpio.conf`. Also load the graphics driver module (in my case intel) earlier in [Early KMS start](https://wiki.archlinux.org/index.php/Kernel_mode_setting#Early_KMS_start) to avoid font changes/flickering/glitches. To apply these changes rebuild with your kernel preset `sudo mkinitcpio -p linux` (check your kernel presets in `ls /etc/mkinitcpio.d`). Then reboot.
 
