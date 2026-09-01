@@ -142,7 +142,7 @@ which tailscale   # must NOT be /snap/bin/tailscale
 
 OpenSSH is a separate backup path (`sudo apt install openssh-server` / `sudo pacman -S openssh`, then enable `ssh` or `sshd`). Use that if you do not want Tailscale SSH. Do not enable Tailscale SSH on a remaining snap install.
 
-X220 (2026-09-01): Arch on `sda4` is the live system. Tailscale `1.102.3` from pacman (`/usr/bin/tailscale`), `sudo tailscale set --ssh` enabled. Local hostname `x220`; tailnet name `x220-2` at `100.95.99.50` until old `x220` / `x220-1` nodes are deleted. `irix` has passwordless sudo (`/etc/sudoers.d/irix`). Ubuntu on `sda3` remains a GRUB fallback.
+X220 (2026-09-02): Arch-only. Ubuntu on `sda3` was wiped and reformatted as `spare` (`/spare`). Arch GRUB is on the MBR. Tailscale `1.102.3` pacman, `--ssh` on, node `x220-2` (`100.95.99.50`). `irix` NOPASSWD sudo.
 
 Tailscale is the network path only. It does not install OSes, shrink partitions, or pick GRUB entries. A second-OS install on this machine needs a local console for partition/GRUB/first boot. After Arch is installed and Tailscale+sshd are in that install, remote setup can continue over the tailnet.
 

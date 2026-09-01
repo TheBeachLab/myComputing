@@ -277,16 +277,14 @@ It works with:
 - Dual Intel / Radeon
 - Hotplug Radeon
 
-X220 as of 2026-09-01: Samsung SSD 850 EVO mSATA 250 GB, GPT + BIOS (`i386-pc` GRUB). Dual-boot:
+X220 as of 2026-09-02: Samsung SSD 850 EVO mSATA 250 GB, GPT + BIOS. Ubuntu wiped. Arch GRUB owns the MBR (`i386-pc`, `GRUB_TERMINAL=console`).
 
 - `sda1` 1M BIOS boot
-- `sda2` 513M vfat `/boot/efi`
-- `sda3` 120G ext4 Ubuntu 22.04 (fallback only)
-- `sda4` 112G ext4 Arch (`UUID=a17d1554-da18-47f5-a5ba-c8a57c3fe97f`)
+- `sda2` 513M vfat ESP
+- `sda3` 120G ext4 `spare` mounted at `/spare` (cannot grow `sda4` left into this hole without moving the partition)
+- `sda4` 112G ext4 Arch root (`UUID=a17d1554-da18-47f5-a5ba-c8a57c3fe97f`)
 
-Arch: hostname `x220`, user `irix` NOPASSWD sudo, **ly** (`ly@tty2`, not LightDM), i3 + polybar + rofi + kitty. Intel output names are `LVDS1` / `HDMI1` (no hyphen). Console: `KEYMAP=colemak`, `FONT=Lat2-Terminus16`, `FONT_MAP=8859-1`, `consolefont` hook. Cursor: Bibata Ice. Official Tailscale 1.102.3 (pacman). Tailscale node is currently `x220-2` (`100.95.99.50`) until the old snap/Ubuntu nodes are deleted in the admin console.
-
-Ubuntu GRUB owns the MBR (`GRUB_TERMINAL=console`, timeout 5s, default Ubuntu). Pick **Arch Linux** (UUID + intel-ucode). Desktop configs: private [TheBeachLab/dotfiles](https://github.com/TheBeachLab/dotfiles) (`config` is X220; `config.x1-carbon` is the old X1 file).
+Arch: hostname `x220`, user `irix` NOPASSWD sudo, **ly** (`ly@tty2`), i3 + polybar + rofi + kitty. Intel outputs `LVDS1` / `HDMI1`. Console Colemak + `Lat2-Terminus16`. Tailscale `x220-2` (`100.95.99.50`). Ubuntu `/home/irix` was rsynced onto Arch (skipped snap/cache/archprep; kept X220 i3/polybar/kitty). Desktop configs: [TheBeachLab/dotfiles](https://github.com/TheBeachLab/dotfiles).
 
 ## Intel NUC freezes with eGPU
 
