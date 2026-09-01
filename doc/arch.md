@@ -41,7 +41,9 @@ I am currently exploring the move to sway <https://swaywm.org/>
 
 ## Terminal emulator
 
-I am using ~~URxvt~~ kitty. 
+I am using ~~URxvt~~ kitty.
+
+Kitty does **not** read `~/.Xresources`. URxvt used `Iosevka Term` size 12 from there; kitty needs `~/.config/kitty/kitty.conf` with the same family/size/colors. That file lives in the [dotfiles](https://github.com/TheBeachLab/dotfiles) repo. New kitty windows pick it up; already-open ones do not. 
 
 ## Cursor theme
 

@@ -94,6 +94,58 @@ ID TYPE      DEVICE                   SOFT      HARD
 
 And block (or unblock) the desired one `sudo rfkill block 1`.
 
+## Tailscale (do not use the snap)
+
+The [Canonical snap](https://snapcraft.io/tailscale) is strictly confined. Documented limitations (verified 2026-09-01 against that listing):
+
+* `tailscale ssh` will not work.
+* If Tailscale SSH mode is on (`tailscale set --ssh`), **normal** SSH over the tailnet also fails. Disable it: `tailscale set --ssh=false`.
+* `tailscale update` does not work; use `sudo snap refresh tailscale`.
+* `tailscale file cp` / `tailscale cert` only see snap-writable paths (e.g. `~/snap/tailscale/common/`).
+* `tailscale drive share` does not work.
+
+`sudo snap refresh tailscale` only updates the same confined snap. It does not make Tailscale SSH work. Replace the snap with the [official Linux package](https://tailscale.com/docs/install/linux). This is a new node: you re-authenticate, you get a new Tailscale IP, then delete the old snap node in the admin console.
+
+On the machine (local console):
+
+```bash
+. /etc/os-release
+echo "$ID $VERSION_ID"
+which tailscale
+snap list tailscale
+```
+
+**Debian / Ubuntu** ([official install](https://tailscale.com/docs/install/linux)):
+
+```bash
+sudo snap remove --purge tailscale
+curl -fsSL https://tailscale.com/install.sh | sh
+sudo tailscale up
+sudo tailscale set --ssh
+tailscale ip
+which tailscale   # must NOT be /snap/bin/tailscale
+```
+
+**Arch** ([Arch Wiki](https://wiki.archlinux.org/title/Tailscale), [community package](https://archlinux.org/packages/?name=tailscale)):
+
+```bash
+sudo snap remove --purge tailscale
+sudo pacman -S tailscale
+sudo systemctl enable --now tailscaled
+sudo tailscale up
+sudo tailscale set --ssh
+tailscale ip
+which tailscale   # must NOT be /snap/bin/tailscale
+```
+
+`sudo tailscale up` prints a login URL. After auth, `tailscale status` should show the node online. `tailscale set --ssh` only works on the official daemon, not the snap.
+
+OpenSSH is a separate backup path (`sudo apt install openssh-server` / `sudo pacman -S openssh`, then enable `ssh` or `sshd`). Use that if you do not want Tailscale SSH. Do not enable Tailscale SSH on a remaining snap install.
+
+X220 (2026-09-01): Arch on `sda4` is the live system. Tailscale `1.102.3` from pacman (`/usr/bin/tailscale`), `sudo tailscale set --ssh` enabled. Local hostname `x220`; tailnet name `x220-2` at `100.95.99.50` until old `x220` / `x220-1` nodes are deleted. `irix` has passwordless sudo (`/etc/sudoers.d/irix`). Ubuntu on `sda3` remains a GRUB fallback.
+
+Tailscale is the network path only. It does not install OSes, shrink partitions, or pick GRUB entries. A second-OS install on this machine needs a local console for partition/GRUB/first boot. After Arch is installed and Tailscale+sshd are in that install, remote setup can continue over the tailnet.
+
 ## Check if a remote port is open
 
 ```bash

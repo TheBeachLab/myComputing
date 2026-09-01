@@ -277,6 +277,17 @@ It works with:
 - Dual Intel / Radeon
 - Hotplug Radeon
 
+X220 as of 2026-09-01: Samsung SSD 850 EVO mSATA 250 GB, GPT + BIOS (`i386-pc` GRUB). Dual-boot:
+
+- `sda1` 1M BIOS boot
+- `sda2` 513M vfat `/boot/efi`
+- `sda3` 120G ext4 Ubuntu 22.04 (fallback only)
+- `sda4` 112G ext4 Arch (`UUID=a17d1554-da18-47f5-a5ba-c8a57c3fe97f`)
+
+Arch: hostname `x220`, user `irix` NOPASSWD sudo, **ly** (`ly@tty2`, not LightDM), i3 + polybar + rofi + kitty. Intel output names are `LVDS1` / `HDMI1` (no hyphen). Console: `KEYMAP=colemak`, `FONT=Lat2-Terminus16`, `FONT_MAP=8859-1`, `consolefont` hook. Cursor: Bibata Ice. Official Tailscale 1.102.3 (pacman). Tailscale node is currently `x220-2` (`100.95.99.50`) until the old snap/Ubuntu nodes are deleted in the admin console.
+
+Ubuntu GRUB owns the MBR (`GRUB_TERMINAL=console`, timeout 5s, default Ubuntu). Pick **Arch Linux** (UUID + intel-ucode). Desktop configs: private [TheBeachLab/dotfiles](https://github.com/TheBeachLab/dotfiles) (`config` is X220; `config.x1-carbon` is the old X1 file).
+
 ## Intel NUC freezes with eGPU
 
 I experienced random freezes with intel NUC 11 running an external GPU. At the beginning I thought it was a memory fault but it ended up being some sort of power saving settings in the BIOS. I followed the instructions given by `marCH` here https://community.intel.com/t5/Intel-NUCs/NUC10i7FNH-Issue-with-Thunderbolt3-eGPU/m-p/1279791/highlight/true but the issue is still happening.. 
