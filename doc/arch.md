@@ -21,8 +21,11 @@ Since I did not like the original console font I [modified](https://wiki.archlin
 ```bash
 KEYMAP=colemak
 FONT=Lat2-Terminus16
-FONT_MAP=8859-1
 ```
+
+Do **not** set `FONT_MAP=8859-1` with modern ly: it remaps glyphs and the login box / DOOM fire look wrong.
+
+Ly’s PSX DOOM fire (`animation = doom` in `/etc/ly/config.ini`) looks washed-out or blocky on a Linux TTY if `full_color = true` (24-bit). The ly maintainer’s fix is `full_color = false` (16-color / eight-color mode). Also `hide_borders = true`. Source: [fairyglade/ly#882](https://codeberg.org/fairyglade/ly/issues/882) (2025-12-12). On the X220 this is in `/etc/ly/config.ini` plus `setfont Lat2-Terminus16` in `/etc/ly/startup.sh`.
 
 To use that font from from the early userspace I make sure I use the `consolefont` hook in `/etc/mkinitcpio.conf`. Also load the graphics driver module (in my case intel) earlier in [Early KMS start](https://wiki.archlinux.org/index.php/Kernel_mode_setting#Early_KMS_start) to avoid font changes/flickering/glitches. To apply these changes rebuild with your kernel preset `sudo mkinitcpio -p linux` (check your kernel presets in `ls /etc/mkinitcpio.d`). Then reboot.
 
