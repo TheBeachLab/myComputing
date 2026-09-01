@@ -286,6 +286,8 @@ X220 as of 2026-09-02: Samsung SSD 850 EVO mSATA 250 GB, GPT + BIOS. Ubuntu wipe
 
 Arch: hostname `x220`, user `irix` NOPASSWD sudo, **ly** (`ly@tty2`), i3 + polybar + rofi + kitty. Intel outputs `LVDS1` / `HDMI1`. Console Colemak + `Lat2-Terminus16`. Tailscale `x220-2` (`100.95.99.50`). Ubuntu `/home/irix` was rsynced onto Arch (skipped snap/cache/archprep; kept X220 i3/polybar/kitty). Desktop configs: [TheBeachLab/dotfiles](https://github.com/TheBeachLab/dotfiles).
 
+CLI agents on this machine (2026-09-02, verified): Grok 1.0.13 (`~/.grok/bin/grok`), Codex 0.152.0 (`~/.local/bin/codex`), OpenClaw 2026.8.2 (`~/.npm-global/bin/openclaw`), Node 26.8.1. OpenClaw default model is `openai/gpt-5.3-codex-spark` with `agentRuntime.id=codex`. Spark needs ChatGPT/Codex OAuth (`openclaw models auth login --provider openai --device-code`); do not use `--set-default` on that login. Details: [cli.md](cli.md#grok-codex-and-openclaw-x220).
+
 ## Intel NUC freezes with eGPU
 
 I experienced random freezes with intel NUC 11 running an external GPU. At the beginning I thought it was a memory fault but it ended up being some sort of power saving settings in the BIOS. I followed the instructions given by `marCH` here https://community.intel.com/t5/Intel-NUCs/NUC10i7FNH-Issue-with-Thunderbolt3-eGPU/m-p/1279791/highlight/true but the issue is still happening.. 

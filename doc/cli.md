@@ -26,6 +26,7 @@
 * [fim image viewer](#fim-image-viewer)
 * [qrencode](#qrencode)
 * [gallery-dl](#gallery-dl)
+* [Grok, Codex, and OpenClaw (X220)](#grok-codex-and-openclaw-x220)
 
 <!-- vim-markdown-toc -->
 
@@ -144,3 +145,53 @@ TODO:
 ## gallery-dl
 
 A command-line program to download image-galleries and -collections from several image hosting sites <https://github.com/mikf/gallery-dl/blob/master/docs/supportedsites.rst>
+
+## Grok, Codex, and OpenClaw (X220)
+
+Installed on the Arch X220 (`irix`, 2026-09-02). Verified live:
+
+| Tool | Version | Binary |
+| --- | --- | --- |
+| Grok Build CLI | 1.0.13 | `~/.grok/bin/grok` |
+| Codex CLI | 0.152.0 | `~/.local/bin/codex` |
+| OpenClaw | 2026.8.2 | `~/.npm-global/bin/openclaw` |
+| Node.js | 26.8.1 | `/usr/bin/node` (pacman) |
+
+Official installers (do not use `sudo npm i -g` for OpenClaw on this host; npm prefix is `~/.npm-global`):
+
+```bash
+curl -fsSL https://x.ai/cli/install.sh | bash
+curl -fsSL https://chatgpt.com/codex/install.sh | CODEX_NON_INTERACTIVE=1 sh
+sudo pacman -S --needed nodejs npm
+curl -fsSL https://openclaw.ai/install.sh | bash -s -- --no-prompt --no-onboard
+```
+
+Sources: [Grok Build](https://x.ai/news/grok-build-cli), [Codex CLI](https://developers.openai.com/codex/cli), [OpenClaw install](https://docs.openclaw.ai/install).
+
+PATH: login shells via `~/.bash_profile`; interactive shells via `~/.bashrc` (Grok and Codex installer blocks). `~/.bashrc` returns early when non-interactive, so keep the login-shell PATH in `~/.bash_profile`.
+
+### OpenClaw default model: 5.3 Spark
+
+Spark is ChatGPT/Codex OAuth-only. Direct OpenAI API-key routes reject it. Source: [OpenClaw model providers](https://docs.openclaw.ai/concepts/model-providers), [OpenAI provider](https://docs.openclaw.ai/providers/openai). Watson host uses the same model id as a fallback (`selfhosted/doc/watson-openclaw-runtime.md`).
+
+X220 default (verified `openclaw config get`):
+
+```json
+{
+  "primary": "openai/gpt-5.3-codex-spark"
+}
+```
+
+Runtime: `agents.defaults.models["openai/gpt-5.3-codex-spark"].agentRuntime.id = "codex"`. Gateway is a systemd user unit `openclaw-gateway.service` on loopback `:18789`.
+
+Do **not** pass `--set-default` on OpenAI login, and do not re-run OpenAI onboarding without pinning Spark afterward. Fresh OpenAI/Codex onboarding defaults to `openai/gpt-5.6-sol`.
+
+Sign-in (run on the X220, TTY required; device-code works over SSH with `-t`):
+
+```bash
+grok login --device-auth
+codex login --device-auth
+openclaw models auth login --provider openai --device-code
+```
+
+After login, check: `openclaw models status`, `codex login status`. Update OpenClaw with `npm i -g openclaw@latest` then `openclaw gateway restart` (user npm prefix; no sudo).
