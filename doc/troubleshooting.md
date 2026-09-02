@@ -290,6 +290,8 @@ CLI agents on this machine (2026-09-02, verified): Grok 1.0.13 (`~/.grok/bin/gro
 
 myComputing clone: `~/repos/myComputing`. Awesome CLI tools from [cli.md](cli.md) are installed (extra + AUR via `yay-bin` + npm/pipx). Package map: [cli.md X220 install map](cli.md#x220-install-map).
 
+Polybar (2026-09-02, verified): `/home` is not a mount (it lives on `/`), so `mount-1 = /home` showed `/home not mounted`. Use `/spare` instead. The redshift module ran `source ~/.config/polybar/env.sh`; that file was missing, and `sh -c` turned `~/` into `/home/irix.config/...`. `redshift.sh` now sources `env.sh` itself (`export REDSHIFT=off`, `REDSHIFT_TEMP=5500`). Package `redshift` 1.12-15.
+
 ## Intel NUC freezes with eGPU
 
 I experienced random freezes with intel NUC 11 running an external GPU. At the beginning I thought it was a memory fault but it ended up being some sort of power saving settings in the BIOS. I followed the instructions given by `marCH` here https://community.intel.com/t5/Intel-NUCs/NUC10i7FNH-Issue-with-Thunderbolt3-eGPU/m-p/1279791/highlight/true but the issue is still happening.. 
