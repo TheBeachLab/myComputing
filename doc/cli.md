@@ -50,6 +50,10 @@ I bet you didn't know this one. Start with `Betty what time is it?`
 
 Mandatory tool for hackers pretending be cool. It will place a dot in a map when you supply an IP address. Try `iponmap 4.4.4.4`
 
+Needs a real TTY and an IP argument (bare `iponmap` draws an empty map and waits on stdin). Quit with `q` / Escape.
+
+X220 (2026-09-02, verified): binary is `~/.npm-global/bin/iponmap` (`npm i -g iponmap`). Kitty is **not** a login shell, and `~/.bashrc` sources `/etc/profile` which **resets PATH**, so the installer line at the top of bashrc never survives. PATH for npm-global / grok / `~/.local/bin` must be exported **after** that `/etc/profile` line. Also symlink `iponmap` into `/usr/local/bin` so already-open terminals that already have `/usr/local/bin` on PATH can see it without a restart.
+
 ## neomutt
 
 The classic mail client `mutt` just supercharged with some extra functionalities.
@@ -198,7 +202,7 @@ curl -fsSL https://openclaw.ai/install.sh | bash -s -- --no-prompt --no-onboard
 
 Sources: [Grok Build](https://x.ai/news/grok-build-cli), [Codex CLI](https://developers.openai.com/codex/cli), [OpenClaw install](https://docs.openclaw.ai/install).
 
-PATH: login shells via `~/.bash_profile`; interactive shells via `~/.bashrc` (Grok and Codex installer blocks). `~/.bashrc` returns early when non-interactive, so keep the login-shell PATH in `~/.bash_profile`.
+PATH: Kitty is not a login shell, so `~/.bash_profile` is skipped. `~/.bashrc` sources `/etc/profile`, which resets PATH and drops `~/.npm-global/bin`. Keep the CLI PATH export **after** that `/etc/profile` line (npm-global, grok, `~/.local/bin`). Verified 2026-09-02: without that, `iponmap` is `command not found` in the i3 kitty even though the binary exists.
 
 ### OpenClaw default model: 5.3 Spark
 
