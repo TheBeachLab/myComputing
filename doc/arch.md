@@ -46,7 +46,7 @@ I am currently exploring the move to sway <https://swaywm.org/>
 
 I am using ~~URxvt~~ kitty.
 
-Kitty does **not** read `~/.Xresources`. URxvt used `Iosevka Term` size 12 from there; kitty needs `~/.config/kitty/kitty.conf` with the same family/size/colors. That file lives in the [dotfiles](https://github.com/TheBeachLab/dotfiles) repo. New kitty windows pick it up; already-open ones do not. 
+Kitty does **not** read `~/.Xresources`. URxvt used `Iosevka Term` size 12 from there; kitty needs `~/.config/kitty/kitty.conf`. X220 (2026-09-02, verified): `Iosevka Term Light` size 9, bold = Regular. Regular at 9 on 1366x768 looks too heavy (hinted stems). New kitty windows pick it up; already-open ones do not. 
 
 ## Cursor theme
 
