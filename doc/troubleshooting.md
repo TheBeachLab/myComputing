@@ -281,7 +281,7 @@ X220 as of 2026-09-02: Samsung SSD 850 EVO mSATA 250 GB, GPT + BIOS. Ubuntu wipe
 
 - `sda1` 1M BIOS boot
 - `sda2` 513M vfat ESP
-- `sda3` 120G ext4 `spare` mounted at `/spare` (cannot grow `sda4` left into this hole without moving the partition)
+- `sda3` 120G ext4 label `data` mounted at `/data` (UUID `b36d4810-4c98-470f-9e4a-ee453c9f544c`; cannot grow `sda4` left into this hole without moving the partition)
 - `sda4` 112G ext4 Arch root (`UUID=a17d1554-da18-47f5-a5ba-c8a57c3fe97f`)
 
 Arch: hostname `x220`, user `irix` NOPASSWD sudo, **ly** (`ly@tty2`), i3 + polybar + rofi + kitty. Intel outputs `LVDS1` / `HDMI1`. Console Colemak + `Lat2-Terminus16`. Tailscale `x220-2` (`100.95.99.50`). Ubuntu `/home/irix` was rsynced onto Arch (skipped snap/cache/archprep; kept X220 i3/polybar/kitty). Desktop configs: [TheBeachLab/dotfiles](https://github.com/TheBeachLab/dotfiles).
@@ -290,7 +290,7 @@ CLI agents on this machine (2026-09-02, verified): Grok 1.0.13 (`~/.grok/bin/gro
 
 myComputing clone: `~/repos/myComputing`. Awesome CLI tools from [cli.md](cli.md) are installed (extra + AUR via `yay-bin` + npm/pipx). Package map: [cli.md X220 install map](cli.md#x220-install-map).
 
-Polybar (2026-09-02, verified): `/home` is not a mount (it lives on `/`), so `mount-1 = /home` showed `/home not mounted`. Use `/spare` instead. The redshift module ran `source ~/.config/polybar/env.sh`; that file was missing, and `sh -c` turned `~/` into `/home/irix.config/...`. `redshift.sh` now sources `env.sh` itself (`export REDSHIFT=off`, `REDSHIFT_TEMP=5500`). Package `redshift` 1.12-15.
+Polybar (2026-09-02, verified): `/home` is not a mount (it lives on `/`), so `mount-1 = /home` showed `/home not mounted`. The extra slice is `/data` (was briefly `/spare`). The redshift module ran `source ~/.config/polybar/env.sh`; that file was missing, and `sh -c` turned `~/` into `/home/irix.config/...`. `redshift.sh` now sources `env.sh` itself (`export REDSHIFT=off`, `REDSHIFT_TEMP=5500`). Package `redshift` 1.12-15.
 
 ## Intel NUC freezes with eGPU
 
