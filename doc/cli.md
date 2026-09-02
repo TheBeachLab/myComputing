@@ -25,6 +25,7 @@
 * [fim image viewer](#fim-image-viewer)
 * [qrencode](#qrencode)
 * [gallery-dl](#gallery-dl)
+* [X220 install map](#x220-install-map)
 * [Grok, Codex, and OpenClaw (X220)](#grok-codex-and-openclaw-x220)
 
 <!-- vim-markdown-toc -->
@@ -138,6 +139,42 @@ TODO:
 ## gallery-dl
 
 A command-line program to download image-galleries and -collections from several image hosting sites <https://github.com/mikf/gallery-dl/blob/master/docs/supportedsites.rst>
+
+## X220 install map
+
+Repo clone: `~/repos/myComputing` (`1c64418`, 2026-09-02). AUR helper: `yay-bin` 13.0.1. npm global prefix: `~/.npm-global`. Verified every binary on PATH.
+
+| Tool | How | Version |
+| --- | --- | --- |
+| croc | extra/`croc` | 11.3.6 |
+| scrot | extra/`scrot` | 2.0.0 |
+| betty | AUR/`betty-git` | 0.1.7.r64 |
+| ncdu | extra/`ncdu` | 2.9.2 |
+| du, df, cal | extra/`util-linux` | 2.42.2 |
+| htop | extra/`htop` | 3.5.3 |
+| gtop | extra/`gtop` | 1.1.5 |
+| powertop | extra/`powertop` | 2.16 |
+| iponmap | `npm i -g iponmap` | [nogizhopaboroda/iponmap](https://github.com/nogizhopaboroda/iponmap) |
+| neomutt | extra/`neomutt` | 20260616 |
+| mapscii | `npm i -g mapscii` | [rastapasta/mapscii](https://github.com/rastapasta/mapscii) |
+| asciinema | extra/`asciinema` | 3.2.1 |
+| asciicast2gif | `npm i -g asciicast2gif` (+ extra/`gifsicle`) | 0.2.1, deprecated; needs `--allow-scripts=phantomjs-prebuilt` |
+| nms | AUR/`no-more-secrets` | 1.0.1 |
+| cmatrix | extra/`cmatrix` | 2.0 |
+| lolcat | extra/`lolcat` | 100.0.1 |
+| cowsay | extra/`cowsay` | 3.8.4 |
+| ponysay | extra/`ponysay` | 3.0.3 |
+| irssi | extra/`irssi` | 1.4.5 |
+| testdisk | extra/`testdisk` | 7.2 |
+| bat | extra/`bat` | 0.26.1 |
+| grabc | AUR/`grabc` | 1.0.2 |
+| lsix | extra/`lsix` (+ extra/`imagemagick`) | 1.9.1 |
+| fim | AUR/`fim` | 0.7.1 |
+| fbi | extra/`fbida` (companion, not in the list) | 2.14 |
+| qrencode | extra/`qrencode` | 4.1.1 |
+| gallery-dl | `pipx install gallery-dl` | 1.32.10 |
+
+`corona-cli` was removed from this list (`1c64418`). Do not `sudo npm i -g`; user npm prefix is `~/.npm-global`.
 
 ## Grok, Codex, and OpenClaw (X220)
 
