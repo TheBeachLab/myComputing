@@ -273,26 +273,10 @@ It works with:
 
 - Grub does not show menu
 - Configure coreboot
-- dotfiles
 - Dual Intel / Radeon
 - Hotplug Radeon
 
-X220 as of 2026-09-02: Samsung SSD 850 EVO mSATA 250 GB, GPT + BIOS. Ubuntu wiped. Arch GRUB owns the MBR (`i386-pc`, `GRUB_TERMINAL=console`).
-
-- `sda1` 1M BIOS boot
-- `sda2` 513M vfat ESP
-- `sda3` 120G ext4 label `data` mounted at `/data` (UUID `b36d4810-4c98-470f-9e4a-ee453c9f544c`; cannot grow `sda4` left into this hole without moving the partition)
-- `sda4` 112G ext4 Arch root (`UUID=a17d1554-da18-47f5-a5ba-c8a57c3fe97f`)
-
-Arch: hostname `x220`, user `irix` NOPASSWD sudo, **ly** (`ly@tty2`), i3 + polybar + rofi + kitty. Intel outputs `LVDS1` / `HDMI1`. Console Colemak + `Lat2-Terminus16`. Tailscale `x220-2` (`100.95.99.50`). Ubuntu `/home/irix` was rsynced onto Arch (skipped snap/cache/archprep; kept X220 i3/polybar/kitty). Desktop configs: [TheBeachLab/dotfiles](https://github.com/TheBeachLab/dotfiles).
-
-CLI agents on this machine (2026-09-02, verified): Grok 1.0.13 (`~/.grok/bin/grok`), Codex 0.152.0 (`~/.local/bin/codex`), OpenClaw 2026.8.2 (`~/.npm-global/bin/openclaw`), Node 26.8.1. OpenClaw default model is `openai/gpt-5.3-codex-spark` with `agentRuntime.id=codex`. Spark needs ChatGPT/Codex OAuth (`openclaw models auth login --provider openai --device-code`); do not use `--set-default` on that login. Details: [cli.md](cli.md#grok-codex-and-openclaw-x220).
-
-myComputing clone: `~/repos/myComputing`. Awesome CLI tools from [cli.md](cli.md) are installed (extra + AUR via `yay-bin` + npm/pipx). Package map: [cli.md X220 install map](cli.md#x220-install-map).
-
-Polybar (2026-09-02, verified): `/home` is not a mount (it lives on `/`), so `mount-1 = /home` showed `/home not mounted`. The extra slice is `/data` (was briefly `/spare`). The redshift module ran `source ~/.config/polybar/env.sh`; that file was missing, and `sh -c` turned `~/` into `/home/irix.config/...`. `redshift.sh` now sources `env.sh` itself (`export REDSHIFT=off`, `REDSHIFT_TEMP=5500`). Package `redshift` 1.12-15.
-
-Volume/backlight bars were empty because `font-0`/`font-1` (`MiscFixedSC613`, `unifont`) were not installed and fell back to Noto Sans, while `bar-*-font = 2` pointed at Siji, which has no U+2500 (`─`). Installed `xorg-fonts-misc` 1.0.4-2 (Misc Fixed 6x13 SemiCondensed) and AUR `pcf-unifont` 17.0.05-1 (family `GNU Unifont`). `~/.config/fontconfig/fonts.conf` aliases `MiscFixedSC613` → Misc Fixed SemiCondensed 13px and `unifont` → GNU Unifont. Bar glyphs use font 1 (unifont). `BL` is the backlight module (`label = BL`).
+This machine is Arch only now. I wiped Ubuntu; that 120G slice is `/data`. Arch is on the other ext4 partition, GRUB on the MBR. Login is ly, then i3. Dotfiles: [TheBeachLab/dotfiles](https://github.com/TheBeachLab/dotfiles).
 
 ## Intel NUC freezes with eGPU
 

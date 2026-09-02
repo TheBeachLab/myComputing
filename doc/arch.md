@@ -23,9 +23,9 @@ KEYMAP=colemak
 FONT=Lat2-Terminus16
 ```
 
-Do **not** set `FONT_MAP=8859-1` with modern ly: it remaps glyphs and the login box / DOOM fire look wrong.
+Do not set `FONT_MAP=8859-1`. It remaps the glyphs and the login box / DOOM fire look wrong.
 
-Ly’s PSX DOOM fire: `animation = doom` and **`full_color = true`** with the default RGB gradient (`doom_top_color = 0x009F2707` dark red, `doom_middle_color = 0x00C78F17` orange, `doom_bottom_color = 0x00FFFFFF` white). That is red/orange/yellow. `full_color = false` with those RGB values turns the fire blue (8-color indexes). Do not set `FONT_MAP=8859-1` (breaks ly glyphs). X220: `/etc/ly/startup.sh` only runs `setfont Lat2-Terminus16`.
+The fire is `animation = doom` with `full_color = true`. Leave the default colours (dark red / orange / white). If you turn `full_color` off, those same values become 8-colour indexes and the fire goes blue.
 
 To use that font from from the early userspace I make sure I use the `consolefont` hook in `/etc/mkinitcpio.conf`. Also load the graphics driver module (in my case intel) earlier in [Early KMS start](https://wiki.archlinux.org/index.php/Kernel_mode_setting#Early_KMS_start) to avoid font changes/flickering/glitches. To apply these changes rebuild with your kernel preset `sudo mkinitcpio -p linux` (check your kernel presets in `ls /etc/mkinitcpio.d`). Then reboot.
 
@@ -36,7 +36,7 @@ In the past, I used XFCE for a long time with compiz. XFCE is very lightweight a
 
 The program launcher I use is [rofi](https://github.com/DaveDavenport/rofi) with some [themes](https://github.com/davatorium/rofi-themes).
 
-The bar I use in i3 is [polybar](https://github.com/jaagr/polybar)
+The bar I use in i3 is [polybar](https://github.com/jaagr/polybar). It wants `xorg-fonts-misc` and Unifont (`pcf-unifont` in the AUR) or the volume and backlight bars vanish. `BL` is backlight. `/home` is not its own filesystem so I list `/` and `/data` instead.
 
 > TODO For lock screen I have key combo that triggers a [script]() that pixelates the current screen.
 
@@ -46,7 +46,7 @@ I am currently exploring the move to sway <https://swaywm.org/>
 
 I am using ~~URxvt~~ kitty.
 
-Kitty does **not** read `~/.Xresources`. URxvt used `Iosevka Term` size 12 from there; kitty needs the same in `~/.config/kitty/kitty.conf`. X220 (2026-09-02): `Iosevka Term` Regular size **12** (user: size 9 Regular looked too bold / unrecognizable). New kitty windows pick it up; already-open ones do not. 
+Kitty does not read `~/.Xresources`. URxvt had `Iosevka Term` size 12 in there; kitty needs the same in `~/.config/kitty/kitty.conf`. Already-open windows keep the old font until you open a new one. 
 
 ## Cursor theme
 

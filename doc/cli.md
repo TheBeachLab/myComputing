@@ -25,8 +25,9 @@
 * [fim image viewer](#fim-image-viewer)
 * [qrencode](#qrencode)
 * [gallery-dl](#gallery-dl)
-* [X220 install map](#x220-install-map)
-* [Grok, Codex, and OpenClaw (X220)](#grok-codex-and-openclaw-x220)
+* [grok](#grok)
+* [Codex](#codex)
+* [OpenClaw](#openclaw)
 
 <!-- vim-markdown-toc -->
 
@@ -48,11 +49,9 @@ I bet you didn't know this one. Start with `Betty what time is it?`
 
 ## iponmap
 
-Mandatory tool for hackers pretending be cool. It will place a dot in a map when you supply an IP address. Try `iponmap 4.4.4.4`
+Mandatory tool for hackers pretending be cool. It will place a dot in a map when you supply an IP address. Try `iponmap 4.4.4.4`. You have to pass an IP or it just sits there with an empty map. Quit with `q`.
 
-Needs a real TTY and an IP argument (bare `iponmap` draws an empty map and waits on stdin). Quit with `q` / Escape.
-
-X220 (2026-09-02, verified): binary is `~/.npm-global/bin/iponmap` (`npm i -g iponmap`). Kitty is **not** a login shell, and `~/.bashrc` sources `/etc/profile` which **resets PATH**, so the installer line at the top of bashrc never survives. PATH for npm-global / grok / `~/.local/bin` must be exported **after** that `/etc/profile` line. Also symlink `iponmap` into `/usr/local/bin` so already-open terminals that already have `/usr/local/bin` on PATH can see it without a restart.
+Install with `npm i -g iponmap`. If `~/.bashrc` sources `/etc/profile`, that resets `PATH` and you will not see `~/.npm-global/bin` unless you export it **after** that line.
 
 ## neomutt
 
@@ -144,88 +143,26 @@ TODO:
 
 A command-line program to download image-galleries and -collections from several image hosting sites <https://github.com/mikf/gallery-dl/blob/master/docs/supportedsites.rst>
 
-## X220 install map
+Install with `pipx install gallery-dl`.
 
-Repo clone: `~/repos/myComputing` (`1c64418`, 2026-09-02). AUR helper: `yay-bin` 13.0.1. npm global prefix: `~/.npm-global`. Verified every binary on PATH.
+## grok
 
-| Tool | How | Version |
-| --- | --- | --- |
-| croc | extra/`croc` | 11.3.6 |
-| scrot | extra/`scrot` | 2.0.0 |
-| betty | AUR/`betty-git` | 0.1.7.r64 |
-| ncdu | extra/`ncdu` | 2.9.2 |
-| du, df, cal | extra/`util-linux` | 2.42.2 |
-| htop | extra/`htop` | 3.5.3 |
-| gtop | extra/`gtop` | 1.1.5 |
-| powertop | extra/`powertop` | 2.16 |
-| iponmap | `npm i -g iponmap` | [nogizhopaboroda/iponmap](https://github.com/nogizhopaboroda/iponmap) |
-| neomutt | extra/`neomutt` | 20260616 |
-| mapscii | `npm i -g mapscii` | [rastapasta/mapscii](https://github.com/rastapasta/mapscii) |
-| asciinema | extra/`asciinema` | 3.2.1 |
-| asciicast2gif | `npm i -g asciicast2gif` (+ extra/`gifsicle`) | 0.2.1, deprecated; needs `--allow-scripts=phantomjs-prebuilt` |
-| nms | AUR/`no-more-secrets` | 1.0.1 |
-| cmatrix | extra/`cmatrix` | 2.0 |
-| lolcat | extra/`lolcat` | 100.0.1 |
-| cowsay | extra/`cowsay` | 3.8.4 |
-| ponysay | extra/`ponysay` | 3.0.3 |
-| irssi | extra/`irssi` | 1.4.5 |
-| testdisk | extra/`testdisk` | 7.2 |
-| bat | extra/`bat` | 0.26.1 |
-| grabc | AUR/`grabc` | 1.0.2 |
-| lsix | extra/`lsix` (+ extra/`imagemagick`) | 1.9.1 |
-| fim | AUR/`fim` | 0.7.1 |
-| fbi | extra/`fbida` (companion, not in the list) | 2.14 |
-| qrencode | extra/`qrencode` | 4.1.1 |
-| gallery-dl | `pipx install gallery-dl` | 1.32.10 |
+xAI coding agent in the terminal. Install with `curl -fsSL https://x.ai/cli/install.sh | bash` and then `grok`. It lands in `~/.grok/bin`. Login with `grok login --device-auth`.
 
-`corona-cli` was removed from this list (`1c64418`). Do not `sudo npm i -g`; user npm prefix is `~/.npm-global`.
+## Codex
 
-## Grok, Codex, and OpenClaw (X220)
+OpenAI's coding agent. `curl -fsSL https://chatgpt.com/codex/install.sh | sh` then `codex`. Login with `codex login --device-auth`.
 
-Installed on the Arch X220 (`irix`, 2026-09-02). Verified live:
-
-| Tool | Version | Binary |
-| --- | --- | --- |
-| Grok Build CLI | 1.0.13 | `~/.grok/bin/grok` |
-| Codex CLI | 0.152.0 | `~/.local/bin/codex` |
-| OpenClaw | 2026.8.2 | `~/.npm-global/bin/openclaw` |
-| Node.js | 26.8.1 | `/usr/bin/node` (pacman) |
-
-Official installers (do not use `sudo npm i -g` for OpenClaw on this host; npm prefix is `~/.npm-global`):
+## OpenClaw
 
 ```bash
-curl -fsSL https://x.ai/cli/install.sh | bash
-curl -fsSL https://chatgpt.com/codex/install.sh | CODEX_NON_INTERACTIVE=1 sh
-sudo pacman -S --needed nodejs npm
-curl -fsSL https://openclaw.ai/install.sh | bash -s -- --no-prompt --no-onboard
+curl -fsSL https://openclaw.ai/install.sh | bash
 ```
 
-Sources: [Grok Build](https://x.ai/news/grok-build-cli), [Codex CLI](https://developers.openai.com/codex/cli), [OpenClaw install](https://docs.openclaw.ai/install).
-
-PATH: Kitty is not a login shell, so `~/.bash_profile` is skipped. `~/.bashrc` sources `/etc/profile`, which resets PATH and drops `~/.npm-global/bin`. Keep the CLI PATH export **after** that `/etc/profile` line (npm-global, grok, `~/.local/bin`). Verified 2026-09-02: without that, `iponmap` is `command not found` in the i3 kitty even though the binary exists.
-
-### OpenClaw default model: 5.3 Spark
-
-Spark is ChatGPT/Codex OAuth-only. Direct OpenAI API-key routes reject it. Source: [OpenClaw model providers](https://docs.openclaw.ai/concepts/model-providers), [OpenAI provider](https://docs.openclaw.ai/providers/openai). Watson host uses the same model id as a fallback (`selfhosted/doc/watson-openclaw-runtime.md`).
-
-X220 default (verified `openclaw config get`):
-
-```json
-{
-  "primary": "openai/gpt-5.3-codex-spark"
-}
-```
-
-Runtime: `agents.defaults.models["openai/gpt-5.3-codex-spark"].agentRuntime.id = "codex"`. Gateway is a systemd user unit `openclaw-gateway.service` on loopback `:18789`.
-
-Do **not** pass `--set-default` on OpenAI login, and do not re-run OpenAI onboarding without pinning Spark afterward. Fresh OpenAI/Codex onboarding defaults to `openai/gpt-5.6-sol`.
-
-Sign-in (run on the X220, TTY required; device-code works over SSH with `-t`):
+I use `openai/gpt-5.3-codex-spark` as the default model. Login is ChatGPT/Codex OAuth, not an API key:
 
 ```bash
-grok login --device-auth
-codex login --device-auth
 openclaw models auth login --provider openai --device-code
 ```
 
-After login, check: `openclaw models status`, `codex login status`. Update OpenClaw with `npm i -g openclaw@latest` then `openclaw gateway restart` (user npm prefix; no sudo).
+Do not pass `--set-default` on that login or it will switch the model to whatever OpenAI recommends this week. Update with `npm i -g openclaw@latest` (no sudo, the prefix is `~/.npm-global`) and `openclaw gateway restart`.
