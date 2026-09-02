@@ -3,7 +3,6 @@
 <!-- vim-markdown-toc GFM -->
 
 * [croc](#croc)
-* [corona-cli](#corona-cli)
 * [scrot](#scrot)
 * [Betty, the CLI Siri](#betty-the-cli-siri)
 * [Check file sizes with `du` `ncdu` and `df`](#check-file-sizes-with-du-ncdu-and-df)
@@ -33,12 +32,6 @@
 ## croc
 
 Install `croc` package and easily send files or folders to another person. Just `croc send file-or-folder` or `croc receive croc-code` 
-
-## corona-cli
-
-Track the coronavirus from the command line. <https://github.com/ahmadawais/corona-cli>.
-
-![corona](../img/corona.gif)
 
 ## scrot
 
