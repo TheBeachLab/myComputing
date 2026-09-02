@@ -292,7 +292,7 @@ myComputing clone: `~/repos/myComputing`. Awesome CLI tools from [cli.md](cli.md
 
 Polybar (2026-09-02, verified): `/home` is not a mount (it lives on `/`), so `mount-1 = /home` showed `/home not mounted`. The extra slice is `/data` (was briefly `/spare`). The redshift module ran `source ~/.config/polybar/env.sh`; that file was missing, and `sh -c` turned `~/` into `/home/irix.config/...`. `redshift.sh` now sources `env.sh` itself (`export REDSHIFT=off`, `REDSHIFT_TEMP=5500`). Package `redshift` 1.12-15.
 
-Volume/backlight bars were empty because `font-0`/`font-1` (`MiscFixedSC613`, `unifont`) are not installed and fell back to Noto Sans, while `bar-*-font = 2` pointed at Siji, which has no U+2500 (`─`). Polybar logged `Dropping unmatched character '─'`. Fixed: `font-0`/`font-1` = Iosevka Term, bar glyphs use font 0. `BL` is the backlight module (`label = BL`).
+Volume/backlight bars were empty because `font-0`/`font-1` (`MiscFixedSC613`, `unifont`) were not installed and fell back to Noto Sans, while `bar-*-font = 2` pointed at Siji, which has no U+2500 (`─`). Installed `xorg-fonts-misc` 1.0.4-2 (Misc Fixed 6x13 SemiCondensed) and AUR `pcf-unifont` 17.0.05-1 (family `GNU Unifont`). `~/.config/fontconfig/fonts.conf` aliases `MiscFixedSC613` → Misc Fixed SemiCondensed 13px and `unifont` → GNU Unifont. Bar glyphs use font 1 (unifont). `BL` is the backlight module (`label = BL`).
 
 ## Intel NUC freezes with eGPU
 
